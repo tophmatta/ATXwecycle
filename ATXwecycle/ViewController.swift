@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var yesOrNoLabel: UILabel!
     
+    @IBOutlet weak var isItRecyclingLabel: UILabel!
     
     let dateModel = DateModel()
     
@@ -20,7 +21,7 @@ class ViewController: UIViewController {
         
         self.dateModel.setUpRecycleDatesArray()
         
-        self.formatYesOrNoLabelCorners()
+        self.formatLabelCorners()
         
         self.setBlurredBackgroundImage()
         
@@ -32,28 +33,40 @@ class ViewController: UIViewController {
         
         self.view.translatesAutoresizingMaskIntoConstraints = false
         
-        let backgroundImage = UIImage(named: "lou neff pt.JPG")
+        let backgroundImage = UIImage(named: "TreeSit.JPG")
         
-        let blurRad: CGFloat = 45.0
+        let blurRad: CGFloat = 10.0
         
         let backgroundImageWithBlurEffect = UIImageEffects.imageByApplyingBlurToImage(backgroundImage, withRadius: blurRad, tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)
         
         let backgroundImageView = UIImageView(image: backgroundImageWithBlurEffect)
         
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         self.view.addSubview(backgroundImageView)
         
-        backgroundImageView.frame.size.width = self.view.frame.size.width
-        backgroundImageView.frame.size.height = self.view.frame.size.height        
+        backgroundImageView.frame.origin = self.view.frame.origin
         
         backgroundImageView.contentMode = .ScaleAspectFit
+        
+        let backgroundIVTopConstraint: NSLayoutConstraint = NSLayoutConstraint(item: backgroundImageView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.TopMargin, multiplier: 1.0, constant: 0)
+        
+        self.view.addConstraints([backgroundIVTopConstraint])
+        
         self.view.sendSubviewToBack(backgroundImageView)
         
     }
     
-    func formatYesOrNoLabelCorners(){
+    
+    //TODO: CREATE METHOD TO CALL WHEN IT IS OR ISN'T RECYCLING.
+    func formatLabelCorners(){
         
         yesOrNoLabel.clipsToBounds = true
-        yesOrNoLabel.layer.cornerRadius = 25
+        yesOrNoLabel.layer.cornerRadius = 30
+        
+        yesOrNoLabel.backgroundColor = UIColor(red: 240/255, green: 76/255, blue: 60/255, alpha: 1.0)
+        
+        // rgb(46, 204, 113) for green
         
     }
 

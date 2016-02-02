@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ATXRecycle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ATXwecycle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,17 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is it recycling this week?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5t-qH-Rl1">
-                                <rect key="frame" x="205" y="87" width="191" height="81"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="AHc-DS-sY5"/>
-                                    <constraint firstAttribute="width" constant="191" id="rVI-lS-Yqj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="34"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmb-vR-xjW">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmb-vR-xjW">
                                 <rect key="frame" x="150" y="295" width="300" height="92"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -39,16 +29,37 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhT-Za-zFF" userLabel="Question Label View">
+                                <rect key="frame" x="0.0" y="100" width="600" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Wyt-lX-24E"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is it recycling this week?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5t-qH-Rl1">
+                                <rect key="frame" x="149" y="135" width="302" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="N4H-QF-YBS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="b5t-qH-Rl1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="05A-OY-WMv"/>
-                            <constraint firstItem="qmb-vR-xjW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="295" id="D4O-mE-4wm"/>
-                            <constraint firstItem="b5t-qH-Rl1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="87" id="Sqz-bO-seI"/>
+                            <constraint firstItem="qmb-vR-xjW" firstAttribute="top" secondItem="dhT-Za-zFF" secondAttribute="bottom" constant="150" id="D5v-R5-c6z"/>
+                            <constraint firstItem="b5t-qH-Rl1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XEZ-Bi-Edp"/>
+                            <constraint firstItem="dhT-Za-zFF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Z9G-La-sbc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dhT-Za-zFF" secondAttribute="trailing" constant="-20" id="hQf-Zl-2hd"/>
                             <constraint firstItem="qmb-vR-xjW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kjk-pX-ZPT"/>
+                            <constraint firstItem="dhT-Za-zFF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="100" id="oag-6Z-muh"/>
+                            <constraint firstItem="b5t-qH-Rl1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="135" id="pEr-ZG-pdX"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="isItRecyclingLabel" destination="b5t-qH-Rl1" id="voS-M9-EdW"/>
                         <outlet property="yesOrNoLabel" destination="qmb-vR-xjW" id="beU-c3-oUa"/>
                     </connections>
                 </viewController>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6DE22E881C5E64B000C5C38F /* BigBendSouthRim.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E851C5E64B000C5C38F /* BigBendSouthRim.jpg */; };
+		6DE22E891C5E64B000C5C38F /* TreeSit.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E861C5E64B000C5C38F /* TreeSit.JPG */; };
+		6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */; };
 		F16B58971C433D3B0027B34B /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B58961C433D3B0027B34B /* DateModel.swift */; };
 		F176EEFB1C5D136600E4BBD7 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = F176EEFA1C5D136600E4BBD7 /* UIImageEffects.m */; };
 		F19D49751C5C42AD006E5C72 /* lou neff pt.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F19D49741C5C42AD006E5C72 /* lou neff pt.JPG */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6DE22E851C5E64B000C5C38F /* BigBendSouthRim.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BigBendSouthRim.jpg; sourceTree = "<group>"; };
+		6DE22E861C5E64B000C5C38F /* TreeSit.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TreeSit.JPG; sourceTree = "<group>"; };
+		6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SouthRimStanding.jpg; sourceTree = "<group>"; };
 		F16B58961C433D3B0027B34B /* DateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		F176EEF81C5D136500E4BBD7 /* ATXwecycle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ATXwecycle-Bridging-Header.h"; sourceTree = "<group>"; };
 		F176EEF91C5D136600E4BBD7 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
@@ -145,6 +151,9 @@
 		F1E764A51C3F5E3C009DC9BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6DE22E851C5E64B000C5C38F /* BigBendSouthRim.jpg */,
+				6DE22E861C5E64B000C5C38F /* TreeSit.JPG */,
+				6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */,
 				F19D49741C5C42AD006E5C72 /* lou neff pt.JPG */,
 				F1E764801C3F5E1A009DC9BA /* LaunchScreen.storyboard */,
 				F1E7647E1C3F5E1A009DC9BA /* Assets.xcassets */,
@@ -260,8 +269,11 @@
 			files = (
 				F1E764821C3F5E1A009DC9BA /* LaunchScreen.storyboard in Resources */,
 				F19D49751C5C42AD006E5C72 /* lou neff pt.JPG in Resources */,
+				6DE22E881C5E64B000C5C38F /* BigBendSouthRim.jpg in Resources */,
+				6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */,
 				F1E7647F1C3F5E1A009DC9BA /* Assets.xcassets in Resources */,
 				F1E7647D1C3F5E1A009DC9BA /* Main.storyboard in Resources */,
+				6DE22E891C5E64B000C5C38F /* TreeSit.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

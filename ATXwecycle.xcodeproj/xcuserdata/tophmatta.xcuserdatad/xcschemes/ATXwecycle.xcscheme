@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F1E764731C3F5E1A009DC9BA"
-               BuildableName = "ATXRecycle.app"
+               BuildableName = "ATXwecycle.app"
                BlueprintName = "ATXwecycle"
                ReferencedContainer = "container:ATXwecycle.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F1E764731C3F5E1A009DC9BA"
-            BuildableName = "ATXRecycle.app"
+            BuildableName = "ATXwecycle.app"
             BlueprintName = "ATXwecycle"
             ReferencedContainer = "container:ATXwecycle.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F1E764731C3F5E1A009DC9BA"
-            BuildableName = "ATXRecycle.app"
+            BuildableName = "ATXwecycle.app"
             BlueprintName = "ATXwecycle"
             ReferencedContainer = "container:ATXwecycle.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F1E764731C3F5E1A009DC9BA"
-            BuildableName = "ATXRecycle.app"
+            BuildableName = "ATXwecycle.app"
             BlueprintName = "ATXwecycle"
             ReferencedContainer = "container:ATXwecycle.xcodeproj">
          </BuildableReference>

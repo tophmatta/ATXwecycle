@@ -12,7 +12,9 @@
 		6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */; };
 		F16B58971C433D3B0027B34B /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B58961C433D3B0027B34B /* DateModel.swift */; };
 		F176EEFB1C5D136600E4BBD7 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = F176EEFA1C5D136600E4BBD7 /* UIImageEffects.m */; };
+		F192D0121C6237AC00B9F1C3 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192D0111C6237AC00B9F1C3 /* global.swift */; };
 		F19D49751C5C42AD006E5C72 /* lou neff pt.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F19D49741C5C42AD006E5C72 /* lou neff pt.JPG */; };
+		F19E854C1C622EFD007488FB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E854B1C622EFD007488FB /* SettingViewController.swift */; };
 		F1E764781C3F5E1A009DC9BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E764771C3F5E1A009DC9BA /* AppDelegate.swift */; };
 		F1E7647A1C3F5E1A009DC9BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E764791C3F5E1A009DC9BA /* ViewController.swift */; };
 		F1E7647D1C3F5E1A009DC9BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1E7647B1C3F5E1A009DC9BA /* Main.storyboard */; };
@@ -47,7 +49,9 @@
 		F176EEF81C5D136500E4BBD7 /* ATXwecycle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ATXwecycle-Bridging-Header.h"; sourceTree = "<group>"; };
 		F176EEF91C5D136600E4BBD7 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
 		F176EEFA1C5D136600E4BBD7 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageEffects.m; sourceTree = "<group>"; };
+		F192D0111C6237AC00B9F1C3 /* global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
 		F19D49741C5C42AD006E5C72 /* lou neff pt.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "lou neff pt.JPG"; sourceTree = "<group>"; };
+		F19E854B1C622EFD007488FB /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = ../SettingViewController.swift; sourceTree = "<group>"; };
 		F1E764741C3F5E1A009DC9BA /* ATXwecycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATXwecycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E764771C3F5E1A009DC9BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E764791C3F5E1A009DC9BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +127,9 @@
 			children = (
 				F1E7647B1C3F5E1A009DC9BA /* Main.storyboard */,
 				F1E764791C3F5E1A009DC9BA /* ViewController.swift */,
+				F19E854B1C622EFD007488FB /* SettingViewController.swift */,
 				F16B58961C433D3B0027B34B /* DateModel.swift */,
+				F192D0111C6237AC00B9F1C3 /* global.swift */,
 				F13915101C5E36C9002550D6 /* Categories */,
 				F1E764A51C3F5E3C009DC9BA /* Supporting Files */,
 			);
@@ -231,6 +237,7 @@
 				TargetAttributes = {
 					F1E764731C3F5E1A009DC9BA = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = XXRYJDD55J;
 					};
 					F1E764871C3F5E1A009DC9BA = {
 						CreatedOnToolsVersion = 7.2;
@@ -298,6 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F192D0121C6237AC00B9F1C3 /* global.swift in Sources */,
+				F19E854C1C622EFD007488FB /* SettingViewController.swift in Sources */,
 				F176EEFB1C5D136600E4BBD7 /* UIImageEffects.m in Sources */,
 				F1E7647A1C3F5E1A009DC9BA /* ViewController.swift in Sources */,
 				F1E764781C3F5E1A009DC9BA /* AppDelegate.swift in Sources */,
@@ -442,10 +451,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ATXwecycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycle;
 				PRODUCT_NAME = ATXwecycle;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ATXwecycle/ATXwecycle-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -456,10 +468,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ATXwecycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycle;
 				PRODUCT_NAME = ATXwecycle;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ATXwecycle/ATXwecycle-Bridging-Header.h";
 			};
 			name = Release;

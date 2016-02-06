@@ -96,22 +96,28 @@ class DateModel: NSObject {
     /**
      Loops through generated recycle dates array and compares to todays date
      */
-    func checkTodaysDateToRecycleDatesArray() -> Bool{
+    func checkTodaysDateToRecycleDatesArray() -> Bool {
+        
+        var datesMatch = false
         
         for recycleDate in recycleDatesArr {
             
-            // Store dates to be checked as strings converted from NSDates
+            // Store recycleDate as a string
             let stringRecycleDateFromNSDate = convertNSDateToString(recycleDate)
             
+            // Store Todays date as a string
             let stringTodaysDateFromNSDate = convertNSDateToString(todaysDate)
             
+            // Dates match, change bool to true
             if stringTodaysDateFromNSDate == stringRecycleDateFromNSDate {
                 
-                return true
+                datesMatch = true
+                
+                return datesMatch
                 
             }
         }
-        return false
+        return datesMatch
     }
 }
 

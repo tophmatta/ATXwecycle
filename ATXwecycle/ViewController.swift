@@ -10,66 +10,63 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var yesOrNoLabel: UILabel!
+    @IBOutlet weak var yesOrNoLabel: UILabel?
     
-    @IBOutlet weak var isItRecyclingLabel: UILabel!
+    @IBOutlet weak var questionLabelView: UIView!
     
+    // Fetch date data
     let dateModel = DateModel()
+    
+    // Fetch global funcs
+    let globalFuncs = Main()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Generate and analyze date model
         self.dateModel.setUpRecycleDatesArray()
-        
-        self.formatLabelCorners()
-        
-        self.setBlurredBackgroundImage()
-        
         self.dateModel.checkTodaysDateToRecycleDatesArray()
         
-    }
-
-    func setBlurredBackgroundImage(){
+        // Format UI elements
+        self.formatYesNoLabel()
         
-        self.view.translatesAutoresizingMaskIntoConstraints = false
+        questionLabelView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
         
-        let backgroundImage = UIImage(named: "TreeSit.JPG")
-        
-        let blurRad: CGFloat = 10.0
-        
-        let backgroundImageWithBlurEffect = UIImageEffects.imageByApplyingBlurToImage(backgroundImage, withRadius: blurRad, tintColor: nil, saturationDeltaFactor: 1.0, maskImage: nil)
-        
-        let backgroundImageView = UIImageView(image: backgroundImageWithBlurEffect)
-        
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(backgroundImageView)
-        
-        backgroundImageView.frame.origin = self.view.frame.origin
-        
-        backgroundImageView.contentMode = .ScaleAspectFit
-        
-        let backgroundIVTopConstraint: NSLayoutConstraint = NSLayoutConstraint(item: backgroundImageView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.TopMargin, multiplier: 1.0, constant: 0)
-        
-        self.view.addConstraints([backgroundIVTopConstraint])
-        
-        self.view.sendSubviewToBack(backgroundImageView)
-        
-    }
-    
-    
-    //TODO: CREATE METHOD TO CALL WHEN IT IS OR ISN'T RECYCLING.
-    func formatLabelCorners(){
-        
-        yesOrNoLabel.clipsToBounds = true
-        yesOrNoLabel.layer.cornerRadius = 30
-        
-        yesOrNoLabel.backgroundColor = UIColor(red: 240/255, green: 76/255, blue: 60/255, alpha: 1.0)
-        
-        // rgb(46, 204, 113) for green
+        self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
         
     }
 
+    func formatYesNoLabel(){
+        
+        if let tempLabel = yesOrNoLabel {
+           
+            // Define shape
+            tempLabel.clipsToBounds = true
+            tempLabel.layer.cornerRadius = 30
+            
+            // Define UIColors
+            let labelColorRed = UIColor(red: 240/255, green: 76/255, blue: 60/255, alpha: 1.0)
+            let labelColorGreen = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
+            
+            // Set initial label conditions
+            tempLabel.backgroundColor = labelColorRed
+            tempLabel.text = "No"
+            
+            // Pull in data checking whether date matches a recycle date
+            let recycleDateCheckBool: Bool = dateModel.checkTodaysDateToRecycleDatesArray()
+            
+            // Change condition if recycle date is valid
+            if recycleDateCheckBool {
+                
+                tempLabel.backgroundColor = labelColorGreen
+                tempLabel.text = "Yes"
+                
+            }
+            
+            
+        }
+        
+    }
 
 }
 

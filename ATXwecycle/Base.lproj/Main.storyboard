@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Hrt-ta-jex">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Hrt-ta-jex">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -132,7 +132,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0SE-7M-R8O">
-                                        <rect key="frame" x="135.5" y="92" width="329" height="100"/>
+                                        <rect key="frame" x="136" y="92" width="329" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="329" id="8vw-Vq-qBy"/>
                                             <constraint firstAttribute="height" constant="100" id="eEl-SP-bSn"/>
@@ -153,16 +153,88 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkr-ve-RWX" userLabel="Next Button View">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lb3-Ih-lVJ">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="6cw-dm-TBz"/>
+                                            <constraint firstAttribute="height" constant="71" id="JIk-8h-Rdf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="101" y="80" width="100" height="71"/>
+                                            <mask key="constraints">
+                                                <include reference="6cw-dm-TBz"/>
+                                                <include reference="JIk-8h-Rdf"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="lb3-Ih-lVJ" firstAttribute="centerY" secondItem="dkr-ve-RWX" secondAttribute="centerY" id="arW-Qz-uNq"/>
+                                    <constraint firstItem="lb3-Ih-lVJ" firstAttribute="centerX" secondItem="dkr-ve-RWX" secondAttribute="centerX" id="pyG-Yh-fgg"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="lb3-Ih-lVJ"/>
+                                    </mask>
+                                </variation>
                                 <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="300" y="559" width="300" height="241"/>
+                                    <mask key="subviews">
+                                        <include reference="lb3-Ih-lVJ"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="arW-Qz-uNq"/>
+                                        <include reference="pyG-Yh-fgg"/>
+                                    </mask>
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6f-2N-hLQ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="zev-7K-5In">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="HWJ-Fd-Hxf"/>
+                                            <constraint firstAttribute="width" constant="79" id="Iki-ad-7zb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                        <state key="normal" title="I have no idea">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="111" y="93" width="79" height="56"/>
+                                            <mask key="constraints">
+                                                <include reference="HWJ-Fd-Hxf"/>
+                                                <include reference="Iki-ad-7zb"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.54564144739999998" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="zev-7K-5In" firstAttribute="centerX" secondItem="G6f-2N-hLQ" secondAttribute="centerX" id="h5A-JG-cUA"/>
+                                    <constraint firstItem="zev-7K-5In" firstAttribute="centerY" secondItem="G6f-2N-hLQ" secondAttribute="centerY" id="iEO-F5-DJJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="zev-7K-5In"/>
+                                    </mask>
+                                </variation>
                                 <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="0.0" y="559" width="300" height="241"/>
+                                    <mask key="subviews">
+                                        <include reference="zev-7K-5In"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="h5A-JG-cUA"/>
+                                        <include reference="iEO-F5-DJJ"/>
+                                    </mask>
                                 </variation>
                             </view>
                         </subviews>
@@ -192,16 +264,6 @@
                             <mask key="subviews">
                                 <exclude reference="dkr-ve-RWX"/>
                                 <exclude reference="G6f-2N-hLQ"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="2Rw-7e-c6b"/>
-                                <exclude reference="gFt-cT-apJ"/>
-                                <exclude reference="mLO-iq-8qq"/>
-                                <exclude reference="08j-cc-hmo"/>
-                                <exclude reference="ITy-R0-0DO"/>
-                                <exclude reference="MqY-xH-heJ"/>
-                                <exclude reference="maF-rE-FJ1"/>
-                                <exclude reference="nBl-F8-sDV"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">

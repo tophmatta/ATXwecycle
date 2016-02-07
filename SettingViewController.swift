@@ -34,7 +34,7 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Format container views
         welcomeLabelView.backgroundColor = UIColor(red: 46/255, green: 215/255, blue: 113/255, alpha: 1.0)
         
-        pickerQuestionView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.65)
+        pickerQuestionView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.35)
         
         nextButtonView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1.0)
         

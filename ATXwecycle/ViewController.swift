@@ -29,11 +29,9 @@ class ViewController: UIViewController {
         
         // Format UI elements
         self.formatYesNoLabel()
-        
         questionLabelView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
-        
         self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
-        
+                
     }
 
     func formatYesNoLabel(){

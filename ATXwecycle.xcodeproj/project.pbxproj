@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6DE22E881C5E64B000C5C38F /* BigBendSouthRim.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E851C5E64B000C5C38F /* BigBendSouthRim.jpg */; };
+		1F0B3E7B680D91E079DE6D79 /* Pods_ATXwecycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A95EE4F8F85203F079360E6 /* Pods_ATXwecycle.framework */; };
+		6DD07DAA1C67961C00DCD864 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD07DA91C67961C00DCD864 /* WebViewController.swift */; };
 		6DE22E891C5E64B000C5C38F /* TreeSit.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E861C5E64B000C5C38F /* TreeSit.JPG */; };
 		6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */; };
 		F16B58971C433D3B0027B34B /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B58961C433D3B0027B34B /* DateModel.swift */; };
 		F176EEFB1C5D136600E4BBD7 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = F176EEFA1C5D136600E4BBD7 /* UIImageEffects.m */; };
 		F192D0121C6237AC00B9F1C3 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192D0111C6237AC00B9F1C3 /* global.swift */; };
-		F19D49751C5C42AD006E5C72 /* lou neff pt.JPG in Resources */ = {isa = PBXBuildFile; fileRef = F19D49741C5C42AD006E5C72 /* lou neff pt.JPG */; };
 		F19E854C1C622EFD007488FB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E854B1C622EFD007488FB /* SettingViewController.swift */; };
 		F1E764781C3F5E1A009DC9BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E764771C3F5E1A009DC9BA /* AppDelegate.swift */; };
 		F1E7647A1C3F5E1A009DC9BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E764791C3F5E1A009DC9BA /* ViewController.swift */; };
@@ -42,16 +42,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6DE22E851C5E64B000C5C38F /* BigBendSouthRim.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BigBendSouthRim.jpg; sourceTree = "<group>"; };
+		1E36170D3D8BCF75D9B95A19 /* Pods-ATXwecycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle.debug.xcconfig"; sourceTree = "<group>"; };
+		3EAFFB035B89B8EEEEA2D28C /* Pods-ATXwecycle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycle.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle.release.xcconfig"; sourceTree = "<group>"; };
+		6DD07DA91C67961C00DCD864 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6DE22E861C5E64B000C5C38F /* TreeSit.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TreeSit.JPG; sourceTree = "<group>"; };
 		6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SouthRimStanding.jpg; sourceTree = "<group>"; };
+		9A95EE4F8F85203F079360E6 /* Pods_ATXwecycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATXwecycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16B58961C433D3B0027B34B /* DateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		F176EEF81C5D136500E4BBD7 /* ATXwecycle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ATXwecycle-Bridging-Header.h"; sourceTree = "<group>"; };
 		F176EEF91C5D136600E4BBD7 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
 		F176EEFA1C5D136600E4BBD7 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageEffects.m; sourceTree = "<group>"; };
 		F192D0111C6237AC00B9F1C3 /* global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
-		F19D49741C5C42AD006E5C72 /* lou neff pt.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "lou neff pt.JPG"; sourceTree = "<group>"; };
-		F19E854B1C622EFD007488FB /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = ../SettingViewController.swift; sourceTree = "<group>"; };
+		F19E854B1C622EFD007488FB /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		F1E764741C3F5E1A009DC9BA /* ATXwecycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATXwecycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E764771C3F5E1A009DC9BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E764791C3F5E1A009DC9BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0B3E7B680D91E079DE6D79 /* Pods_ATXwecycle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F0FD7816E260BE50CA94CBB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A95EE4F8F85203F079360E6 /* Pods_ATXwecycle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F13915101C5E36C9002550D6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +113,15 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		F16092DF94F01EEA5FAA8737 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E36170D3D8BCF75D9B95A19 /* Pods-ATXwecycle.debug.xcconfig */,
+				3EAFFB035B89B8EEEEA2D28C /* Pods-ATXwecycle.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F1E7646B1C3F5E1A009DC9BA = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +129,8 @@
 				F1E7648B1C3F5E1A009DC9BA /* ATXwecycleTests */,
 				F1E764961C3F5E1A009DC9BA /* ATXwecycleUITests */,
 				F1E764751C3F5E1A009DC9BA /* Products */,
+				F16092DF94F01EEA5FAA8737 /* Pods */,
+				F0FD7816E260BE50CA94CBB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,8 +148,10 @@
 			isa = PBXGroup;
 			children = (
 				F1E7647B1C3F5E1A009DC9BA /* Main.storyboard */,
+				F1E764771C3F5E1A009DC9BA /* AppDelegate.swift */,
 				F1E764791C3F5E1A009DC9BA /* ViewController.swift */,
 				F19E854B1C622EFD007488FB /* SettingViewController.swift */,
+				6DD07DA91C67961C00DCD864 /* WebViewController.swift */,
 				F16B58961C433D3B0027B34B /* DateModel.swift */,
 				F192D0111C6237AC00B9F1C3 /* global.swift */,
 				F13915101C5E36C9002550D6 /* Categories */,
@@ -157,13 +181,10 @@
 		F1E764A51C3F5E3C009DC9BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6DE22E851C5E64B000C5C38F /* BigBendSouthRim.jpg */,
 				6DE22E861C5E64B000C5C38F /* TreeSit.JPG */,
 				6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */,
-				F19D49741C5C42AD006E5C72 /* lou neff pt.JPG */,
 				F1E764801C3F5E1A009DC9BA /* LaunchScreen.storyboard */,
 				F1E7647E1C3F5E1A009DC9BA /* Assets.xcassets */,
-				F1E764771C3F5E1A009DC9BA /* AppDelegate.swift */,
 				F1E764831C3F5E1A009DC9BA /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -176,9 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1E7649C1C3F5E1A009DC9BA /* Build configuration list for PBXNativeTarget "ATXwecycle" */;
 			buildPhases = (
+				DBDFE1F8C52741792326337D /* Check Pods Manifest.lock */,
 				F1E764701C3F5E1A009DC9BA /* Sources */,
 				F1E764711C3F5E1A009DC9BA /* Frameworks */,
 				F1E764721C3F5E1A009DC9BA /* Resources */,
+				7B6FC86C9C3E805934893B6E /* Embed Pods Frameworks */,
+				347B1DB6896752743879492A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,8 +299,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1E764821C3F5E1A009DC9BA /* LaunchScreen.storyboard in Resources */,
-				F19D49751C5C42AD006E5C72 /* lou neff pt.JPG in Resources */,
-				6DE22E881C5E64B000C5C38F /* BigBendSouthRim.jpg in Resources */,
 				6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */,
 				F1E7647F1C3F5E1A009DC9BA /* Assets.xcassets in Resources */,
 				F1E7647D1C3F5E1A009DC9BA /* Main.storyboard in Resources */,
@@ -300,6 +322,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		347B1DB6896752743879492A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B6FC86C9C3E805934893B6E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBDFE1F8C52741792326337D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F1E764701C3F5E1A009DC9BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -309,6 +379,7 @@
 				F19E854C1C622EFD007488FB /* SettingViewController.swift in Sources */,
 				F176EEFB1C5D136600E4BBD7 /* UIImageEffects.m in Sources */,
 				F1E7647A1C3F5E1A009DC9BA /* ViewController.swift in Sources */,
+				6DD07DAA1C67961C00DCD864 /* WebViewController.swift in Sources */,
 				F1E764781C3F5E1A009DC9BA /* AppDelegate.swift in Sources */,
 				F16B58971C433D3B0027B34B /* DateModel.swift in Sources */,
 			);
@@ -448,6 +519,7 @@
 		};
 		F1E7649D1C3F5E1A009DC9BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E36170D3D8BCF75D9B95A19 /* Pods-ATXwecycle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -465,6 +537,7 @@
 		};
 		F1E7649E1C3F5E1A009DC9BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EAFFB035B89B8EEEEA2D28C /* Pods-ATXwecycle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

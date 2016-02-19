@@ -14,24 +14,31 @@ class DateModel: NSObject {
     
     var todaysDate = NSDate()
     
-//MARK: Generating recycle dates to be checked
+    // MARK: Generating recycle dates to be checked
     
     var recycleDatesArr = [NSDate]()
     
     var recycleWeekStartDate: NSDate?
     
-    
-    /** Generates recycling dates
-     */
+    // Generates recycling date schedule and appends to array
     func setUpRecycleDatesArray(){
-        
-        // Initialize start of very first recycle week (used to generate array of recycle dates)
-        recycleWeekStartDate = convertStringToNSDate("01-03-2016")
+                
+        if residencePickerChoice == "Yes" || residencePickerChoice == "Week A" {
+            
+            // Initialize start of very first recycle week if Week A
+            recycleWeekStartDate = convertStringToNSDate("01-10-2016")
+            
+        } else {
+            
+            // Initialize start of very first recycle week if Week B(used to generate array of recycle dates)
+            recycleWeekStartDate = convertStringToNSDate("01-03-2016")
+            
+        }
         
         // Specify day in seconds to use for date counter
         let day: Double = 60*60*24
         
-        
+        // Create bi-weekly date intervals for recycling every other week
         for week in 1...26 {
             
             // Add initial recycle week start date plus 5 days after to recycle dates array to mimic a Sun-Fri interval
@@ -62,8 +69,7 @@ class DateModel: NSObject {
         }
     }
     
-    
-    //MARK: Converting NSDate <-> String & date checking methods
+    // MARK: Converting NSDate <-> String & date checking methods
     private static var dateFormatter: NSDateFormatter = {
         
         let dateFormatter = NSDateFormatter()
@@ -74,28 +80,22 @@ class DateModel: NSObject {
         
     }()
     
-    
-    /**
-     Takes a date in String form and spits out an NSDate in format specified in 'dateFormatter' lazy var
-     */
+    // Takes a date in String form and spits out an NSDate in format specified in 'dateFormatter' lazy var
     func convertStringToNSDate(dateString: String) -> NSDate {
         
         return DateModel.dateFormatter.dateFromString(dateString)!
         
     }
     
-    /**
-     Takes an NSDate and spits out the string version of it
-     */
+    
+    // Takes an NSDate and spits out the string version of it
     func convertNSDateToString(date: NSDate) -> String {
         
         return DateModel.dateFormatter.stringFromDate(date)
         
     }
     
-    /**
-     Loops through generated recycle dates array and compares to todays date
-     */
+    // Loops through generated recycle dates array and compares to todays date
     func checkTodaysDateToRecycleDatesArray() -> Bool {
         
         var datesMatch = false
@@ -121,8 +121,4 @@ class DateModel: NSObject {
     }
 }
 
-
-
-// TO DO: program to automatically change with the year (don't forget week 4 leap year case; need to keep it specific for 2016), set up control flow for week A and B scheds, set up array of zip codes to determine week A or B Sched, save user defaulst zip code, app first open -> create field to enter home zip to get correct recycling sched, app icon, UI, in app webview to page showing what can and cant be recycled (if page is responsive)
-// Problems: doesn't seem recycle weeks are determined by zip but rather roads
-
+// TO DO: program to automatically change with the year (don't forget week 4 leap year case; need to keep it specific for 2016), add recycling guide

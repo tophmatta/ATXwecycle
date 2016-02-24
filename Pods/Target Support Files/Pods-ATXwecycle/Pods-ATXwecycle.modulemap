@@ -1,6 +1,0 @@
-framework module Pods_ATXwecycle {
-  umbrella header "Pods-ATXwecycle-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F0B3E7B680D91E079DE6D79 /* Pods_ATXwecycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A95EE4F8F85203F079360E6 /* Pods_ATXwecycle.framework */; };
 		6DD07DAA1C67961C00DCD864 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD07DA91C67961C00DCD864 /* WebViewController.swift */; };
 		6DE22E891C5E64B000C5C38F /* TreeSit.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E861C5E64B000C5C38F /* TreeSit.JPG */; };
 		6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */; };
@@ -42,12 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E36170D3D8BCF75D9B95A19 /* Pods-ATXwecycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle.debug.xcconfig"; sourceTree = "<group>"; };
-		3EAFFB035B89B8EEEEA2D28C /* Pods-ATXwecycle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycle.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle.release.xcconfig"; sourceTree = "<group>"; };
 		6DD07DA91C67961C00DCD864 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6DE22E861C5E64B000C5C38F /* TreeSit.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TreeSit.JPG; sourceTree = "<group>"; };
 		6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SouthRimStanding.jpg; sourceTree = "<group>"; };
-		9A95EE4F8F85203F079360E6 /* Pods_ATXwecycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATXwecycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16B58961C433D3B0027B34B /* DateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		F176EEF81C5D136500E4BBD7 /* ATXwecycle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ATXwecycle-Bridging-Header.h"; sourceTree = "<group>"; };
 		F176EEF91C5D136600E4BBD7 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
@@ -74,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F0B3E7B680D91E079DE6D79 /* Pods_ATXwecycle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,14 +90,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F0FD7816E260BE50CA94CBB7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9A95EE4F8F85203F079360E6 /* Pods_ATXwecycle.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		F13915101C5E36C9002550D6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,15 +100,6 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
-		F16092DF94F01EEA5FAA8737 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1E36170D3D8BCF75D9B95A19 /* Pods-ATXwecycle.debug.xcconfig */,
-				3EAFFB035B89B8EEEEA2D28C /* Pods-ATXwecycle.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		F1E7646B1C3F5E1A009DC9BA = {
 			isa = PBXGroup;
 			children = (
@@ -129,8 +107,6 @@
 				F1E7648B1C3F5E1A009DC9BA /* ATXwecycleTests */,
 				F1E764961C3F5E1A009DC9BA /* ATXwecycleUITests */,
 				F1E764751C3F5E1A009DC9BA /* Products */,
-				F16092DF94F01EEA5FAA8737 /* Pods */,
-				F0FD7816E260BE50CA94CBB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,12 +173,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1E7649C1C3F5E1A009DC9BA /* Build configuration list for PBXNativeTarget "ATXwecycle" */;
 			buildPhases = (
-				DBDFE1F8C52741792326337D /* Check Pods Manifest.lock */,
 				F1E764701C3F5E1A009DC9BA /* Sources */,
 				F1E764711C3F5E1A009DC9BA /* Frameworks */,
 				F1E764721C3F5E1A009DC9BA /* Resources */,
-				7B6FC86C9C3E805934893B6E /* Embed Pods Frameworks */,
-				347B1DB6896752743879492A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -321,54 +294,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		347B1DB6896752743879492A /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7B6FC86C9C3E805934893B6E /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DBDFE1F8C52741792326337D /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F1E764701C3F5E1A009DC9BA /* Sources */ = {
@@ -519,7 +444,6 @@
 		};
 		F1E7649D1C3F5E1A009DC9BA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E36170D3D8BCF75D9B95A19 /* Pods-ATXwecycle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -537,7 +461,6 @@
 		};
 		F1E7649E1C3F5E1A009DC9BA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3EAFFB035B89B8EEEEA2D28C /* Pods-ATXwecycle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

@@ -281,7 +281,7 @@
                             <view opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HRN-AK-eCT" userLabel="Welcome Label View">
                                 <rect key="frame" x="0.0" y="120" width="600" height="207"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to ATX Recycling App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkV-8G-3dP" userLabel="Welcome to Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to iRecycle ATX" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkV-8G-3dP" userLabel="Welcome to Label">
                                         <rect key="frame" x="20" y="8" width="560" height="192"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="192" id="KsY-Pu-VzU"/>
@@ -312,38 +312,6 @@
                                         <include reference="bw8-Rb-3eR"/>
                                     </mask>
                                 </variation>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCO-Au-g9i">
-                                <rect key="frame" x="0.0" y="327" width="600" height="232"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Is your recycling schedule Week A or Week B?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdX-6a-Tde">
-                                        <rect key="frame" x="125" y="15" width="350" height="69"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="350" id="K2q-Yo-wzr"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="30"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <pickerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0SE-7M-R8O">
-                                        <rect key="frame" x="136" y="92" width="329" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="329" id="8vw-Vq-qBy"/>
-                                            <constraint firstAttribute="height" constant="100" id="eEl-SP-bSn"/>
-                                        </constraints>
-                                        <variation key="heightClass=regular" ambiguous="YES">
-                                            <rect key="frame" x="135" y="92" width="329" height="100"/>
-                                        </variation>
-                                    </pickerView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="0SE-7M-R8O" firstAttribute="centerX" secondItem="dCO-Au-g9i" secondAttribute="centerX" id="3bT-Z4-NWu"/>
-                                    <constraint firstItem="0SE-7M-R8O" firstAttribute="top" secondItem="RdX-6a-Tde" secondAttribute="bottom" constant="8" id="48o-FO-I9v"/>
-                                    <constraint firstItem="RdX-6a-Tde" firstAttribute="top" secondItem="dCO-Au-g9i" secondAttribute="top" constant="15" id="9f4-7R-rxB"/>
-                                    <constraint firstItem="RdX-6a-Tde" firstAttribute="centerX" secondItem="dCO-Au-g9i" secondAttribute="centerX" id="T0F-n3-xaX"/>
-                                    <constraint firstAttribute="bottom" secondItem="0SE-7M-R8O" secondAttribute="bottom" constant="40" id="ZOa-M8-A7w"/>
-                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkr-ve-RWX" userLabel="Next Button View">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -438,6 +406,53 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dCO-Au-g9i">
+                                <rect key="frame" x="0.0" y="327" width="600" height="232"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Is your recycling schedule Week A or Week B?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdX-6a-Tde">
+                                        <rect key="frame" x="125" y="15" width="350" height="69"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="75B-91-Ik6">
+                                                <variation key="heightClass=regular" constant="350"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="75B-91-Ik6"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <pickerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0SE-7M-R8O">
+                                        <rect key="frame" x="136" y="92" width="329" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="329" id="8vw-Vq-qBy"/>
+                                            <constraint firstAttribute="height" constant="80" id="eEl-SP-bSn">
+                                                <variation key="heightClass=regular" constant="80"/>
+                                            </constraint>
+                                        </constraints>
+                                        <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="135" y="92" width="329" height="100"/>
+                                        </variation>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="0SE-7M-R8O" firstAttribute="centerX" secondItem="dCO-Au-g9i" secondAttribute="centerX" id="3bT-Z4-NWu"/>
+                                    <constraint firstItem="0SE-7M-R8O" firstAttribute="top" secondItem="RdX-6a-Tde" secondAttribute="bottom" constant="5" id="48o-FO-I9v">
+                                        <variation key="heightClass=regular" constant="5"/>
+                                    </constraint>
+                                    <constraint firstItem="RdX-6a-Tde" firstAttribute="top" secondItem="dCO-Au-g9i" secondAttribute="top" constant="10" id="9f4-7R-rxB">
+                                        <variation key="heightClass=regular" constant="10"/>
+                                    </constraint>
+                                    <constraint firstItem="RdX-6a-Tde" firstAttribute="centerX" secondItem="dCO-Au-g9i" secondAttribute="centerX" id="T0F-n3-xaX"/>
+                                    <constraint firstAttribute="bottom" secondItem="0SE-7M-R8O" secondAttribute="bottom" constant="10" id="ZOa-M8-A7w">
+                                        <variation key="heightClass=regular" constant="10"/>
+                                    </constraint>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -499,6 +514,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7bp-Ld-b5B"/>
+        <segue reference="9IF-TS-UTS"/>
     </inferredMetricsTieBreakers>
 </document>

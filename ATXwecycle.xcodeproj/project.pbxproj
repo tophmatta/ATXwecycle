@@ -361,6 +361,86 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6D70BAF11C8E5F9400F65306 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		6D70BAF21C8E5F9400F65306 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
+				INFOPLIST_FILE = ATXwecycle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Toph.iRecycleATX;
+				PRODUCT_NAME = ATXwecycle;
+				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
+				SWIFT_OBJC_BRIDGING_HEADER = "ATXwecycle/ATXwecycle-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Distribution;
+		};
+		6D70BAF31C8E5F9400F65306 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ATXwecycleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycleTests;
+				PRODUCT_NAME = ATXwecycle;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ATXwecycle.app/ATXwecycle";
+			};
+			name = Distribution;
+		};
+		6D70BAF41C8E5F9400F65306 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ATXwecycleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycleUITests;
+				PRODUCT_NAME = ATXwecycle;
+				TEST_TARGET_NAME = ATXwecycle;
+				USES_XCTRUNNER = YES;
+			};
+			name = Distribution;
+		};
 		F1E7649A1C3F5E1A009DC9BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -378,7 +458,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -400,6 +481,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -422,7 +504,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -437,6 +520,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -447,15 +531,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
 				INFOPLIST_FILE = ATXwecycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycle;
+				PRODUCT_BUNDLE_IDENTIFIER = Toph.iRecycleATX;
 				PRODUCT_NAME = ATXwecycle;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
 				SWIFT_OBJC_BRIDGING_HEADER = "ATXwecycle/ATXwecycle-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -464,14 +549,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
 				INFOPLIST_FILE = ATXwecycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycle;
+				PRODUCT_BUNDLE_IDENTIFIER = Toph.iRecycleATX;
 				PRODUCT_NAME = ATXwecycle;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
 				SWIFT_OBJC_BRIDGING_HEADER = "ATXwecycle/ATXwecycle-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -531,6 +617,7 @@
 			buildConfigurations = (
 				F1E7649A1C3F5E1A009DC9BA /* Debug */,
 				F1E7649B1C3F5E1A009DC9BA /* Release */,
+				6D70BAF11C8E5F9400F65306 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -540,6 +627,7 @@
 			buildConfigurations = (
 				F1E7649D1C3F5E1A009DC9BA /* Debug */,
 				F1E7649E1C3F5E1A009DC9BA /* Release */,
+				6D70BAF21C8E5F9400F65306 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -549,6 +637,7 @@
 			buildConfigurations = (
 				F1E764A01C3F5E1A009DC9BA /* Debug */,
 				F1E764A11C3F5E1A009DC9BA /* Release */,
+				6D70BAF31C8E5F9400F65306 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -558,6 +647,7 @@
 			buildConfigurations = (
 				F1E764A31C3F5E1A009DC9BA /* Debug */,
 				F1E764A41C3F5E1A009DC9BA /* Release */,
+				6D70BAF41C8E5F9400F65306 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

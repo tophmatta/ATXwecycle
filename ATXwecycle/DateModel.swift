@@ -39,7 +39,7 @@ class DateModel: NSObject {
         let day: Double = 60*60*24
         
         // Create bi-weekly date intervals for recycling every other week
-        for week in 1...26 {
+        for _ in 1...26 {
             
             // Add initial recycle week start date plus 5 days after to recycle dates array to mimic a Sun-Fri interval
             for var i: Double = 0; i < 6; i++ {
@@ -50,22 +50,10 @@ class DateModel: NSObject {
                     
                 }
             }
-            
-            // Pulls year date component from todays date
-            let yearFromTodaysDate = calendar.component(.Year, fromDate: todaysDate)
-            
-            // Biweekly counter of setting recycling week start date
-            if week == 4 && yearFromTodaysDate == 2016 {
                 
-                // Leap year week causes counter to be behind by 1 b/c of extra day ∴ add 1 to counter
-                recycleWeekStartDate = recycleWeekStartDate?.dateByAddingTimeInterval(day * 15)
+            // Adds 2 weeks onto date counter
+            recycleWeekStartDate = recycleWeekStartDate?.dateByAddingTimeInterval(day * 14)
                 
-            } else {
-                
-                // Normal counting intveral
-                recycleWeekStartDate = recycleWeekStartDate?.dateByAddingTimeInterval(day * 14)
-                
-            }
         }
     }
     
@@ -119,6 +107,7 @@ class DateModel: NSObject {
         }
         return datesMatch
     }
+    
 }
 
 // TO DO: program to automatically change with the year (don't forget week 4 leap year case; need to keep it specific for 2016), add recycling guide

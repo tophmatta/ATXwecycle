@@ -42,9 +42,9 @@ class DateModel: NSObject {
         for _ in 1...26 {
             
             // Add initial recycle week start date plus 5 days after to recycle dates array to mimic a Sun-Fri interval
-            for var i: Double = 0; i < 6; i++ {
+            for i in 0...5 {
                 
-                if let futureDate = recycleWeekStartDate?.dateByAddingTimeInterval(day * i) {
+                if let futureDate = recycleWeekStartDate?.dateByAddingTimeInterval(day * Double(i)) {
                     
                     recycleDatesArr.append(futureDate)
                     
@@ -55,6 +55,7 @@ class DateModel: NSObject {
             recycleWeekStartDate = recycleWeekStartDate?.dateByAddingTimeInterval(day * 14)
                 
         }
+        
     }
     
     // MARK: Converting NSDate <-> String & date checking methods
@@ -109,5 +110,3 @@ class DateModel: NSObject {
     }
     
 }
-
-// TO DO: program to automatically change with the year (don't forget week 4 leap year case; need to keep it specific for 2016), add recycling guide

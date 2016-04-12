@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         if (residencePickerChoice != nil) {
@@ -24,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        
         return true
     }
 
@@ -33,7 +31,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userDefaults.setObject(residencePickerChoice, forKey: "recyclingPref")
 
     }
-
-
 }
 

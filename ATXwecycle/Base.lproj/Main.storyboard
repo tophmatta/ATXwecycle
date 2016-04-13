@@ -84,8 +84,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="tu6-9h-ehT"/>
                                 <exclude reference="Hv5-m8-wq1"/>
+                                <exclude reference="tu6-9h-ehT"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -93,8 +93,8 @@
                                 <include reference="mD2-VP-qd8"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="tu6-9h-ehT"/>
                                 <include reference="Hv5-m8-wq1"/>
+                                <include reference="tu6-9h-ehT"/>
                             </mask>
                         </variation>
                     </view>
@@ -290,7 +290,7 @@
                             <view opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HRN-AK-eCT" userLabel="Welcome Label View">
                                 <rect key="frame" x="0.0" y="120" width="600" height="207"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to iRecycle ATX" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkV-8G-3dP" userLabel="Welcome to Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to ATX Wecycle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkV-8G-3dP" userLabel="Welcome to Label">
                                         <rect key="frame" x="20" y="8" width="560" height="192"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="192" id="KsY-Pu-VzU"/>
@@ -523,6 +523,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7bp-Ld-b5B"/>
+        <segue reference="9IF-TS-UTS"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -16,14 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        if (residencePickerChoice != nil) {
-            
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let initViewController: UIViewController = storyBoard.instantiateViewControllerWithIdentifier("mainview") as! ViewController
-            self.window!.rootViewController? = initViewController
-            
-        }
-        
+//        if (residencePickerChoice != nil) {
+//            
+//            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let initViewController: UIViewController = storyBoard.instantiateViewControllerWithIdentifier("mainview") as! ViewController
+//            self.window!.rootViewController? = initViewController
+//            
+//        }
+//        
         
         return true
     }

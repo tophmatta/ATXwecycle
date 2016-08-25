@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		195B15941D3FFF0ABA7DFE42 /* Pods_ATXwecycleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AB816308F4DA238FAB25B1 /* Pods_ATXwecycleUITests.framework */; };
+		2593307D65CE5F6E2627AFCF /* Pods_ATXwecycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D9BE75A89F34A72ED80FF8 /* Pods_ATXwecycle.framework */; };
+		6DCBAD921D63FC050016D647 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCBAD911D63FC050016D647 /* AddressViewController.swift */; };
 		6DD07DAA1C67961C00DCD864 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD07DA91C67961C00DCD864 /* WebViewController.swift */; };
 		6DE22E891C5E64B000C5C38F /* TreeSit.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E861C5E64B000C5C38F /* TreeSit.JPG */; };
 		6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */; };
+		C1AB530D6BC677701392ECB7 /* Pods_ATXwecycleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C4930FF371DF8F34FD8A89 /* Pods_ATXwecycleTests.framework */; };
 		F16B58971C433D3B0027B34B /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B58961C433D3B0027B34B /* DateModel.swift */; };
 		F176EEFB1C5D136600E4BBD7 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = F176EEFA1C5D136600E4BBD7 /* UIImageEffects.m */; };
 		F192D0121C6237AC00B9F1C3 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192D0111C6237AC00B9F1C3 /* global.swift */; };
@@ -41,9 +45,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		184F7DA725ADD26906461DE9 /* Pods-ATXwecycle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycle.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle.release.xcconfig"; sourceTree = "<group>"; };
+		3B41A22B7973F306F0A3773F /* Pods-ATXwecycleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleUITests/Pods-ATXwecycleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3C34AE99709382EA2B5C4664 /* Pods-ATXwecycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle.debug.xcconfig"; sourceTree = "<group>"; };
+		567D4B48681DEAACE2EE44D4 /* Pods-ATXwecycleTests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleTests.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests.distribution.xcconfig"; sourceTree = "<group>"; };
+		586BFA95049429A20EF2621D /* Pods-ATXwecycleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6411F2C21EB4D7D47E7E2948 /* Pods-ATXwecycleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleUITests/Pods-ATXwecycleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6DCBAD911D63FC050016D647 /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		6DD07DA91C67961C00DCD864 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6DE22E861C5E64B000C5C38F /* TreeSit.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TreeSit.JPG; sourceTree = "<group>"; };
 		6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SouthRimStanding.jpg; sourceTree = "<group>"; };
+		7AB2FE983D826800D1C78D1C /* Pods-ATXwecycle.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycle.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle.distribution.xcconfig"; sourceTree = "<group>"; };
+		A19C183375649CF6E43976F9 /* Pods-ATXwecycleUITests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleUITests.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleUITests/Pods-ATXwecycleUITests.distribution.xcconfig"; sourceTree = "<group>"; };
+		A3AB816308F4DA238FAB25B1 /* Pods_ATXwecycleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATXwecycleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE2505F7D0BB8639BD2E107E /* Pods-ATXwecycleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests.release.xcconfig"; sourceTree = "<group>"; };
+		C8D9BE75A89F34A72ED80FF8 /* Pods_ATXwecycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATXwecycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6C4930FF371DF8F34FD8A89 /* Pods_ATXwecycleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATXwecycleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16B58961C433D3B0027B34B /* DateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		F176EEF81C5D136500E4BBD7 /* ATXwecycle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ATXwecycle-Bridging-Header.h"; sourceTree = "<group>"; };
 		F176EEF91C5D136600E4BBD7 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
@@ -70,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2593307D65CE5F6E2627AFCF /* Pods_ATXwecycle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1AB530D6BC677701392ECB7 /* Pods_ATXwecycleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,12 +103,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				195B15941D3FFF0ABA7DFE42 /* Pods_ATXwecycleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		928DA11D2E442E3DBF070906 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C34AE99709382EA2B5C4664 /* Pods-ATXwecycle.debug.xcconfig */,
+				184F7DA725ADD26906461DE9 /* Pods-ATXwecycle.release.xcconfig */,
+				7AB2FE983D826800D1C78D1C /* Pods-ATXwecycle.distribution.xcconfig */,
+				586BFA95049429A20EF2621D /* Pods-ATXwecycleTests.debug.xcconfig */,
+				BE2505F7D0BB8639BD2E107E /* Pods-ATXwecycleTests.release.xcconfig */,
+				567D4B48681DEAACE2EE44D4 /* Pods-ATXwecycleTests.distribution.xcconfig */,
+				6411F2C21EB4D7D47E7E2948 /* Pods-ATXwecycleUITests.debug.xcconfig */,
+				3B41A22B7973F306F0A3773F /* Pods-ATXwecycleUITests.release.xcconfig */,
+				A19C183375649CF6E43976F9 /* Pods-ATXwecycleUITests.distribution.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F13915101C5E36C9002550D6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +136,16 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		F14C28E945DC89664E3AF555 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8D9BE75A89F34A72ED80FF8 /* Pods_ATXwecycle.framework */,
+				D6C4930FF371DF8F34FD8A89 /* Pods_ATXwecycleTests.framework */,
+				A3AB816308F4DA238FAB25B1 /* Pods_ATXwecycleUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F1E7646B1C3F5E1A009DC9BA = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +153,8 @@
 				F1E7648B1C3F5E1A009DC9BA /* ATXwecycleTests */,
 				F1E764961C3F5E1A009DC9BA /* ATXwecycleUITests */,
 				F1E764751C3F5E1A009DC9BA /* Products */,
+				928DA11D2E442E3DBF070906 /* Pods */,
+				F14C28E945DC89664E3AF555 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E7647B1C3F5E1A009DC9BA /* Main.storyboard */,
+				6DCBAD911D63FC050016D647 /* AddressViewController.swift */,
 				F1E764771C3F5E1A009DC9BA /* AppDelegate.swift */,
 				F1E764791C3F5E1A009DC9BA /* ViewController.swift */,
 				F19E854B1C622EFD007488FB /* SettingViewController.swift */,
@@ -173,9 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1E7649C1C3F5E1A009DC9BA /* Build configuration list for PBXNativeTarget "ATXwecycle" */;
 			buildPhases = (
+				60F0E2ECA6A74B32EADA5151 /* 📦 Check Pods Manifest.lock */,
 				F1E764701C3F5E1A009DC9BA /* Sources */,
 				F1E764711C3F5E1A009DC9BA /* Frameworks */,
 				F1E764721C3F5E1A009DC9BA /* Resources */,
+				5D9C7326C92ABBF6F9CECD67 /* 📦 Embed Pods Frameworks */,
+				1F38DD7571A0B950154DB399 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,9 +242,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1E7649F1C3F5E1A009DC9BA /* Build configuration list for PBXNativeTarget "ATXwecycleTests" */;
 			buildPhases = (
+				8BFBBF8B0D325F37E2844938 /* 📦 Check Pods Manifest.lock */,
 				F1E764841C3F5E1A009DC9BA /* Sources */,
 				F1E764851C3F5E1A009DC9BA /* Frameworks */,
 				F1E764861C3F5E1A009DC9BA /* Resources */,
+				24FFFBD04505DE35D0F44A14 /* 📦 Embed Pods Frameworks */,
+				5463284F98BDAAA14E648ADE /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,9 +263,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1E764A21C3F5E1A009DC9BA /* Build configuration list for PBXNativeTarget "ATXwecycleUITests" */;
 			buildPhases = (
+				578F90240B14CF99B330090E /* 📦 Check Pods Manifest.lock */,
 				F1E7648F1C3F5E1A009DC9BA /* Sources */,
 				F1E764901C3F5E1A009DC9BA /* Frameworks */,
 				F1E764911C3F5E1A009DC9BA /* Resources */,
+				D762267E96365AA45D7A727C /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,6 +352,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1F38DD7571A0B950154DB399 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		24FFFBD04505DE35D0F44A14 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5463284F98BDAAA14E648ADE /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		578F90240B14CF99B330090E /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5D9C7326C92ABBF6F9CECD67 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60F0E2ECA6A74B32EADA5151 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8BFBBF8B0D325F37E2844938 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D762267E96365AA45D7A727C /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycleUITests/Pods-ATXwecycleUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F1E764701C3F5E1A009DC9BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -303,6 +483,7 @@
 				F192D0121C6237AC00B9F1C3 /* global.swift in Sources */,
 				F19E854C1C622EFD007488FB /* SettingViewController.swift in Sources */,
 				F176EEFB1C5D136600E4BBD7 /* UIImageEffects.m in Sources */,
+				6DCBAD921D63FC050016D647 /* AddressViewController.swift in Sources */,
 				F1E7647A1C3F5E1A009DC9BA /* ViewController.swift in Sources */,
 				6DD07DAA1C67961C00DCD864 /* WebViewController.swift in Sources */,
 				F1E764781C3F5E1A009DC9BA /* AppDelegate.swift in Sources */,
@@ -402,6 +583,7 @@
 		};
 		6D70BAF21C8E5F9400F65306 /* Distribution */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AB2FE983D826800D1C78D1C /* Pods-ATXwecycle.distribution.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -419,6 +601,7 @@
 		};
 		6D70BAF31C8E5F9400F65306 /* Distribution */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 567D4B48681DEAACE2EE44D4 /* Pods-ATXwecycleTests.distribution.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ATXwecycleTests/Info.plist;
@@ -431,6 +614,7 @@
 		};
 		6D70BAF41C8E5F9400F65306 /* Distribution */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A19C183375649CF6E43976F9 /* Pods-ATXwecycleUITests.distribution.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ATXwecycleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -528,6 +712,7 @@
 		};
 		F1E7649D1C3F5E1A009DC9BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C34AE99709382EA2B5C4664 /* Pods-ATXwecycle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -546,6 +731,7 @@
 		};
 		F1E7649E1C3F5E1A009DC9BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 184F7DA725ADD26906461DE9 /* Pods-ATXwecycle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -563,6 +749,7 @@
 		};
 		F1E764A01C3F5E1A009DC9BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 586BFA95049429A20EF2621D /* Pods-ATXwecycleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ATXwecycleTests/Info.plist;
@@ -575,6 +762,7 @@
 		};
 		F1E764A11C3F5E1A009DC9BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE2505F7D0BB8639BD2E107E /* Pods-ATXwecycleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ATXwecycleTests/Info.plist;
@@ -587,6 +775,7 @@
 		};
 		F1E764A31C3F5E1A009DC9BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6411F2C21EB4D7D47E7E2948 /* Pods-ATXwecycleUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ATXwecycleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -599,6 +788,7 @@
 		};
 		F1E764A41C3F5E1A009DC9BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B41A22B7973F306F0A3773F /* Pods-ATXwecycleUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ATXwecycleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -40,7 +40,7 @@ class ViewController: UIViewController {
            
             // Define shape
             tempLabel.clipsToBounds = true
-            tempLabel.layer.cornerRadius = 30
+            tempLabel.layer.cornerRadius = 10
             
             // Define UIColors
             let labelColorRed = UIColor(red: 240/255, green: 76/255, blue: 60/255, alpha: 1.0)
@@ -60,7 +60,6 @@ class ViewController: UIViewController {
                 tempLabel.text = "Yes"
                 
             }
-            
             
         }
         

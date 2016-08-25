@@ -29,12 +29,16 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+        self.loadWebView()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setContraintsForViews()
-        
-        self.loadWebView()
         
         // Format picker options
         yesNoPickerData = ["Yes", "No"]
@@ -49,15 +53,24 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         
     }
 
-    // Loads web page request for user to check
+    // Send async request for recycle map url
     func loadWebView(){
         
-        // Set URL for web view to load
+        // Create session
+        let session = NSURLSession.sharedSession()
+        
         let url = NSURL(string: "https://www.austintexas.gov/sites/default/files/files/Resource_Recovery/RecyclingCalendar_2016_web_week-A.pdf")
         
         let request = NSURLRequest(URL: url!)
         
-        webView.loadRequest(request)
+        // Async request
+        let dataTask = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+            self.webView.loadRequest(request)
+            
+        }
+        
+        dataTask.resume()
         
     }
     

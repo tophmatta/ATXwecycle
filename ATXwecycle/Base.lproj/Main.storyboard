@@ -390,14 +390,95 @@
                                     <action selector="submitRequest:" destination="U9l-vD-cHa" eventType="touchUpInside" id="wda-Rl-wGg"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixh-7c-S8K">
+                                <rect key="frame" x="93" y="395" width="160" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Collection day: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlP-AF-FBY">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="118" id="t78-7b-LX5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="t78-7b-LX5"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="t78-7b-LX5"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rl9-Ff-IZ6">
+                                        <rect key="frame" x="118" y="0.0" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="y82-aO-9AZ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="y82-aO-9AZ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="y82-aO-9AZ"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5j-xQ-hW8">
+                                <rect key="frame" x="75" y="453" width="246" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Collection schedule week: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N85-TZ-G12">
+                                        <rect key="frame" x="0.0" y="0.0" width="204" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seh-uv-xne">
+                                        <rect key="frame" x="204" y="0.0" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="6Ra-Ac-jtx"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6Ra-Ac-jtx"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="6Ra-Ac-jtx"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="euJ-jc-kXY" firstAttribute="centerX" secondItem="jGE-8E-PZT" secondAttribute="centerX" id="2KI-r3-CXX"/>
                             <constraint firstItem="Cu0-j2-Wwo" firstAttribute="centerX" secondItem="jGE-8E-PZT" secondAttribute="centerX" id="8lq-mK-WDq"/>
                             <constraint firstItem="R2D-v4-tem" firstAttribute="centerX" secondItem="jGE-8E-PZT" secondAttribute="centerX" id="DQg-Z2-4Vl"/>
+                            <constraint firstItem="ixh-7c-S8K" firstAttribute="top" secondItem="V8W-Jw-oOk" secondAttribute="bottom" constant="50" id="Fgj-w6-URh"/>
                             <constraint firstItem="V8W-Jw-oOk" firstAttribute="top" secondItem="euJ-jc-kXY" secondAttribute="bottom" constant="50" id="Pqf-wg-aKg"/>
+                            <constraint firstItem="L5j-xQ-hW8" firstAttribute="centerX" secondItem="jGE-8E-PZT" secondAttribute="centerX" id="QIn-Qf-6ha">
+                                <variation key="heightClass=regular" constant="-1"/>
+                            </constraint>
                             <constraint firstItem="R2D-v4-tem" firstAttribute="top" secondItem="bf3-JH-sEY" secondAttribute="bottom" constant="64" id="RlC-xz-jhb"/>
+                            <constraint firstItem="ixh-7c-S8K" firstAttribute="centerX" secondItem="jGE-8E-PZT" secondAttribute="centerX" id="ZBB-8t-5Cv">
+                                <variation key="heightClass=regular" constant="-8"/>
+                            </constraint>
+                            <constraint firstItem="L5j-xQ-hW8" firstAttribute="top" secondItem="ixh-7c-S8K" secondAttribute="bottom" constant="38" id="c5d-Sr-uki"/>
                             <constraint firstItem="dZF-yR-oAD" firstAttribute="top" secondItem="bf3-JH-sEY" secondAttribute="bottom" constant="112" id="orw-U4-LZt"/>
                             <constraint firstItem="euJ-jc-kXY" firstAttribute="top" secondItem="dZF-yR-oAD" secondAttribute="bottom" constant="100" id="rIh-Rd-ChR"/>
                             <constraint firstItem="dZF-yR-oAD" firstAttribute="centerX" secondItem="jGE-8E-PZT" secondAttribute="centerX" id="wJ7-vT-QFW"/>
@@ -415,14 +496,18 @@
                             <mask key="constraints">
                                 <exclude reference="orw-U4-LZt"/>
                                 <exclude reference="wJ7-vT-QFW"/>
-                                <exclude reference="DQg-Z2-4Vl"/>
-                                <exclude reference="RlC-xz-jhb"/>
-                                <exclude reference="8lq-mK-WDq"/>
-                                <exclude reference="wjA-7V-gk1"/>
                                 <exclude reference="2KI-r3-CXX"/>
                                 <exclude reference="rIh-Rd-ChR"/>
                                 <exclude reference="Pqf-wg-aKg"/>
                                 <exclude reference="y0D-5b-LJG"/>
+                                <exclude reference="8lq-mK-WDq"/>
+                                <exclude reference="wjA-7V-gk1"/>
+                                <exclude reference="DQg-Z2-4Vl"/>
+                                <exclude reference="RlC-xz-jhb"/>
+                                <exclude reference="Fgj-w6-URh"/>
+                                <exclude reference="ZBB-8t-5Cv"/>
+                                <exclude reference="QIn-Qf-6ha"/>
+                                <exclude reference="c5d-Sr-uki"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -436,18 +521,24 @@
                             <mask key="constraints">
                                 <include reference="orw-U4-LZt"/>
                                 <include reference="wJ7-vT-QFW"/>
-                                <include reference="DQg-Z2-4Vl"/>
-                                <include reference="RlC-xz-jhb"/>
-                                <include reference="8lq-mK-WDq"/>
-                                <include reference="wjA-7V-gk1"/>
                                 <include reference="2KI-r3-CXX"/>
                                 <include reference="rIh-Rd-ChR"/>
                                 <include reference="Pqf-wg-aKg"/>
                                 <include reference="y0D-5b-LJG"/>
+                                <include reference="8lq-mK-WDq"/>
+                                <include reference="wjA-7V-gk1"/>
+                                <include reference="DQg-Z2-4Vl"/>
+                                <include reference="RlC-xz-jhb"/>
+                                <include reference="Fgj-w6-URh"/>
+                                <include reference="ZBB-8t-5Cv"/>
+                                <include reference="QIn-Qf-6ha"/>
+                                <include reference="c5d-Sr-uki"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="collectionDayLabel" destination="Rl9-Ff-IZ6" id="fYT-2c-7rp"/>
+                        <outlet property="collectionWeekLabel" destination="seh-uv-xne" id="f4R-MD-LKj"/>
                         <outlet property="numTextField" destination="dZF-yR-oAD" id="gkG-0o-kSQ"/>
                         <outlet property="streetTextField" destination="euJ-jc-kXY" id="xIX-yr-Via"/>
                     </connections>

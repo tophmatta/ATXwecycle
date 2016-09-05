@@ -15,25 +15,96 @@ import Alamofire
 // STREET TYPES: ["ST", "LN", "CIR", "DR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "RD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
 
 
-class AddressViewController: UIViewController {
+class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var numTextField: UITextField!
     @IBOutlet weak var streetTextField: UITextField!
     @IBOutlet weak var collectionDayLabel: UILabel!
     @IBOutlet weak var collectionWeekLabel: UILabel!
     
+    @IBOutlet weak var streetTypeTextField: UITextField!
     
+    var streetTypeData = ["ST", "LN", "CIR", "DR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "RD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
+    
+    var userStreetType:String?
+    
+    let streetTypePickerView = UIPickerView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
+        
+        let toolbar = UIToolbar()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(donePressed))
+        
+        toolbar.setItems([doneButton], animated: false)
+        toolbar.userInteractionEnabled = true
+        toolbar.sizeToFit()
+        
+        self.streetTypeTextField.inputView = streetTypePickerView
+        self.streetTypeTextField.inputAccessoryView = toolbar
+        
+        
+        streetTypePickerView.delegate = self
+        streetTypePickerView.dataSource = self
+        streetTypePickerView.backgroundColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
+        
+        self.setDefaultPickerChoice()
+        
     }
     
     
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        
+        return 1
+        
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        return streetTypeData.count
+        
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return streetTypeData[row]
+        
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        userStreetType = streetTypeData[row]
+        
+        print("Street type is: \(userStreetType)")
+        
+    }
+    
+    func donePressed(){
+        
+        view.endEditing(true)
+        
+        
+        print("street type in donePressed: \(userStreetType)")
+        
+    }
+    
+    // Manually select picker choice (needed for a UIPicker if no event received by UIPickerViewDelegate)
+    func setDefaultPickerChoice(){
+        
+        // Manually set default picker value
+        self.streetTypePickerView.selectRow(0, inComponent: 0, animated: false)
+        
+        let row = self.streetTypePickerView.selectedRowInComponent(0)
+        
+        // Set street type default (UIPickerViewDelegate methods called only when action received)
+        userStreetType = streetTypeData[row]
+        
+    }
+    
     func hitAPI(completionHandler: (AnyObject?, NSError?) -> ()){
-        
-        
         
         let todoEndpoint: String = "https://data.austintexas.gov/resource/hp3m-f33e.json"
         
@@ -54,7 +125,6 @@ class AddressViewController: UIViewController {
             alert.addAction(okAction)
             
             self.presentViewController(alert, animated: true, completion: nil)
-
             
         } else {
             
@@ -77,7 +147,6 @@ class AddressViewController: UIViewController {
             }
             
         }
-        
         
     }
 

@@ -371,7 +371,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixh-7c-S8K">
                                 <rect key="frame" x="93" y="395" width="185" height="21"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Collection day: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlP-AF-FBY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Collection day: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlP-AF-FBY">
                                         <rect key="frame" x="0.0" y="0.0" width="118" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="118" id="t78-7b-LX5"/>
@@ -390,7 +390,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="XXXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rl9-Ff-IZ6">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="XXXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rl9-Ff-IZ6">
                                         <rect key="frame" x="118" y="0.0" width="67" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -412,16 +412,16 @@
                                 </variation>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5j-xQ-hW8">
-                                <rect key="frame" x="75" y="453" width="216" height="21"/>
+                                <rect key="frame" x="75" y="453" width="271" height="21"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Collection schedule week: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N85-TZ-G12">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Collection schedule week: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N85-TZ-G12">
                                         <rect key="frame" x="0.0" y="0.0" width="204" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="XXXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seh-uv-xne">
-                                        <rect key="frame" x="204" y="0.0" width="12" height="21"/>
+                                        <rect key="frame" x="204" y="0.0" width="67" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -540,24 +540,24 @@
                                 <exclude reference="Cu0-j2-Wwo"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Hzz-WO-gnE"/>
+                                <exclude reference="ffq-7U-5er"/>
+                                <exclude reference="ixz-pK-e5J"/>
                                 <exclude reference="orw-U4-LZt"/>
                                 <exclude reference="wJ7-vT-QFW"/>
-                                <exclude reference="DQg-Z2-4Vl"/>
-                                <exclude reference="RlC-xz-jhb"/>
-                                <exclude reference="7nL-sf-zPN"/>
                                 <exclude reference="GVr-Ji-KSV"/>
                                 <exclude reference="N7P-Cq-HOE"/>
                                 <exclude reference="mhe-B4-oW4"/>
                                 <exclude reference="axn-4Q-YrH"/>
                                 <exclude reference="y0D-5b-LJG"/>
+                                <exclude reference="Abf-yN-q0S"/>
+                                <exclude reference="7nL-sf-zPN"/>
+                                <exclude reference="DQg-Z2-4Vl"/>
+                                <exclude reference="RlC-xz-jhb"/>
                                 <exclude reference="Fgj-w6-URh"/>
                                 <exclude reference="ZBB-8t-5Cv"/>
-                                <exclude reference="Abf-yN-q0S"/>
                                 <exclude reference="QIn-Qf-6ha"/>
                                 <exclude reference="c5d-Sr-uki"/>
-                                <exclude reference="Hzz-WO-gnE"/>
-                                <exclude reference="ffq-7U-5er"/>
-                                <exclude reference="ixz-pK-e5J"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -571,24 +571,24 @@
                                 <include reference="Cu0-j2-Wwo"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Hzz-WO-gnE"/>
+                                <include reference="ffq-7U-5er"/>
+                                <include reference="ixz-pK-e5J"/>
                                 <include reference="orw-U4-LZt"/>
                                 <include reference="wJ7-vT-QFW"/>
-                                <include reference="DQg-Z2-4Vl"/>
-                                <include reference="RlC-xz-jhb"/>
-                                <include reference="7nL-sf-zPN"/>
                                 <include reference="GVr-Ji-KSV"/>
                                 <include reference="N7P-Cq-HOE"/>
                                 <include reference="mhe-B4-oW4"/>
                                 <include reference="axn-4Q-YrH"/>
                                 <include reference="y0D-5b-LJG"/>
+                                <include reference="Abf-yN-q0S"/>
+                                <include reference="7nL-sf-zPN"/>
+                                <include reference="DQg-Z2-4Vl"/>
+                                <include reference="RlC-xz-jhb"/>
                                 <include reference="Fgj-w6-URh"/>
                                 <include reference="ZBB-8t-5Cv"/>
-                                <include reference="Abf-yN-q0S"/>
                                 <include reference="QIn-Qf-6ha"/>
                                 <include reference="c5d-Sr-uki"/>
-                                <include reference="Hzz-WO-gnE"/>
-                                <include reference="ffq-7U-5er"/>
-                                <include reference="ixz-pK-e5J"/>
                             </mask>
                         </variation>
                     </view>

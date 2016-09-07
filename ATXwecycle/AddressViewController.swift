@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-//TODO: clean up view transitions once user finds recycling schedule, take out use of global variable and use singleton?, Save pref. IBAction, UI design for address view (fix movement of stack views for collection day and schedule outlets), using mapkit or google maps API to have user allow use of location and use nearest address (if at home) to look up pref. rather than entering info, look up all street types in API data and write code to take out street types (Dr. or Drive, Rd. or Road, TER or terrace, etc.) - loop through dictionary, add street names to array, and discard duplicates
+//TODO: clean up view transitions once user finds recycling schedule, take out use of global variable and use singleton, Save pref. IBAction, UI design for address view (fix movement of stack views for collection day and schedule outlets), using mapkit or google maps API to have user allow use of location and use nearest address (if at home) to look up pref. rather than entering info, finish textfield event handling (touching outside of keyboard, adding done btn)
 
 // STREET TYPES: ["ST", "LN", "CIR", "DR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "RD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
 
@@ -19,43 +19,50 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var numTextField: UITextField!
     @IBOutlet weak var streetTextField: UITextField!
+    @IBOutlet weak var streetTypeTextField: UITextField!
+    
     @IBOutlet weak var collectionDayLabel: UILabel!
     @IBOutlet weak var collectionWeekLabel: UILabel!
     
-    @IBOutlet weak var streetTypeTextField: UITextField!
-    
-    var streetTypeData = ["ST", "LN", "CIR", "DR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "RD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
-    
-    var userStreetType:String?
+    var streetType:String?
+    var streetTypeData = ["", "ST", "RD", "DR", "LN", "CIR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
     
     let streetTypePickerView = UIPickerView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        
+        // Create instance of toolbar for modal street type picker view
         let toolbar = UIToolbar()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(donePressed))
         
-        toolbar.setItems([doneButton], animated: false)
+        // Add 'done' button and use flexible space to align it to right of toolbar
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(donePressed))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        
+        // Add button/space to toolbar
+        toolbar.setItems([flexSpace, doneButton], animated: false)
         toolbar.userInteractionEnabled = true
         toolbar.sizeToFit()
         
+        // This allows street type picker view to appear modally
         self.streetTypeTextField.inputView = streetTypePickerView
+        
+        // This goes above the modal street type picker view when street type text field is tapped
         self.streetTypeTextField.inputAccessoryView = toolbar
         
+        // picker view color
+        streetTypePickerView.backgroundColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
         
         streetTypePickerView.delegate = self
         streetTypePickerView.dataSource = self
-        streetTypePickerView.backgroundColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
-        
+
         self.setDefaultPickerChoice()
         
     }
     
     
-    
+    //MARK: -
+    //MARK: STREET PICKER VIEW DATASOURCE/DELEGATE METHODS
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         
         return 1
@@ -76,18 +83,30 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        userStreetType = streetTypeData[row]
+        streetType = streetTypeData[row]
         
-        print("Street type is: \(userStreetType)")
+        print("Street type is: \(streetType)")
         
     }
     
+    // Change picker text color attribute to white
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        let options = streetTypeData[row]
+        
+        return NSAttributedString(string: options, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+        
+    }
+    
+    
+    // Action when done button pressed in street type picker toolbar
     func donePressed(){
         
         view.endEditing(true)
         
+        streetTypeTextField.text = streetType
         
-        print("street type in donePressed: \(userStreetType)")
+        print("street type in donePressed: \(streetType)")
         
     }
     
@@ -100,7 +119,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let row = self.streetTypePickerView.selectedRowInComponent(0)
         
         // Set street type default (UIPickerViewDelegate methods called only when action received)
-        userStreetType = streetTypeData[row]
+        streetType = streetTypeData[row]
         
     }
     
@@ -108,13 +127,15 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         let todoEndpoint: String = "https://data.austintexas.gov/resource/hp3m-f33e.json"
         
+        let userHouseNum = numTextField.text ?? ""
+
         let userStreetName = streetTextField.text?.uppercaseString ?? ""
         
-        let userHouseNum = numTextField.text ?? ""
+        let userStreetType = streetType ?? ""
         
-        if userStreetName == "" || userHouseNum == "" {
+        if userStreetName == "" || userHouseNum == "" || userStreetType == "" {
             
-            let alert = UIAlertController.init(title: "Not so fast", message: "Please fill out both house number and street name", preferredStyle: .Alert)
+            let alert = UIAlertController.init(title: "Not so fast", message: "Please fill out all fields", preferredStyle: .Alert)
             
             let okAction = UIAlertAction(title: "OK", style: .Default, handler: { (UIAlertAction) in
                 
@@ -128,7 +149,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
         } else {
             
-            let params = ["street_nam": "\(userStreetName)", "house_no":"\(userHouseNum)"]
+            let params = ["house_no":"\(userHouseNum)", "street_nam": "\(userStreetName)", "street_typ":"\(userStreetType)"]
             
             Alamofire.request(.GET, todoEndpoint, parameters: params)
                 .responseJSON { response in

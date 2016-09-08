@@ -170,7 +170,8 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
         
     }
-
+    
+    // Hittin up that 'Search' btn
     @IBAction func submitRequest(sender: AnyObject) {
         
         // Makes call to recycling schedule backend with completion handler
@@ -186,10 +187,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 self.collectionDayLabel.text = jsonCollectionDay
                 self.collectionWeekLabel.text = jsonCollectionWeek
                 
-                //print("Your collection day is: \(json[0]["collection_day"]) \nYour collection schedule is: \(json[0]["collection_week"])")
-                
-                //print("Json: \(json)")
-                
             } else {
                 
                 let alert = UIAlertController.init(title: "Not Found", message: "Unable to locate address. Please try again.", preferredStyle: .Alert)
@@ -203,7 +200,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 alert.addAction(okAction)
                 
                 self.presentViewController(alert, animated: true, completion: nil)
-
                 
             }
         }
@@ -211,8 +207,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
 //    userDefaults.setObject(residencePickerChoice!, forKey: "recyclingPref")
 //    userDefaults.synchronize()
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

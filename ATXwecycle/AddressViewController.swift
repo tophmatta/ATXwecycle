@@ -28,6 +28,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var streetTypeData = ["", "ST", "RD", "DR", "LN", "CIR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
     
     let streetTypePickerView = UIPickerView()
+    let globalFuncs = Main()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,11 +59,13 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
         self.setDefaultPickerChoice()
         
+        self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
+        
     }
     
     
     //MARK: -
-    //MARK: STREET PICKER VIEW DATASOURCE/DELEGATE METHODS
+    //MARK: STREET PICKER VIEW DATASOURCE & DELEGATE METHODS
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         
         return 1
@@ -98,7 +101,8 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
-    
+    //MARK: -
+    //MARK: UI ELEMENT METHODS
     // Action when done button pressed in street type picker toolbar
     func donePressed(){
         
@@ -107,6 +111,13 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         streetTypeTextField.text = streetType
         
         print("street type in donePressed: \(streetType)")
+        
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
         
     }
     
@@ -123,6 +134,51 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
+    // Hittin up that 'Search' btn
+    @IBAction func submitRequest(sender: AnyObject) {
+        
+        // Makes call to recycling schedule backend with completion handler
+        self.hitAPI { (data, error) in
+            
+            let json = JSON(data!)
+            let jsonCollectionDay = json[0]["collection_day"].string
+            let jsonCollectionWeek = json[0]["collection_week"].string
+            
+            if jsonCollectionDay != nil && jsonCollectionWeek != nil {
+                
+                // Chose not to loop JSON to eliminate getting multiple dictionaries for multiple duplex/apt units (A,B,C,etc.) since only using street and address to find recycling schedule
+                self.collectionDayLabel.text = jsonCollectionDay
+                self.collectionWeekLabel.text = jsonCollectionWeek
+                
+            } else {
+                
+                // Alert msg
+                let alert = UIAlertController.init(title: "Not Found", message: "Unable to locate address. Please try again.", preferredStyle: .Alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .Default, handler: { action in
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                })
+                
+                alert.addAction(okAction)
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+            }
+        }
+    }
+    
+    @IBAction func saveData(sender: AnyObject) {
+        
+        //TODO:
+        
+    }
+    
+    
+    
+    //MARK: -
+    //MARK: API CALL METHOD
     func hitAPI(completionHandler: (AnyObject?, NSError?) -> ()){
         
         let todoEndpoint: String = "https://data.austintexas.gov/resource/hp3m-f33e.json"
@@ -171,39 +227,8 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
-    // Hittin up that 'Search' btn
-    @IBAction func submitRequest(sender: AnyObject) {
-        
-        // Makes call to recycling schedule backend with completion handler
-        self.hitAPI { (data, error) in
-            
-            let json = JSON(data!)
-            let jsonCollectionDay = json[0]["collection_day"].string
-            let jsonCollectionWeek = json[0]["collection_week"].string
-
-            if jsonCollectionDay != nil && jsonCollectionWeek != nil {
-                
-                // Chose not to loop JSON to eliminate getting multiple dictionaries for multiple duplex/apt units (A,B,C,etc.) since only using street and address to find recycling schedule
-                self.collectionDayLabel.text = jsonCollectionDay
-                self.collectionWeekLabel.text = jsonCollectionWeek
-                
-            } else {
-                
-                let alert = UIAlertController.init(title: "Not Found", message: "Unable to locate address. Please try again.", preferredStyle: .Alert)
-                
-                let okAction = UIAlertAction(title: "OK", style: .Default, handler: { action in
-                    
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                    
-                })
-                
-                alert.addAction(okAction)
-                
-                self.presentViewController(alert, animated: true, completion: nil)
-                
-            }
-        }
-    }
+    //UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1.0)
+    
     
 //    userDefaults.setObject(residencePickerChoice!, forKey: "recyclingPref")
 //    userDefaults.synchronize()

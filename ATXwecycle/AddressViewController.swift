@@ -9,60 +9,83 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import CoreLocation
 
 //TODO: clean up view transitions once user finds recycling schedule, take out use of global variable and use singleton, Save pref. IBAction, UI design for address view (fix movement of stack views for collection day and schedule outlets), using mapkit or google maps API to have user allow use of location and use nearest address (if at home) to look up pref. rather than entering info, finish textfield event handling (touching outside of keyboard, adding done btn)
 
-// STREET TYPES: ["ST", "LN", "CIR", "DR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "RD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
-
-
-class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet weak var numTextField: UITextField!
     @IBOutlet weak var streetTextField: UITextField!
     @IBOutlet weak var streetTypeTextField: UITextField!
-    
     @IBOutlet weak var collectionDayLabel: UILabel!
     @IBOutlet weak var collectionWeekLabel: UILabel!
+    
+    var locationManager:CLLocationManager!
     
     var streetType:String?
     var streetTypeData = ["", "ST", "RD", "DR", "LN", "CIR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
     
     let streetTypePickerView = UIPickerView()
     let globalFuncs = Main()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create instance of toolbar for modal street type picker view
-        let toolbar = UIToolbar()
+        self.configurePicker()
         
-        // Add 'done' button and use flexible space to align it to right of toolbar
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(donePressed))
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        
-        // Add button/space to toolbar
-        toolbar.setItems([flexSpace, doneButton], animated: false)
-        toolbar.userInteractionEnabled = true
-        toolbar.sizeToFit()
-        
-        // This allows street type picker view to appear modally
-        self.streetTypeTextField.inputView = streetTypePickerView
-        
-        // This goes above the modal street type picker view when street type text field is tapped
-        self.streetTypeTextField.inputAccessoryView = toolbar
-        
-        // picker view color
-        streetTypePickerView.backgroundColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
-        
-        streetTypePickerView.delegate = self
-        streetTypePickerView.dataSource = self
-
-        self.setDefaultPickerChoice()
+        self.configureLocation()
         
         self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
         
     }
     
+    //MARK: -
+    //MARK: CORE LOCATION
+    func configureLocation(){
+        
+        locationManager = CLLocationManager()
+        
+        locationManager.delegate = self
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        checkCoreLocationPermission()
+        
+    }
+    
+    func checkCoreLocationPermission(){
+        
+        let authStatus = CLLocationManager.authorizationStatus()
+        
+        switch authStatus {
+        case .AuthorizedWhenInUse, .AuthorizedAlways:
+            locationManager.startUpdatingLocation()
+        case .NotDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .Restricted:
+            // put alert view explaining
+            print("unauthorized to use location services")
+        default:
+            break
+        }
+        
+//        if authStatus == .AuthorizedWhenInUse {
+//            
+//            
+//            
+//        } else if authStatus == .NotDetermined {
+//            
+//            
+//            
+//        } else if authStatus == .Restricted {
+//            
+//            print
+//            
+//        }
+        
+    }
     
     //MARK: -
     //MARK: STREET PICKER VIEW DATASOURCE & DELEGATE METHODS
@@ -88,8 +111,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         streetType = streetTypeData[row]
         
-        print("Street type is: \(streetType)")
-        
     }
     
     // Change picker text color attribute to white
@@ -110,27 +131,12 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         streetTypeTextField.text = streetType
         
-        print("street type in donePressed: \(streetType)")
-        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         view.endEditing(true)
         super.touchesBegan(touches, withEvent: event)
-        
-    }
-    
-    // Manually select picker choice (needed for a UIPicker if no event received by UIPickerViewDelegate)
-    func setDefaultPickerChoice(){
-        
-        // Manually set default picker value
-        self.streetTypePickerView.selectRow(0, inComponent: 0, animated: false)
-        
-        let row = self.streetTypePickerView.selectedRowInComponent(0)
-        
-        // Set street type default (UIPickerViewDelegate methods called only when action received)
-        streetType = streetTypeData[row]
         
     }
     
@@ -175,6 +181,43 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
+    // Picker customization method
+    
+    func configurePicker(){
+        
+        // Manually set default picker value as first (blank) choice
+        self.streetTypePickerView.selectRow(0, inComponent: 0, animated: false)
+        
+        let row = self.streetTypePickerView.selectedRowInComponent(0)
+        
+        // Set street type default (UIPickerViewDelegate methods called only when action received)
+        streetType = streetTypeData[row]
+        
+        // Create instance of toolbar for modal street type picker view
+        let toolbar = UIToolbar()
+        
+        // Add 'done' button and use flexible space to align it to right of toolbar
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(donePressed))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        
+        // Add button/space to toolbar
+        toolbar.setItems([flexSpace, doneButton], animated: false)
+        toolbar.userInteractionEnabled = true
+        toolbar.sizeToFit()
+        
+        // This allows street type picker view to appear modally
+        self.streetTypeTextField.inputView = streetTypePickerView
+        
+        // This goes above the modal street type picker view when street type text field is tapped
+        self.streetTypeTextField.inputAccessoryView = toolbar
+        
+        // picker view color
+        streetTypePickerView.backgroundColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
+        
+        streetTypePickerView.delegate = self
+        streetTypePickerView.dataSource = self
+        
+    }
     
     
     //MARK: -

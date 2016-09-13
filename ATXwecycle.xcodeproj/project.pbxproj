@@ -10,6 +10,7 @@
 		195B15941D3FFF0ABA7DFE42 /* Pods_ATXwecycleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AB816308F4DA238FAB25B1 /* Pods_ATXwecycleUITests.framework */; };
 		2593307D65CE5F6E2627AFCF /* Pods_ATXwecycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D9BE75A89F34A72ED80FF8 /* Pods_ATXwecycle.framework */; };
 		6DCBAD921D63FC050016D647 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCBAD911D63FC050016D647 /* AddressViewController.swift */; };
+		6DCC46E61D875FFD001B58C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DCC46E51D875FFD001B58C3 /* CoreLocation.framework */; };
 		6DD07DAA1C67961C00DCD864 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD07DA91C67961C00DCD864 /* WebViewController.swift */; };
 		6DE22E891C5E64B000C5C38F /* TreeSit.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E861C5E64B000C5C38F /* TreeSit.JPG */; };
 		6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */; };
@@ -52,6 +53,7 @@
 		586BFA95049429A20EF2621D /* Pods-ATXwecycleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6411F2C21EB4D7D47E7E2948 /* Pods-ATXwecycleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleUITests/Pods-ATXwecycleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6DCBAD911D63FC050016D647 /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		6DCC46E51D875FFD001B58C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6DD07DA91C67961C00DCD864 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6DE22E861C5E64B000C5C38F /* TreeSit.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TreeSit.JPG; sourceTree = "<group>"; };
 		6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SouthRimStanding.jpg; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DCC46E61D875FFD001B58C3 /* CoreLocation.framework in Frameworks */,
 				2593307D65CE5F6E2627AFCF /* Pods_ATXwecycle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +142,7 @@
 		F14C28E945DC89664E3AF555 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6DCC46E51D875FFD001B58C3 /* CoreLocation.framework */,
 				C8D9BE75A89F34A72ED80FF8 /* Pods_ATXwecycle.framework */,
 				D6C4930FF371DF8F34FD8A89 /* Pods_ATXwecycleTests.framework */,
 				A3AB816308F4DA238FAB25B1 /* Pods_ATXwecycleUITests.framework */,

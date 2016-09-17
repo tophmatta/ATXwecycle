@@ -26,6 +26,8 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var streetType:String?
     var streetTypeData = ["", "ST", "RD", "DR", "LN", "CIR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
     
+    let authStatus = CLLocationManager.authorizationStatus()
+    
     let streetTypePickerView = UIPickerView()
     let globalFuncs = Main()
     
@@ -41,8 +43,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
-    //MARK: -
-    //MARK: CORE LOCATION
+    //MARK: - CORE LOCATION
     func configureLocation(){
         
         locationManager = CLLocationManager()
@@ -52,18 +53,20 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         checkCoreLocationPermission()
+
         
     }
     
     func checkCoreLocationPermission(){
         
-        let authStatus = CLLocationManager.authorizationStatus()
         
         switch authStatus {
-        case .AuthorizedWhenInUse, .AuthorizedAlways:
-            locationManager.startUpdatingLocation()
+        case .AuthorizedWhenInUse:
+            print("Loc. already authorized")
         case .NotDetermined:
+            print("auth status not determined")
             locationManager.requestWhenInUseAuthorization()
+            //locationManager.requestLocation()
         case .Restricted:
             // put alert view explaining
             print("unauthorized to use location services")
@@ -71,24 +74,35 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             break
         }
         
-//        if authStatus == .AuthorizedWhenInUse {
-//            
-//            
-//            
-//        } else if authStatus == .NotDetermined {
-//            
-//            
-//            
-//        } else if authStatus == .Restricted {
-//            
-//            print
-//            
-//        }
+    }
+    
+    //MARK: CL LOCATION MANAGER DELEGATE METHODS
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if authStatus != .Restricted {
+            
+            let latitude = locations.last?.coordinate.latitude
+            let longitude = locations.last?.coordinate.longitude
+            
+            print("latitude: \(latitude); longitude: \(longitude)")
+        }
         
     }
     
-    //MARK: -
-    //MARK: STREET PICKER VIEW DATASOURCE & DELEGATE METHODS
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        
+        print("\(status)")
+        
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        
+        print(error)
+        
+    }
+
+    
+    //MARK: - STREET PICKER VIEW DATASOURCE & DELEGATE METHODS
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         
         return 1
@@ -122,8 +136,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
-    //MARK: -
-    //MARK: UI ELEMENT METHODS
+    //MARK: - UI ELEMENT METHODS
     // Action when done button pressed in street type picker toolbar
     func donePressed(){
         
@@ -220,11 +233,10 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     
-    //MARK: -
-    //MARK: API CALL METHOD
+    //MARK: - API CALL METHOD
     func hitAPI(completionHandler: (AnyObject?, NSError?) -> ()){
         
-        let todoEndpoint: String = "https://data.austintexas.gov/resource/hp3m-f33e.json"
+        let toDoEndpoint: String = "https://data.austintexas.gov/resource/hp3m-f33e.json"
         
         let userHouseNum = numTextField.text ?? ""
 
@@ -250,7 +262,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
             let params = ["house_no":"\(userHouseNum)", "street_nam": "\(userStreetName)", "street_typ":"\(userStreetType)"]
             
-            Alamofire.request(.GET, todoEndpoint, parameters: params)
+            Alamofire.request(.GET, toDoEndpoint, parameters: params)
                 .responseJSON { response in
                     
                     switch response.result {
@@ -275,13 +287,5 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
 //    userDefaults.setObject(residencePickerChoice!, forKey: "recyclingPref")
 //    userDefaults.synchronize()
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    
 
 }

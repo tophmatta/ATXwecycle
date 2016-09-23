@@ -61,13 +61,13 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         
         switch authStatus {
-        case .AuthorizedWhenInUse:
+        case .authorizedWhenInUse:
             print("Loc. already authorized")
-        case .NotDetermined:
+        case .notDetermined:
             print("auth status not determined")
             locationManager.requestWhenInUseAuthorization()
             //locationManager.requestLocation()
-        case .Restricted:
+        case .restricted:
             // put alert view explaining
             print("unauthorized to use location services")
         default:
@@ -77,9 +77,9 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     //MARK: CL LOCATION MANAGER DELEGATE METHODS
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if authStatus != .Restricted {
+        if authStatus != .restricted {
             
             let latitude = locations.last?.coordinate.latitude
             let longitude = locations.last?.coordinate.longitude
@@ -89,13 +89,13 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         print("\(status)")
         
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
         print(error)
         
@@ -103,36 +103,36 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     
     //MARK: - STREET PICKER VIEW DATASOURCE & DELEGATE METHODS
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         return 1
         
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         return streetTypeData.count
         
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         return streetTypeData[row]
         
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         streetType = streetTypeData[row]
         
     }
     
     // Change picker text color attribute to white
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
         let options = streetTypeData[row]
         
-        return NSAttributedString(string: options, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+        return NSAttributedString(string: options, attributes: [NSForegroundColorAttributeName:UIColor.white])
         
     }
     
@@ -146,15 +146,15 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         view.endEditing(true)
-        super.touchesBegan(touches, withEvent: event)
+        super.touchesBegan(touches, with: event)
         
     }
     
     // Hittin up that 'Search' btn
-    @IBAction func submitRequest(sender: AnyObject) {
+    @IBAction func submitRequest(_ sender: AnyObject) {
         
         // Makes call to recycling schedule backend with completion handler
         self.hitAPI { (data, error) in
@@ -172,23 +172,23 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             } else {
                 
                 // Alert msg
-                let alert = UIAlertController.init(title: "Not Found", message: "Unable to locate address. Please try again.", preferredStyle: .Alert)
+                let alert = UIAlertController.init(title: "Not Found", message: "Unable to locate address. Please try again.", preferredStyle: .alert)
                 
-                let okAction = UIAlertAction(title: "OK", style: .Default, handler: { action in
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
                     
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
                     
                 })
                 
                 alert.addAction(okAction)
                 
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)
                 
             }
         }
     }
     
-    @IBAction func saveData(sender: AnyObject) {
+    @IBAction func saveData(_ sender: AnyObject) {
         
         //TODO:
         
@@ -201,7 +201,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Manually set default picker value as first (blank) choice
         self.streetTypePickerView.selectRow(0, inComponent: 0, animated: false)
         
-        let row = self.streetTypePickerView.selectedRowInComponent(0)
+        let row = self.streetTypePickerView.selectedRow(inComponent: 0)
         
         // Set street type default (UIPickerViewDelegate methods called only when action received)
         streetType = streetTypeData[row]
@@ -210,12 +210,12 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let toolbar = UIToolbar()
         
         // Add 'done' button and use flexible space to align it to right of toolbar
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(donePressed))
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(donePressed))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         // Add button/space to toolbar
         toolbar.setItems([flexSpace, doneButton], animated: false)
-        toolbar.userInteractionEnabled = true
+        toolbar.isUserInteractionEnabled = true
         toolbar.sizeToFit()
         
         // This allows street type picker view to appear modally
@@ -234,44 +234,44 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     
     //MARK: - API CALL METHOD
-    func hitAPI(completionHandler: (AnyObject?, NSError?) -> ()){
+    func hitAPI(_ completionHandler: @escaping (Any?, Error?) -> ()){
         
         let toDoEndpoint: String = "https://data.austintexas.gov/resource/hp3m-f33e.json"
         
         let userHouseNum = numTextField.text ?? ""
 
-        let userStreetName = streetTextField.text?.uppercaseString ?? ""
+        let userStreetName = streetTextField.text?.uppercased() ?? ""
         
         let userStreetType = streetType ?? ""
         
         if userStreetName == "" || userHouseNum == "" || userStreetType == "" {
             
-            let alert = UIAlertController.init(title: "Not so fast", message: "Please fill out all fields", preferredStyle: .Alert)
+            let alert = UIAlertController.init(title: "Not so fast", message: "Please fill out all fields", preferredStyle: .alert)
             
-            let okAction = UIAlertAction(title: "OK", style: .Default, handler: { (UIAlertAction) in
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
                 
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
                 
             })
             
             alert.addAction(okAction)
             
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
             
         } else {
             
             let params = ["house_no":"\(userHouseNum)", "street_nam": "\(userStreetName)", "street_typ":"\(userStreetType)"]
             
-            Alamofire.request(.GET, toDoEndpoint, parameters: params)
+            Alamofire.request(toDoEndpoint, method: .get, parameters: params)
                 .responseJSON { response in
                     
                     switch response.result {
                         
-                    case .Success(let value):
+                    case .success(let value):
                         
                         completionHandler(value, nil)
                         
-                    case .Failure(let error):
+                    case .failure(let error):
                         
                         completionHandler(nil, error)
                         

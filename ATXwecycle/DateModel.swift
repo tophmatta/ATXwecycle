@@ -10,15 +10,15 @@ import UIKit
 
 class DateModel: NSObject {
     
-    let calendar = NSCalendar.currentCalendar()
+    let calendar = Calendar.current
     
-    var todaysDate = NSDate()
+    var todaysDate = Date()
     
     // MARK: Generating recycle dates to be checked
     
-    var recycleDatesArr = [NSDate]()
+    var recycleDatesArr = [Date]()
     
-    var recycleWeekStartDate: NSDate?
+    var recycleWeekStartDate: Date?
     
     // Generates recycling date schedule and appends to array
     func setUpRecycleDatesArray(){
@@ -44,7 +44,7 @@ class DateModel: NSObject {
             // Add initial recycle week start date plus 5 days after to recycle dates array to mimic a Sun-Fri interval
             for i in 0...5 {
                 
-                if let futureDate = recycleWeekStartDate?.dateByAddingTimeInterval(day * Double(i)) {
+                if let futureDate = recycleWeekStartDate?.addingTimeInterval(day * Double(i)) {
                     
                     recycleDatesArr.append(futureDate)
                     
@@ -52,16 +52,16 @@ class DateModel: NSObject {
             }
                 
             // Adds 2 weeks onto date counter
-            recycleWeekStartDate = recycleWeekStartDate?.dateByAddingTimeInterval(day * 14)
+            recycleWeekStartDate = recycleWeekStartDate?.addingTimeInterval(day * 14)
                 
         }
         
     }
     
     // MARK: Converting NSDate <-> String & date checking methods
-    private static var dateFormatter: NSDateFormatter = {
+    fileprivate static var dateFormatter: DateFormatter = {
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         
         dateFormatter.dateFormat = "MM-dd-yyyy"
         
@@ -70,17 +70,17 @@ class DateModel: NSObject {
     }()
     
     // Takes a date in String form and spits out an NSDate in format specified in 'dateFormatter' lazy var
-    func convertStringToNSDate(dateString: String) -> NSDate {
+    func convertStringToNSDate(_ dateString: String) -> Date {
         
-        return DateModel.dateFormatter.dateFromString(dateString)!
+        return DateModel.dateFormatter.date(from: dateString)!
         
     }
     
     
     // Takes an NSDate and spits out the string version of it
-    func convertNSDateToString(date: NSDate) -> String {
+    func convertNSDateToString(_ date: Date) -> String {
         
-        return DateModel.dateFormatter.stringFromDate(date)
+        return DateModel.dateFormatter.string(from: date)
         
     }
     

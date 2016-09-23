@@ -23,13 +23,13 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     // Initialize web view
     required init?(coder aDecoder: NSCoder) {
         
-        self.webView = WKWebView(frame: CGRectZero)
+        self.webView = WKWebView(frame: CGRect.zero)
         
         super.init(coder: aDecoder)
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         self.loadWebView()
         
@@ -57,18 +57,18 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     func loadWebView(){
         
         // Create session
-        let session = NSURLSession.sharedSession()
+        let session = URLSession.shared
         
-        let url = NSURL(string: "https://www.austintexas.gov/sites/default/files/files/Resource_Recovery/RecyclingCalendar_2016_web_week-A.pdf")
+        let url = URL(string: "https://www.austintexas.gov/sites/default/files/files/Resource_Recovery/RecyclingCalendar_2016_web_week-A.pdf")
         
-        let request = NSURLRequest(URL: url!)
+        let request = URLRequest(url: url!)
         
         // Async request
-        let dataTask = session.dataTaskWithRequest(request) { (data, response, error) in
+        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) in
             
-            self.webView.loadRequest(request)
+            self.webView.load(request)
             
-        }
+        }) 
         
         dataTask.resume()
         
@@ -89,17 +89,17 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         
         
         // Set ht. for label view in terms of fraction of frame size
-        let labelViewHeight = NSLayoutConstraint(item: labelView, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1, constant: labelViewHeightRatio)
+        let labelViewHeight = NSLayoutConstraint(item: labelView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: labelViewHeightRatio)
         
         
         // Set web view manual constraints
-        let webViewTop = NSLayoutConstraint(item: webView, attribute: .Top, relatedBy: .Equal, toItem: labelView, attribute: .Bottom, multiplier: 1, constant: 0)
+        let webViewTop = NSLayoutConstraint(item: webView, attribute: .top, relatedBy: .equal, toItem: labelView, attribute: .bottom, multiplier: 1, constant: 0)
         
-        let webViewLeft = NSLayoutConstraint(item: webView, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1, constant: 0)
+        let webViewLeft = NSLayoutConstraint(item: webView, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1, constant: 0)
         
-        let webViewRight = NSLayoutConstraint(item: webView, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1, constant: 0)
+        let webViewRight = NSLayoutConstraint(item: webView, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1, constant: 0)
         
-        let webViewBottom = NSLayoutConstraint(item: webView, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: 0)
+        let webViewBottom = NSLayoutConstraint(item: webView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
         
         self.view.addConstraints([labelViewHeight, webViewTop, webViewLeft, webViewRight, webViewBottom])
         
@@ -111,7 +111,7 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         // Manually set default picker value
         self.yesNoPicker.selectRow(0, inComponent: 0, animated: false)
         
-        let row = self.yesNoPicker.selectedRowInComponent(0)
+        let row = self.yesNoPicker.selectedRow(inComponent: 0)
         
         residencePickerChoice = yesNoPickerData[row]
         
@@ -121,36 +121,36 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     // MARK: Delegate Methods
     
     // The # of col. of data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         return 1
         
     }
     
     // # of rows in picker view
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         return yesNoPickerData.count
     }
     
     // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         return yesNoPickerData[row]
         
     }
     
     // Change picker text color attribute
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
         let options = yesNoPickerData[row]
         
-        return NSAttributedString(string: options, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+        return NSAttributedString(string: options, attributes: [NSForegroundColorAttributeName:UIColor.white])
         
     }
     
     // Picker selection made (Note: Only when picker is moved. See default picker func for when no interaction is made)
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         residencePickerChoice = yesNoPickerData[row]
         
@@ -160,12 +160,12 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     // MARK: IBActions
     
     // Action has manual segue connection from 'VC' yellow icon (above storyboard view) to ViewController. Segue created from button to said view would not trigger IBAction code block.
-    @IBAction func nextBtnPressed(sender: AnyObject) {
+    @IBAction func nextBtnPressed(_ sender: AnyObject) {
         
-        userDefaults.setObject(residencePickerChoice!, forKey: "recyclingPref")
+        userDefaults.set(residencePickerChoice!, forKey: "recyclingPref")
         userDefaults.synchronize()
         
-        self.performSegueWithIdentifier("tomainvc", sender: self)
+        self.performSegue(withIdentifier: "tomainvc", sender: self)
                 
     }
     

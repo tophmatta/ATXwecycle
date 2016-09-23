@@ -15,10 +15,14 @@
 		6DE22E891C5E64B000C5C38F /* TreeSit.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E861C5E64B000C5C38F /* TreeSit.JPG */; };
 		6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */; };
 		C1AB530D6BC677701392ECB7 /* Pods_ATXwecycleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C4930FF371DF8F34FD8A89 /* Pods_ATXwecycleTests.framework */; };
+		F1471C261D90CE5E00D2DB16 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D96E4F1D8F691400DCC2A5 /* Alamofire.framework */; };
+		F1471C271D90CE5E00D2DB16 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1D96E4F1D8F691400DCC2A5 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F16B58971C433D3B0027B34B /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B58961C433D3B0027B34B /* DateModel.swift */; };
 		F176EEFB1C5D136600E4BBD7 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = F176EEFA1C5D136600E4BBD7 /* UIImageEffects.m */; };
 		F192D0121C6237AC00B9F1C3 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192D0111C6237AC00B9F1C3 /* global.swift */; };
 		F19E854C1C622EFD007488FB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E854B1C622EFD007488FB /* SettingViewController.swift */; };
+		F1D96E4E1D8F68D400DCC2A5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D96E4D1D8F68D400DCC2A5 /* SwiftyJSON.framework */; };
+		F1D96E501D8F691400DCC2A5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D96E4F1D8F691400DCC2A5 /* Alamofire.framework */; };
 		F1E764781C3F5E1A009DC9BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E764771C3F5E1A009DC9BA /* AppDelegate.swift */; };
 		F1E7647A1C3F5E1A009DC9BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E764791C3F5E1A009DC9BA /* ViewController.swift */; };
 		F1E7647D1C3F5E1A009DC9BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1E7647B1C3F5E1A009DC9BA /* Main.storyboard */; };
@@ -45,6 +49,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F1471C281D90CE5E00D2DB16 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F1471C271D90CE5E00D2DB16 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		184F7DA725ADD26906461DE9 /* Pods-ATXwecycle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycle.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle.release.xcconfig"; sourceTree = "<group>"; };
 		3B41A22B7973F306F0A3773F /* Pods-ATXwecycleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleUITests/Pods-ATXwecycleUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +87,8 @@
 		F176EEFA1C5D136600E4BBD7 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageEffects.m; sourceTree = "<group>"; };
 		F192D0111C6237AC00B9F1C3 /* global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
 		F19E854B1C622EFD007488FB /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		F1D96E4D1D8F68D400DCC2A5 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ATXwecycle-ferrijvgaepwqldwrxdvcdadgjam/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		F1D96E4F1D8F691400DCC2A5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ATXwecycle-ferrijvgaepwqldwrxdvcdadgjam/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		F1E764741C3F5E1A009DC9BA /* ATXwecycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATXwecycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E764771C3F5E1A009DC9BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E764791C3F5E1A009DC9BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +109,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D96E501D8F691400DCC2A5 /* Alamofire.framework in Frameworks */,
+				F1D96E4E1D8F68D400DCC2A5 /* SwiftyJSON.framework in Frameworks */,
 				6DCC46E61D875FFD001B58C3 /* CoreLocation.framework in Frameworks */,
+				F1471C261D90CE5E00D2DB16 /* Alamofire.framework in Frameworks */,
 				2593307D65CE5F6E2627AFCF /* Pods_ATXwecycle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +165,8 @@
 		F14C28E945DC89664E3AF555 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1D96E4F1D8F691400DCC2A5 /* Alamofire.framework */,
+				F1D96E4D1D8F68D400DCC2A5 /* SwiftyJSON.framework */,
 				6DCC46E51D875FFD001B58C3 /* CoreLocation.framework */,
 				C8D9BE75A89F34A72ED80FF8 /* Pods_ATXwecycle.framework */,
 				D6C4930FF371DF8F34FD8A89 /* Pods_ATXwecycleTests.framework */,
@@ -226,12 +251,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1E7649C1C3F5E1A009DC9BA /* Build configuration list for PBXNativeTarget "ATXwecycle" */;
 			buildPhases = (
-				60F0E2ECA6A74B32EADA5151 /* 📦 Check Pods Manifest.lock */,
+				60F0E2ECA6A74B32EADA5151 /* [CP] Check Pods Manifest.lock */,
 				F1E764701C3F5E1A009DC9BA /* Sources */,
 				F1E764711C3F5E1A009DC9BA /* Frameworks */,
 				F1E764721C3F5E1A009DC9BA /* Resources */,
-				5D9C7326C92ABBF6F9CECD67 /* 📦 Embed Pods Frameworks */,
-				1F38DD7571A0B950154DB399 /* 📦 Copy Pods Resources */,
+				5D9C7326C92ABBF6F9CECD67 /* [CP] Embed Pods Frameworks */,
+				1F38DD7571A0B950154DB399 /* [CP] Copy Pods Resources */,
+				F1471C281D90CE5E00D2DB16 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,12 +272,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1E7649F1C3F5E1A009DC9BA /* Build configuration list for PBXNativeTarget "ATXwecycleTests" */;
 			buildPhases = (
-				8BFBBF8B0D325F37E2844938 /* 📦 Check Pods Manifest.lock */,
+				8BFBBF8B0D325F37E2844938 /* [CP] Check Pods Manifest.lock */,
 				F1E764841C3F5E1A009DC9BA /* Sources */,
 				F1E764851C3F5E1A009DC9BA /* Frameworks */,
 				F1E764861C3F5E1A009DC9BA /* Resources */,
-				24FFFBD04505DE35D0F44A14 /* 📦 Embed Pods Frameworks */,
-				5463284F98BDAAA14E648ADE /* 📦 Copy Pods Resources */,
+				24FFFBD04505DE35D0F44A14 /* [CP] Embed Pods Frameworks */,
+				5463284F98BDAAA14E648ADE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,11 +293,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1E764A21C3F5E1A009DC9BA /* Build configuration list for PBXNativeTarget "ATXwecycleUITests" */;
 			buildPhases = (
-				578F90240B14CF99B330090E /* 📦 Check Pods Manifest.lock */,
+				578F90240B14CF99B330090E /* [CP] Check Pods Manifest.lock */,
 				F1E7648F1C3F5E1A009DC9BA /* Sources */,
 				F1E764901C3F5E1A009DC9BA /* Frameworks */,
 				F1E764911C3F5E1A009DC9BA /* Resources */,
-				D762267E96365AA45D7A727C /* 📦 Copy Pods Resources */,
+				D762267E96365AA45D7A727C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -290,19 +316,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Toph Matta";
 				TargetAttributes = {
 					F1E764731C3F5E1A009DC9BA = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = XXRYJDD55J;
+						LastSwiftMigration = 0800;
 					};
 					F1E764871C3F5E1A009DC9BA = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = F1E764731C3F5E1A009DC9BA;
 					};
 					F1E764921C3F5E1A009DC9BA = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = F1E764731C3F5E1A009DC9BA;
 					};
 				};
@@ -357,14 +386,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1F38DD7571A0B950154DB399 /* 📦 Copy Pods Resources */ = {
+		1F38DD7571A0B950154DB399 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,14 +401,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		24FFFBD04505DE35D0F44A14 /* 📦 Embed Pods Frameworks */ = {
+		24FFFBD04505DE35D0F44A14 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,14 +416,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5463284F98BDAAA14E648ADE /* 📦 Copy Pods Resources */ = {
+		5463284F98BDAAA14E648ADE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,14 +431,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		578F90240B14CF99B330090E /* 📦 Check Pods Manifest.lock */ = {
+		578F90240B14CF99B330090E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,14 +446,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5D9C7326C92ABBF6F9CECD67 /* 📦 Embed Pods Frameworks */ = {
+		5D9C7326C92ABBF6F9CECD67 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,14 +461,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		60F0E2ECA6A74B32EADA5151 /* 📦 Check Pods Manifest.lock */ = {
+		60F0E2ECA6A74B32EADA5151 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,14 +476,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		8BFBBF8B0D325F37E2844938 /* 📦 Check Pods Manifest.lock */ = {
+		8BFBBF8B0D325F37E2844938 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,14 +491,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D762267E96365AA45D7A727C /* 📦 Copy Pods Resources */ = {
+		D762267E96365AA45D7A727C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,8 +588,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
@@ -581,6 +612,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Distribution;
@@ -589,6 +621,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AB2FE983D826800D1C78D1C /* Pods-ATXwecycle.distribution.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -599,6 +632,7 @@
 				PRODUCT_NAME = ATXwecycle;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ATXwecycle/ATXwecycle-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Distribution;
@@ -612,6 +646,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycleTests;
 				PRODUCT_NAME = ATXwecycle;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ATXwecycle.app/ATXwecycle";
 			};
 			name = Distribution;
@@ -624,6 +659,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycleUITests;
 				PRODUCT_NAME = ATXwecycle;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ATXwecycle;
 				USES_XCTRUNNER = YES;
 			};
@@ -642,8 +678,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
@@ -672,6 +710,7 @@
 				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -688,8 +727,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Chris Matta (XXRYJDD55J)";
@@ -710,6 +751,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -718,6 +761,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3C34AE99709382EA2B5C4664 /* Pods-ATXwecycle.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -729,6 +773,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ATXwecycle/ATXwecycle-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -737,6 +782,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 184F7DA725ADD26906461DE9 /* Pods-ATXwecycle.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -747,6 +793,7 @@
 				PRODUCT_NAME = ATXwecycle;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ATXwecycle/ATXwecycle-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -760,6 +807,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycleTests;
 				PRODUCT_NAME = ATXwecycle;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ATXwecycle.app/ATXwecycle";
 			};
 			name = Debug;
@@ -773,6 +821,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycleTests;
 				PRODUCT_NAME = ATXwecycle;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ATXwecycle.app/ATXwecycle";
 			};
 			name = Release;
@@ -785,6 +834,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycleUITests;
 				PRODUCT_NAME = ATXwecycle;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ATXwecycle;
 				USES_XCTRUNNER = YES;
 			};
@@ -798,6 +848,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Toph.ATXwecycleUITests;
 				PRODUCT_NAME = ATXwecycle;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ATXwecycle;
 				USES_XCTRUNNER = YES;
 			};

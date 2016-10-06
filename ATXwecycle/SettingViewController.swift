@@ -20,14 +20,18 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var nextButtonView: UIView!
     @IBOutlet weak var notSureView: UIView!
     
+    // MARK: - VC LIFECYCLE METHODS
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Format container views
-        welcomeLabelView.backgroundColor = UIColor(red: 46/255, green: 215/255, blue: 113/255, alpha: 1.0)
-        pickerQuestionView.backgroundColor = UIColor.black.withAlphaComponent(0.35)
-        nextButtonView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1.0)
-        notSureView.backgroundColor = UIColor(red: 52/255, green: 152/255, blue: 219/255, alpha: 1.0)
+        // Format container view's background color
+        self.setupSubviewBackgroundColors()
+        
         
         // Format background image
         self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
@@ -38,28 +42,85 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Define picker delegate/datasource
         self.schedulePicker.delegate = self
         self.schedulePicker.dataSource = self
-
+        
+        print("Before default: \(residencePickerChoice)")
+        
         // Set default picker choice in case there is no event
         self.setDefaultPickerChoice()
         
-    }
+        print("After default: \(residencePickerChoice)")
+
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        self.navigationController?.isNavigationBarHidden = false
+        
+    }
+    
+    // MARK: - FORMAT UI ELEMENTS
     // Manually select picker choice (needed for a UIPicker if no event received by UIPickerViewDelegate)
     func setDefaultPickerChoice(){
         
-        // Manually set default picker value
-        self.schedulePicker.selectRow(0, inComponent: 0, animated: false)
+        if residencePickerChoice == nil {
+            
+            // Manually set default picker value
+            self.schedulePicker.selectRow(0, inComponent: 0, animated: false)
+            
+            let row = self.schedulePicker.selectedRow(inComponent: 0)
+            
+            // Set variable to be saved into user defaults
+            residencePickerChoice = schedulePickerData[row]
+            
+        }
         
-        let row = self.schedulePicker.selectedRow(inComponent: 0)
+        func setRow(i:Int){
+            
+            // Manually set default picker value
+            self.schedulePicker.selectRow(i, inComponent: 0, animated: false)
+                                    
+        }
         
-        // Set variable to be saved into user defaults
-        residencePickerChoice = schedulePickerData[row]
+        if let resPC = residencePickerChoice {
+            
+            switch resPC {
+                
+            case "Week A":
+                setRow(i: 0)
+                
+            case "Week B":
+                setRow(i: 1)
+                
+            default:
+                setRow(i: 0)
+            }
+            
+        }
+    }
+    
+    func setupSubviewBackgroundColors(){
+        
+        pickerQuestionView.backgroundColor = UIColor.black.withAlphaComponent(0.35)
+
+        welcomeLabelView.backgroundColor = UIColor(red: 46/255,
+                                                   green: 215/255,
+                                                   blue: 113/255,
+                                                   alpha: 1.0)
+        
+        nextButtonView.backgroundColor = UIColor(red: 189/255,
+                                                 green: 195/255,
+                                                 blue: 199/255,
+                                                 alpha: 1.0)
+        
+        notSureView.backgroundColor = UIColor(red: 52/255,
+                                              green: 152/255,
+                                              blue: 219/255,
+                                              alpha: 1.0)
         
     }
     
-    // MARK: -
-    // MARK: Delegate Methods
-    
+    // MARK: - DELEGATE MEHTODS
     // The # of col. of data
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
@@ -97,9 +158,7 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
-    // MARK: -
-    // MARK: IBActions
-    
+    // MARK: - IBACTIONS
     @IBAction func nextButtonPressed(_ sender: AnyObject) {
         
         userDefaults.set(residencePickerChoice!, forKey: "recyclingPref")
@@ -107,13 +166,19 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "webvc" {
+            
+            let vc:WebViewController = segue.destination as! WebViewController
+            
+        }
+    }
+    
     @IBAction func noIdeaButtonPressed(_ sender: AnyObject) {
         
-        let webVC: UIViewController = self.storyboard!.instantiateViewController(withIdentifier: "webview")
-        
-        self.present(webVC, animated: true, completion: nil)
         
     }
+    
     
     // 'Placeholder' IBAction to signal storyboard which view to 'exit' to
     @IBAction func unwindToSettingVC(_ sender: UIStoryboardSegue) {

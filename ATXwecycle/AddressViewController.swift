@@ -11,8 +11,9 @@ import SwiftyJSON
 import Alamofire
 import CoreLocation
 
-//TODO: clean up view transitions once user finds recycling schedule, take out use of global variable and use singleton, Save pref. IBAction, UI design for address view (fix movement of stack views for collection day and schedule outlets), using mapkit or google maps API to have user allow use of location and use nearest address (if at home) to look up pref. rather than entering info, finish textfield event handling (touching outside of keyboard, adding done btn)
+//TODO: clean up view transitions once user finds recycling schedule, take out use of global variable and use singleton, Save pref. IBAction, finish textfield event handling (adding done btn), dim User loc button when location use is denied, handle tap of use loc. button using 'open settings' choice in alert controller (http://nshipster.com/core-location-in-ios-8/)
 
+// Note: You spent a lot of time using core loc for the first time and then later found out the problem was not adding a value into the .plist file for type of location use.
 class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet weak var numTextField: UITextField!
@@ -21,12 +22,12 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var collectionDayLabel: UILabel!
     @IBOutlet weak var collectionWeekLabel: UILabel!
     
-    var locationManager:CLLocationManager!
+    @IBOutlet weak var useLocBtn: UIButton!
+    
+    lazy var locationManager = CLLocationManager()
     
     var streetType:String?
     var streetTypeData = ["", "ST", "RD", "DR", "LN", "CIR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
-    
-    let authStatus = CLLocationManager.authorizationStatus()
     
     let streetTypePickerView = UIPickerView()
     let globalFuncs = Main()
@@ -36,71 +37,166 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
         
         self.configurePicker()
+        self.addDoneButtonOnKeyboard(textField: streetTypeTextField)
+        self.addDoneButtonOnKeyboard(textField: streetTextField)
+        self.addDoneButtonOnKeyboard(textField: numTextField)
         
-        self.configureLocation()
+        self.checkCoreLocationPermission()
         
         self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+        
     }
     
-    //MARK: - CORE LOCATION
-    func configureLocation(){
-        
-        locationManager = CLLocationManager()
+    
+    
+    @objc func applicationDidBecomeActive(){
         
         locationManager.delegate = self
         
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        checkCoreLocationPermission()
-
-        
+        print("active")
     }
     
+    //MARK: - CORE LOCATION
+    
     func checkCoreLocationPermission(){
-        
-        
-        switch authStatus {
+
+        switch CLLocationManager.authorizationStatus() {
+            
         case .authorizedWhenInUse:
-            print("Loc. already authorized")
-        case .notDetermined:
-            print("auth status not determined")
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+            useLocBtn.alpha = 1.0
+            print("auth stat - when in use")
+            
+        case .notDetermined, .restricted:
+            locationManager.delegate = self
             locationManager.requestWhenInUseAuthorization()
-            //locationManager.requestLocation()
-        case .restricted:
-            // put alert view explaining
-            print("unauthorized to use location services")
+            useLocBtn.alpha = 0.5
+            print("auth stat - nd")
+            
+        case .denied:
+            print("denied")
+            useLocBtn.alpha = 0.5
+            
         default:
             break
         }
         
     }
-    
-    //MARK: CL LOCATION MANAGER DELEGATE METHODS
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+    @IBAction func useLoc(_ sender: AnyObject) {
         
-        if authStatus != .restricted {
+        if useLocBtn.alpha == 0.5 {
             
-            let latitude = locations.last?.coordinate.latitude
-            let longitude = locations.last?.coordinate.longitude
+            // Alert msg w/ 'open settings'
+            let alert = UIAlertController.init(title: "Background Location Access Disabled", message: "In order to auto-populate your address info into the fields, please open the app settings and set location access to 'While In Use'.", preferredStyle: .alert)
             
-            print("latitude: \(latitude); longitude: \(longitude)")
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+            
+            let openAction = UIAlertAction(title: "Open Settings", style: .default, handler: { (action) in
+                if let url = NSURL(string: UIApplicationOpenSettingsURLString) {
+                    
+                    UIApplication.shared.openURL(url as URL)
+                    
+                }
+            })
+            
+            alert.addAction(openAction)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
+        
+        numTextField.text = ""
+        streetTextField.text = ""
+        streetTypeTextField.text = ""
+        
+        
+        CLGeocoder().reverseGeocodeLocation(locationManager.location!) { (placemarks, error) in
+            
+            if placemarks != nil {
+                
+                let pm = placemarks![0] as CLPlacemark
+                
+                let roadWithStreetType = pm.thoroughfare?.uppercased()
+                
+                // Obtain where first space occurs from endIndex backwards and remove the st. type and vice versa w/ the street name to produce the data separately.
+                
+                // Handles full street name/type and slices it into array street and street type for API call (e.g. "Ashwood Rd." => ["ASHWOOD", "RD"].
+                if let rwst = roadWithStreetType {
+                    
+                    // Take string w/ multiple substrings and creates array of separate strings elements
+                    let stringReplaceSpaceAndPeriod = rwst.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: " ", with: ",")
+                    let arr = stringReplaceSpaceAndPeriod.characters.split(separator: ",")
+                    let mappedArr = arr.map(String.init)
+                    
+                    // Store street type
+                    let streetTypeCL = mappedArr.last!
+                    
+                    // Remove from array
+                    let mappedArrRemoveStType = mappedArr.dropLast()
+                    
+                    // Join remaining substrings to put togther entire street name
+                    let streetNameCL = mappedArrRemoveStType.joined(separator: " ")
+                    
+                    self.streetTextField.text = streetNameCL
+                    self.streetTypeTextField.text = streetTypeCL
+                    self.streetType = streetTypeCL
+                    
+                    // Populates house #
+                    self.numTextField.text = pm.subThoroughfare
+
+                } else {
+                    
+                    // Alert msg
+                    let alert = UIAlertController.init(title: "Problem using location", message: "Please try again or manually enter in address info", preferredStyle: .alert)
+                    
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+                        
+                        self.dismiss(animated: true, completion: nil)
+                        
+                    })
+                    
+                    alert.addAction(okAction)
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    
+                }
+                
+                
+            }
+            
         }
         
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
-        print("\(status)")
+        checkCoreLocationPermission()
+        
+        print("did change auth status")
+        
         
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    @IBAction func clearBtn(_ sender: AnyObject) {
         
-        print(error)
+        numTextField.text = ""
+        streetTextField.text = ""
+        streetTypeTextField.text = ""
+        streetType = nil
+        
+        collectionDayLabel.text = ""
+        collectionWeekLabel.text = ""
+        
         
     }
-
     
     //MARK: - STREET PICKER VIEW DATASOURCE & DELEGATE METHODS
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -187,12 +283,30 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             }
         }
     }
-    
+    //TODO: save data
     @IBAction func saveData(_ sender: AnyObject) {
         
-        //TODO:
+        
         
     }
+    
+    
+    func addDoneButtonOnKeyboard(textField: UITextField) {
+        
+        let keyboardToolbar: UIToolbar = UIToolbar()
+        
+        // add a done button to the numberpad
+        keyboardToolbar.items=[
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(title: "Done", style: .done, target: textField, action: #selector(UITextField.resignFirstResponder))
+        ]
+        keyboardToolbar.sizeToFit()
+        // add a toolbar with a done button above the number pad
+        textField.inputAccessoryView = keyboardToolbar
+        
+        textField.autocorrectionType = .no
+    }
+    
     
     // Picker customization method
     
@@ -246,7 +360,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         if userStreetName == "" || userHouseNum == "" || userStreetType == "" {
             
-            let alert = UIAlertController.init(title: "Not so fast", message: "Please fill out all fields", preferredStyle: .alert)
+            let alert = UIAlertController.init(title: "Not So Fast", message: "Please fill out all fields", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
                 

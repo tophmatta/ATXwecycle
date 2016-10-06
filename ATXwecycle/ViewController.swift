@@ -25,13 +25,14 @@ class ViewController: UIViewController {
         
         // Generate and analyze date model
         self.dateModel.setUpRecycleDatesArray()
-        self.dateModel.checkTodaysDateToRecycleDatesArray()
         
         // Format UI elements
         self.formatYesNoLabel()
         questionLabelView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
-                
+        
+        self.navigationController?.navigationBar.isHidden = false
+                        
     }
 
     func formatYesNoLabel(){

@@ -20,18 +20,24 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     @IBOutlet weak var labelView: UIView!
     @IBOutlet weak var isYourResidenceLabel: UILabel!
     
-    // Initialize web view
+    
     required init?(coder aDecoder: NSCoder) {
         
-        self.webView = WKWebView(frame: CGRect.zero)
+        webView = WKWebView()
         
         super.init(coder: aDecoder)
-        
+
+    
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
-        self.loadWebView()
+        webView = WKWebView()
+        
+        
+        
+        super.init(nibName: nil, bundle: nil)
+
         
     }
     
@@ -39,6 +45,8 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         super.viewDidLoad()
         
         self.setContraintsForViews()
+        
+        self.loadWebView()
         
         // Format picker options
         yesNoPickerData = ["Yes", "No"]
@@ -49,6 +57,18 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         
         // Initialize picker and set default picker choice in case ther is no event
         self.setDefaultPickerChoice()
+        
+        self.navigationController?.isNavigationBarHidden = false
+        
+        
+        let navItem = self.navigationItem
+
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(nextBtnPressed))
+
+        navItem.rightBarButtonItem = doneButton
+        navItem.title = "Web"
+        
+        self.view.layoutIfNeeded()
         
         
     }
@@ -87,6 +107,7 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         
         let labelViewHeightRatio: CGFloat = self.view.frame.height * 0.35
         
+        //let labelViewTop = NSLayoutConstraint(item: labelView, attribute: .top, relatedBy: .equal, toItem: navigationController?.topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0)
         
         // Set ht. for label view in terms of fraction of frame size
         let labelViewHeight = NSLayoutConstraint(item: labelView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: labelViewHeightRatio)

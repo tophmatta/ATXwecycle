@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U9l-vD-cHa">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -100,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2508" y="543"/>
+            <point key="canvasLocation" x="2530" y="387"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="ZM2-PS-7tN">
@@ -214,17 +214,16 @@
                         <outlet property="isYourResidenceLabel" destination="jfI-O9-vAj" id="L1F-Li-vVg"/>
                         <outlet property="labelView" destination="VJ4-dz-l7a" id="lTd-V2-rdL"/>
                         <outlet property="yesNoPicker" destination="CcW-MO-zCk" id="iEK-ks-2Az"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="tomainvc" id="7bp-Ld-b5B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GPQ-uX-wKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1161" y="949"/>
+            <point key="canvasLocation" x="1810" y="1623"/>
         </scene>
-        <!--Address View Controller-->
+        <!--Find Address-->
         <scene sceneID="eaR-UP-9YJ">
             <objects>
-                <viewController id="U9l-vD-cHa" customClass="AddressViewController" customModule="ATXwecycle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Find Address" id="U9l-vD-cHa" customClass="AddressViewController" customModule="ATXwecycle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bf3-JH-sEY"/>
                         <viewControllerLayoutGuide type="bottom" id="CgU-g8-JVN"/>
@@ -553,28 +552,28 @@
                                 <exclude reference="Mg1-0p-dZ6"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="DQg-Z2-4Vl"/>
-                                <exclude reference="RlC-xz-jhb"/>
-                                <exclude reference="eIt-xF-6UN"/>
-                                <exclude reference="wJ7-vT-QFW"/>
-                                <exclude reference="7nL-sf-zPN"/>
-                                <exclude reference="GVr-Ji-KSV"/>
-                                <exclude reference="N7P-Cq-HOE"/>
-                                <exclude reference="mhe-B4-oW4"/>
-                                <exclude reference="vSq-Nw-ewa"/>
-                                <exclude reference="axn-4Q-YrH"/>
-                                <exclude reference="y0D-5b-LJG"/>
+                                <exclude reference="QIn-Qf-6ha"/>
+                                <exclude reference="c5d-Sr-uki"/>
+                                <exclude reference="Fgj-w6-URh"/>
+                                <exclude reference="ZBB-8t-5Cv"/>
                                 <exclude reference="Abf-yN-q0S"/>
                                 <exclude reference="6Pc-Xg-95j"/>
                                 <exclude reference="Hzz-WO-gnE"/>
                                 <exclude reference="ffq-7U-5er"/>
                                 <exclude reference="ixz-pK-e5J"/>
-                                <exclude reference="Fgj-w6-URh"/>
-                                <exclude reference="ZBB-8t-5Cv"/>
+                                <exclude reference="7nL-sf-zPN"/>
                                 <exclude reference="1Je-Aa-Nyv"/>
                                 <exclude reference="UzV-sK-ix5"/>
-                                <exclude reference="QIn-Qf-6ha"/>
-                                <exclude reference="c5d-Sr-uki"/>
+                                <exclude reference="DQg-Z2-4Vl"/>
+                                <exclude reference="RlC-xz-jhb"/>
+                                <exclude reference="axn-4Q-YrH"/>
+                                <exclude reference="y0D-5b-LJG"/>
+                                <exclude reference="eIt-xF-6UN"/>
+                                <exclude reference="wJ7-vT-QFW"/>
+                                <exclude reference="GVr-Ji-KSV"/>
+                                <exclude reference="N7P-Cq-HOE"/>
+                                <exclude reference="mhe-B4-oW4"/>
+                                <exclude reference="vSq-Nw-ewa"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -589,31 +588,38 @@
                                 <include reference="Mg1-0p-dZ6"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="DQg-Z2-4Vl"/>
-                                <include reference="RlC-xz-jhb"/>
-                                <include reference="eIt-xF-6UN"/>
-                                <include reference="wJ7-vT-QFW"/>
-                                <include reference="7nL-sf-zPN"/>
-                                <include reference="GVr-Ji-KSV"/>
-                                <include reference="N7P-Cq-HOE"/>
-                                <include reference="mhe-B4-oW4"/>
-                                <include reference="vSq-Nw-ewa"/>
-                                <include reference="axn-4Q-YrH"/>
-                                <include reference="y0D-5b-LJG"/>
+                                <include reference="QIn-Qf-6ha"/>
+                                <include reference="c5d-Sr-uki"/>
+                                <include reference="Fgj-w6-URh"/>
+                                <include reference="ZBB-8t-5Cv"/>
                                 <include reference="Abf-yN-q0S"/>
                                 <include reference="6Pc-Xg-95j"/>
                                 <include reference="Hzz-WO-gnE"/>
                                 <include reference="ffq-7U-5er"/>
                                 <include reference="ixz-pK-e5J"/>
-                                <include reference="Fgj-w6-URh"/>
-                                <include reference="ZBB-8t-5Cv"/>
+                                <include reference="7nL-sf-zPN"/>
                                 <include reference="1Je-Aa-Nyv"/>
                                 <include reference="UzV-sK-ix5"/>
-                                <include reference="QIn-Qf-6ha"/>
-                                <include reference="c5d-Sr-uki"/>
+                                <include reference="DQg-Z2-4Vl"/>
+                                <include reference="RlC-xz-jhb"/>
+                                <include reference="axn-4Q-YrH"/>
+                                <include reference="y0D-5b-LJG"/>
+                                <include reference="eIt-xF-6UN"/>
+                                <include reference="wJ7-vT-QFW"/>
+                                <include reference="GVr-Ji-KSV"/>
+                                <include reference="N7P-Cq-HOE"/>
+                                <include reference="mhe-B4-oW4"/>
+                                <include reference="vSq-Nw-ewa"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="S4r-py-fPx">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="6dP-lf-2Su">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="6oa-oC-zhp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionDayLabel" destination="Rl9-Ff-IZ6" id="fYT-2c-7rp"/>
                         <outlet property="collectionWeekLabel" destination="seh-uv-xne" id="f4R-MD-LKj"/>
@@ -625,7 +631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9i-eq-UBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="421.60000000000002" y="948.57571214392806"/>
+            <point key="canvasLocation" x="1161" y="931"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="4Vw-wO-HKf">
@@ -687,7 +693,7 @@
                                         </variation>
                                         <connections>
                                             <action selector="nextButtonPressed:" destination="Hrt-ta-jex" eventType="touchUpInside" id="eiI-JB-Cf2"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="9IF-TS-UTS"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="mainscreen" id="9IF-TS-UTS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -730,7 +736,7 @@
                                         </variation>
                                         <connections>
                                             <action selector="noIdeaButtonPressed:" destination="Hrt-ta-jex" eventType="touchUpInside" id="ydS-lh-hUZ"/>
-                                            <segue destination="m2m-Vn-buc" kind="show" id="WI9-So-5mK"/>
+                                            <segue destination="U9l-vD-cHa" kind="show" id="Uea-fb-kEA"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -856,7 +862,7 @@
         <!--Navigation Controller-->
         <scene sceneID="lZw-fG-aHn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="partialCurl" id="oOM-Ag-R2t" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="nav" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="partialCurl" id="oOM-Ag-R2t" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BJ0-3I-n2Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -873,6 +879,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7bp-Ld-b5B"/>
+        <segue reference="9IF-TS-UTS"/>
     </inferredMetricsTieBreakers>
 </document>

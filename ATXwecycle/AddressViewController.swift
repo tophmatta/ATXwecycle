@@ -11,10 +11,9 @@ import SwiftyJSON
 import Alamofire
 import CoreLocation
 
-//TODO: clean up view transitions once user finds recycling schedule, take out use of global variable and use singleton, Save pref. IBAction, finish textfield event handling (adding done btn), dim User loc button when location use is denied, handle tap of use loc. button using 'open settings' choice in alert controller (http://nshipster.com/core-location-in-ios-8/)
 
-// Note: You spent a lot of time using core loc for the first time and then later found out the problem was not adding a value into the .plist file for type of location use.
-class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
+// Note: To get core loc to work, one must add a value into .plist file for type of location use w/ message that appears to user.
+class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var numTextField: UITextField!
     @IBOutlet weak var streetTextField: UITextField!
@@ -47,8 +46,10 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
         
+        streetTypeTextField.delegate = self
+        
+        
     }
-    
     
     
     @objc func applicationDidBecomeActive(){
@@ -57,6 +58,16 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         print("active")
     }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        print(textField.text)
+        
+        return true
+        
+    }
+    
     
     //MARK: - CORE LOCATION
     
@@ -150,6 +161,19 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     
                     // Populates house #
                     self.numTextField.text = pm.subThoroughfare
+                    
+                    // Forces street type picker choice to retrieved street type (picker would otherwise stay as default empty string)
+                    for streetType in self.streetTypeData {
+                        
+                        if self.streetTypeTextField.text == streetType {
+                            
+                            let index = self.streetTypeData.index(of: streetType)
+                            
+                            self.streetTypePickerView.selectRow(index!, inComponent: 0, animated: false)
+                            
+                        }
+                        
+                    }
 
                 } else {
                     
@@ -220,6 +244,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         streetType = streetTypeData[row]
+        streetTypeTextField.text = streetTypeData[row]
         
     }
     
@@ -283,10 +308,35 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             }
         }
     }
-    //TODO: save data
+    //MARK: SAVE DATA
     @IBAction func saveData(_ sender: AnyObject) {
         
         
+        let collectionSchedWeek = collectionWeekLabel.text!
+            
+        
+         if collectionSchedWeek == " " {
+            
+            
+            let alert = UIAlertController.init(title: "Not So Fast", message: "Please search collection week/day info", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+                
+                self.dismiss(animated: true, completion: nil)
+                
+            })
+            
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
+
+            return
+        }
+        
+        residencePickerChoice = collectionSchedWeek
+        
+        userDefaults.set(residencePickerChoice!, forKey: "recyclingPref")
+        userDefaults.synchronize()
         
     }
     
@@ -395,11 +445,4 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
         
     }
-    
-    //UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1.0)
-    
-    
-//    userDefaults.setObject(residencePickerChoice!, forKey: "recyclingPref")
-//    userDefaults.synchronize()
-
 }

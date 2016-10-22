@@ -175,6 +175,7 @@ class WebViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         
         residencePickerChoice = yesNoPickerData[row]
         
+        
     }
     
     // MARK: -

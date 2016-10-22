@@ -13,17 +13,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-//        if (residencePickerChoice != nil) {
-//            
-//            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let initViewController: UIViewController = storyBoard.instantiateViewControllerWithIdentifier("mainview") as! ViewController
-//            self.window!.rootViewController? = initViewController
-//            
-//        }
-//        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                
+        let prefVC: UIViewController = storyBoard.instantiateViewController(withIdentifier: "mainview") as! ViewController
+
+        let navVC = storyBoard.instantiateViewController(withIdentifier: "nav") as! UINavigationController
+        
+        self.window?.rootViewController = navVC
+        
+        if (residencePickerChoice != nil) {
+            
+            navVC.pushViewController(prefVC, animated: false)
+            
+        }
         
         return true
     }
@@ -36,4 +42,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

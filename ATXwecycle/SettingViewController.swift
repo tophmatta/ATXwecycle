@@ -86,10 +86,10 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
             switch resPC {
                 
-            case "Week A":
+            case "Week A", "A":
                 setRow(i: 0)
                 
-            case "Week B":
+            case "Week B", "B":
                 setRow(i: 1)
                 
             default:
@@ -164,19 +164,12 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         userDefaults.set(residencePickerChoice!, forKey: "recyclingPref")
         userDefaults.synchronize()
         
+        
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "webvc" {
-            
-            let vc:WebViewController = segue.destination as! WebViewController
-            
-        }
-    }
-    
+        
     @IBAction func noIdeaButtonPressed(_ sender: AnyObject) {
         
-        
+
     }
     
     

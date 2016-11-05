@@ -69,7 +69,7 @@ class DateModel: NSObject {
         
     }()
     
-    // Takes a date in String form and spits out an NSDate in format specified in 'dateFormatter' lazy var
+    // Takes a date in String form and spits out an NSDate
     func convertStringToNSDate(_ dateString: String) -> Date {
         
         return DateModel.dateFormatter.date(from: dateString)!
@@ -77,7 +77,7 @@ class DateModel: NSObject {
     }
     
     
-    // Takes an NSDate and spits out the string version of it
+    // Takes an NSDate and spits out the string
     func convertNSDateToString(_ date: Date) -> String {
         
         return DateModel.dateFormatter.string(from: date)

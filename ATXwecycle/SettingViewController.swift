@@ -24,6 +24,7 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     override func viewWillAppear(_ animated: Bool) {
         
         self.navigationController?.isNavigationBarHidden = true
+        
     }
     
     override func viewDidLoad() {
@@ -31,7 +32,6 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         // Format container view's background color
         self.setupSubviewBackgroundColors()
-        
         
         // Format background image
         self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
@@ -43,13 +43,8 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.schedulePicker.delegate = self
         self.schedulePicker.dataSource = self
         
-        print("Before default: \(residencePickerChoice)")
-        
         // Set default picker choice in case there is no event
         self.setDefaultPickerChoice()
-        
-        print("After default: \(residencePickerChoice)")
-
         
     }
     
@@ -94,8 +89,8 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 
             default:
                 setRow(i: 0)
+                
             }
-            
         }
     }
     
@@ -120,7 +115,7 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
-    // MARK: - DELEGATE MEHTODS
+    // MARK: - UIPICKER DATASOURCE/DELEGATE MEHTODS
     // The # of col. of data
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
@@ -164,19 +159,5 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         userDefaults.set(residencePickerChoice!, forKey: "recyclingPref")
         userDefaults.synchronize()
         
-        
     }
-        
-    @IBAction func noIdeaButtonPressed(_ sender: AnyObject) {
-        
-
-    }
-    
-    
-    // 'Placeholder' IBAction to signal storyboard which view to 'exit' to
-    @IBAction func unwindToSettingVC(_ sender: UIStoryboardSegue) {
-        
-        
-    }
-    
 }

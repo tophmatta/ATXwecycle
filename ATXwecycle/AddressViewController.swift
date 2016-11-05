@@ -11,65 +11,68 @@ import SwiftyJSON
 import Alamofire
 import CoreLocation
 
+// TODO: Add manual entering of E or East for all cardinal directions;why address range logic not working; clear textfields when go from auto to manual; figure out best UX for initial use - 'Do you know your recycling week?', (i.e. have person click 'next' button in case address is wrong or is it automatic? - have it just be automatic if address is found b/c it's probably close enough); spruce up UI - work with Peter; look up 2017 schedule; push notifications; change Yes/No Label to have secret interaction; add help/troubleshooting section
 
 // Note: To get core loc to work, one must add a value into .plist file for type of location use w/ message that appears to user.
 class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate, UITextFieldDelegate {
     
+    // Textfields
     @IBOutlet weak var numTextField: UITextField!
     @IBOutlet weak var streetTextField: UITextField!
     @IBOutlet weak var streetTypeTextField: UITextField!
+    
+    // Labels
     @IBOutlet weak var collectionDayLabel: UILabel!
     @IBOutlet weak var collectionWeekLabel: UILabel!
     
+    //Btn Outlets
+    @IBOutlet weak var clearBtn: UIButton!
+    @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var useLocBtn: UIButton!
+    @IBOutlet weak var turnOffLoc: UIButton!
     
     lazy var locationManager = CLLocationManager()
     
+    // Class vars
     var streetType:String?
-    var streetTypeData = ["", "ST", "RD", "DR", "LN", "CIR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
+    var streetName:String?
+    var userStreetDir:String?
     
+    // UIPicker
+    var streetTypeData = ["", "ST", "RD", "DR", "LN", "CIR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
     let streetTypePickerView = UIPickerView()
+    
     let globalFuncs = Main()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // UI
         self.configurePicker()
         self.addDoneButtonOnKeyboard(textField: streetTypeTextField)
         self.addDoneButtonOnKeyboard(textField: streetTextField)
         self.addDoneButtonOnKeyboard(textField: numTextField)
-        
-        self.checkCoreLocationPermission()
-        
         self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
+        
+        streetTextField.delegate = self
+
+        // CL
+        self.checkCoreLocationPermission()
         
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
         
-        streetTypeTextField.delegate = self
-        
-        
     }
     
-    
-    @objc func applicationDidBecomeActive(){
-        
-        locationManager.delegate = self
-        
-        print("active")
-    }
-    
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        print(textField.text)
-        
-        return true
-        
-    }
     
     
     //MARK: - CORE LOCATION
+    
+    // Call lazy var when app is active again to recheck core loc permission & refresh UI
+    func applicationDidBecomeActive(){
+        
+        locationManager.delegate = self
+        
+    }
     
     func checkCoreLocationPermission(){
 
@@ -79,24 +82,72 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             locationManager.delegate = self
             locationManager.startUpdatingLocation()
             useLocBtn.alpha = 1.0
-            print("auth stat - when in use")
+            turnOffLoc.alpha = 1.0
+            turnOffLoc.isEnabled = true
+            searchBtn.alpha = 0.5
+            searchBtn.isEnabled = false
+            clearBtn.alpha = 0.5
+            clearBtn.isEnabled = false
             
         case .notDetermined, .restricted:
             locationManager.delegate = self
             locationManager.requestWhenInUseAuthorization()
             useLocBtn.alpha = 0.5
-            print("auth stat - nd")
+            turnOffLoc.alpha = 0.5
+            turnOffLoc.isEnabled = false
+            searchBtn.alpha = 1.0
+            searchBtn.isEnabled = true
+            clearBtn.alpha = 1.0
+            clearBtn.isEnabled = true
             
         case .denied:
-            print("denied")
             useLocBtn.alpha = 0.5
+            turnOffLoc.alpha = 0.5
+            turnOffLoc.isEnabled = false
+            searchBtn.alpha = 1.0
+            searchBtn.isEnabled = true
+            clearBtn.alpha = 1.0
+            clearBtn.isEnabled = true
             
         default:
             break
         }
         
     }
-
+    
+    // Calls back when data for API is populated in the textfields resulting from the reverse geocode method
+    func populateTextFieldsAfterGeocode(streetTypeCL: String, completion: () -> Void){
+        
+        self.streetTextField.text = " \(self.userStreetDir ?? "") \(self.streetName ?? "")"
+        self.streetTypeTextField.text = streetTypeCL
+        self.streetType = streetTypeCL
+        
+        completion()
+        
+    }
+    
+    @IBAction func turnOffLoc(_ sender: AnyObject) {
+        
+        // Alert msg w/ 'open settings'
+        let alert = UIAlertController.init(title: "Turn Off Location Services", message: "Select 'Open Settings' to continue.", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        let openAction = UIAlertAction(title: "Open Settings", style: .default, handler: { (action) in
+            if let url = NSURL(string: UIApplicationOpenSettingsURLString) {
+                
+                UIApplication.shared.openURL(url as URL)
+                
+            }
+        })
+        
+        alert.addAction(openAction)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     @IBAction func useLoc(_ sender: AnyObject) {
         
         if useLocBtn.alpha == 0.5 {
@@ -122,11 +173,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             return
         }
         
-        
-        numTextField.text = ""
-        streetTextField.text = ""
-        streetTypeTextField.text = ""
-        
+        clearSearchData()
         
         CLGeocoder().reverseGeocodeLocation(locationManager.location!) { (placemarks, error) in
             
@@ -137,32 +184,89 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 let roadWithStreetType = pm.thoroughfare?.uppercased()
                 
                 // Obtain where first space occurs from endIndex backwards and remove the st. type and vice versa w/ the street name to produce the data separately.
-                
                 // Handles full street name/type and slices it into array street and street type for API call (e.g. "Ashwood Rd." => ["ASHWOOD", "RD"].
                 if let rwst = roadWithStreetType {
                     
                     // Take string w/ multiple substrings and creates array of separate strings elements
-                    let stringReplaceSpaceAndPeriod = rwst.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: " ", with: ",")
-                    let arr = stringReplaceSpaceAndPeriod.characters.split(separator: ",")
+                    let stringReplaceSpaceAndPeriodWithComma = rwst.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: " ", with: ",")
+                    let arr = stringReplaceSpaceAndPeriodWithComma.characters.split(separator: ",")
                     let mappedArr = arr.map(String.init)
                     
                     // Store street type
                     let streetTypeCL = mappedArr.last!
                     
                     // Remove from array
-                    let mappedArrRemoveStType = mappedArr.dropLast()
+                    var mappedArrRemoveStType = mappedArr.dropLast()
+                    
+                    // If street has direction (E.g. E 38th 1/2), store it to be bounced off address API
+                    if mappedArr.first?.characters.count == 1 {
+                        
+                        self.userStreetDir = mappedArrRemoveStType.first
+                        mappedArrRemoveStType = mappedArrRemoveStType.dropFirst()
+                        
+                    }
                     
                     // Join remaining substrings to put togther entire street name
-                    let streetNameCL = mappedArrRemoveStType.joined(separator: " ")
+                    self.streetName = mappedArrRemoveStType.joined(separator: " ")
                     
-                    self.streetTextField.text = streetNameCL
-                    self.streetTypeTextField.text = streetTypeCL
-                    self.streetType = streetTypeCL
+                    // Accounts for reverse lookup providing a house # range instead of specific #
+                    if let houseNum = pm.subThoroughfare {
+                        
+                        print("house num: \(houseNum)")
+                        
+                        if houseNum.range(of: "-") != nil {
+                            
+                            let firstHouseNum = houseNum.components(separatedBy: "-")
+                            
+                            self.numTextField.text = firstHouseNum[0]
+                            
+                            print("first house num: \(firstHouseNum)")
+                            
+                        } else {
+                            
+                            // Populates house #
+                            self.numTextField.text = pm.subThoroughfare
+                            
+                        }
+                        
+                    }
                     
-                    // Populates house #
-                    self.numTextField.text = pm.subThoroughfare
+                    // At completion, API call is made with geocode data
+                    self.populateTextFieldsAfterGeocode(streetTypeCL: streetTypeCL, completion: {_ in
+                        
+                        // Makes call to recycling schedule backend with completion handler
+                        self.hitAPI { (data, error) in
+                            
+                            let json = JSON(data!)
+                            let jsonCollectionDay = json[0]["collection_day"].string
+                            let jsonCollectionWeek = json[0]["collection_week"].string
+                            
+                            if jsonCollectionDay != nil && jsonCollectionWeek != nil {
+                                
+                                // Chose not to loop JSON to eliminate getting multiple dictionaries for multiple duplex/apt units (A,B,C,etc.) since only using street and address to find recycling schedule
+                                self.collectionDayLabel.text = jsonCollectionDay
+                                self.collectionWeekLabel.text = jsonCollectionWeek
+                                
+                            } else {
+                                
+                                // Alert msg
+                                let alert = UIAlertController.init(title: "Not Found", message: "Unable to locate address. Please try again.", preferredStyle: .alert)
+                                
+                                let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+                                    
+                                    self.dismiss(animated: true, completion: nil)
+                                    
+                                })
+                                
+                                alert.addAction(okAction)
+                                
+                                self.present(alert, animated: true, completion: nil)
+                                
+                            }
+                        }
+                    })
                     
-                    // Forces street type picker choice to retrieved street type (picker would otherwise stay as default empty string)
+                    // Forces street type picker choice to retrieve street type (picker would otherwise stay as default empty string)
                     for streetType in self.streetTypeData {
                         
                         if self.streetTypeTextField.text == streetType {
@@ -174,7 +278,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                         }
                         
                     }
-
+                    
                 } else {
                     
                     // Alert msg
@@ -190,9 +294,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     
                     self.present(alert, animated: true, completion: nil)
                     
-                    
                 }
-                
                 
             }
             
@@ -204,25 +306,9 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         checkCoreLocationPermission()
         
-        print("did change auth status")
-        
-        
     }
     
-    @IBAction func clearBtn(_ sender: AnyObject) {
-        
-        numTextField.text = ""
-        streetTextField.text = ""
-        streetTypeTextField.text = ""
-        streetType = nil
-        
-        collectionDayLabel.text = ""
-        collectionWeekLabel.text = ""
-        
-        
-    }
-    
-    //MARK: - STREET PICKER VIEW DATASOURCE & DELEGATE METHODS
+    //MARK: - STREET PICKER VIEW
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         return 1
@@ -256,107 +342,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return NSAttributedString(string: options, attributes: [NSForegroundColorAttributeName:UIColor.white])
         
     }
-    
-    //MARK: - UI ELEMENT METHODS
-    // Action when done button pressed in street type picker toolbar
-    func donePressed(){
-        
-        view.endEditing(true)
-        
-        streetTypeTextField.text = streetType
-        
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        view.endEditing(true)
-        super.touchesBegan(touches, with: event)
-        
-    }
-    
-    // Hittin up that 'Search' btn
-    @IBAction func submitRequest(_ sender: AnyObject) {
-        
-        // Makes call to recycling schedule backend with completion handler
-        self.hitAPI { (data, error) in
-            
-            let json = JSON(data!)
-            let jsonCollectionDay = json[0]["collection_day"].string
-            let jsonCollectionWeek = json[0]["collection_week"].string
-            
-            if jsonCollectionDay != nil && jsonCollectionWeek != nil {
-                
-                // Chose not to loop JSON to eliminate getting multiple dictionaries for multiple duplex/apt units (A,B,C,etc.) since only using street and address to find recycling schedule
-                self.collectionDayLabel.text = jsonCollectionDay
-                self.collectionWeekLabel.text = jsonCollectionWeek
-                
-            } else {
-                
-                // Alert msg
-                let alert = UIAlertController.init(title: "Not Found", message: "Unable to locate address. Please try again.", preferredStyle: .alert)
-                
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
-                    
-                    self.dismiss(animated: true, completion: nil)
-                    
-                })
-                
-                alert.addAction(okAction)
-                
-                self.present(alert, animated: true, completion: nil)
-                
-            }
-        }
-    }
-    //MARK: SAVE DATA
-    @IBAction func saveData(_ sender: AnyObject) {
-        
-        
-        let collectionSchedWeek = collectionWeekLabel.text!
-            
-        
-         if collectionSchedWeek == " " {
-            
-            
-            let alert = UIAlertController.init(title: "Not So Fast", message: "Please search collection week/day info", preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
-                
-                self.dismiss(animated: true, completion: nil)
-                
-            })
-            
-            alert.addAction(okAction)
-            
-            self.present(alert, animated: true, completion: nil)
-
-            return
-        }
-        
-        residencePickerChoice = collectionSchedWeek
-        
-        userDefaults.set(residencePickerChoice!, forKey: "recyclingPref")
-        userDefaults.synchronize()
-        
-    }
-    
-    
-    func addDoneButtonOnKeyboard(textField: UITextField) {
-        
-        let keyboardToolbar: UIToolbar = UIToolbar()
-        
-        // add a done button to the numberpad
-        keyboardToolbar.items=[
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
-            UIBarButtonItem(title: "Done", style: .done, target: textField, action: #selector(UITextField.resignFirstResponder))
-        ]
-        keyboardToolbar.sizeToFit()
-        // add a toolbar with a done button above the number pad
-        textField.inputAccessoryView = keyboardToolbar
-        
-        textField.autocorrectionType = .no
-    }
-    
     
     // Picker customization method
     
@@ -396,17 +381,149 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
+    //MARK: - UI ELEMENT METHODS
+    // Action when done button pressed in street type picker toolbar
+    func donePressed(){
+        
+        view.endEditing(true)
+        
+        streetTypeTextField.text = streetType
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+        
+    }
+    
+    // Using this delegate in case the user decides to manually enter the address
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        streetName = textField.text
+        userStreetDir = nil
+        
+    }
+    
+    func addDoneButtonOnKeyboard(textField: UITextField) {
+        
+        let keyboardToolbar: UIToolbar = UIToolbar()
+        
+        // add a done button to the numberpad
+        keyboardToolbar.items = [
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(title: "Done", style: .done, target: textField, action: #selector(UITextField.resignFirstResponder))
+        ]
+        keyboardToolbar.sizeToFit()
+        // add a toolbar with a done button above the number pad
+        textField.inputAccessoryView = keyboardToolbar
+        
+        textField.autocorrectionType = .no
+    }
+    
+    func clearSearchData(){
+        
+        numTextField.text = ""
+        streetTextField.text = ""
+        streetTypeTextField.text = ""
+        streetTypePickerView.selectRow(0, inComponent: 0, animated: false)
+        streetType = nil
+        userStreetDir = nil
+        
+        collectionDayLabel.text = ""
+        collectionWeekLabel.text = ""
+        
+    }
+    
+    @IBAction func clearBtn(_ sender: AnyObject) {
+        
+        clearSearchData()
+        
+    }
+    
+    @IBAction func nextBtn(_ sender: AnyObject) {
+        
+        saveData()
+        
+    }
+    
+    // Hittin up that 'Search' btn
+    @IBAction func submitRequest(_ sender: AnyObject) {
+        
+        // Makes call to recycling schedule backend with completion handler
+        self.hitAPI { (data, error) in
+            
+            let json = JSON(data!)
+            let jsonCollectionDay = json[0]["collection_day"].string
+            let jsonCollectionWeek = json[0]["collection_week"].string
+            
+            if jsonCollectionDay != nil && jsonCollectionWeek != nil {
+                
+                // Chose not to loop JSON to eliminate getting multiple dictionaries for multiple duplex/apt units (A,B,C,etc.) since only using street and address to find recycling schedule
+                self.collectionDayLabel.text = jsonCollectionDay
+                self.collectionWeekLabel.text = jsonCollectionWeek
+                
+            } else {
+                
+                // Alert msg
+                let alert = UIAlertController.init(title: "Not Found", message: "Unable to locate address. Please try again.", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+                    
+                    self.dismiss(animated: true, completion: nil)
+                    
+                })
+                
+                alert.addAction(okAction)
+                
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+        }
+    }
+    
+    //MARK: SAVE DATA
+    func saveData(){
+        
+        let collectionSchedWeek = collectionWeekLabel.text!
+        
+         if collectionSchedWeek == " " {
+            
+            let alert = UIAlertController.init(title: "Not So Fast", message: "Please search collection week/day info", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+                
+                self.dismiss(animated: true, completion: nil)
+                
+            })
+            
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
+
+            return
+        }
+        
+        residencePickerChoice = collectionSchedWeek
+        
+        userDefaults.set(residencePickerChoice!, forKey: "recyclingPref")
+        userDefaults.synchronize()
+        
+    }
     
     //MARK: - API CALL METHOD
     func hitAPI(_ completionHandler: @escaping (Any?, Error?) -> ()){
         
         let toDoEndpoint: String = "https://data.austintexas.gov/resource/hp3m-f33e.json"
         
-        let userHouseNum = numTextField.text ?? ""
+        let userHouseNum = numTextField.text?.trimmingCharacters(in: .whitespaces) ?? ""
 
-        let userStreetName = streetTextField.text?.uppercased() ?? ""
+        let userStreetName = streetName?.uppercased().trimmingCharacters(in: .whitespaces) ?? ""
         
         let userStreetType = streetType ?? ""
+        
+        print(userStreetName); print(userStreetType); print(userHouseNum)
         
         if userStreetName == "" || userHouseNum == "" || userStreetType == "" {
             
@@ -424,7 +541,18 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
         } else {
             
-            let params = ["house_no":"\(userHouseNum)", "street_nam": "\(userStreetName)", "street_typ":"\(userStreetType)"]
+            var params = [
+                "house_no":"\(userHouseNum)",
+                "street_nam": "\(userStreetName)",
+                "street_typ":"\(userStreetType)"]
+            
+            if let userStreetDir_ = userStreetDir {
+                
+                params["st_dir"] = userStreetDir_
+                
+            }
+            
+            print(params)
             
             Alamofire.request(toDoEndpoint, method: .get, parameters: params)
                 .responseJSON { response in
@@ -441,8 +569,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                         
                     }
             }
-            
         }
-        
     }
 }

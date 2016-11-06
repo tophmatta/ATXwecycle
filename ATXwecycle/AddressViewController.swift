@@ -11,7 +11,7 @@ import SwiftyJSON
 import Alamofire
 import CoreLocation
 
-// TODO: Add manual entering of E or East for all cardinal directions;why address range logic not working; clear textfields when go from auto to manual; figure out best UX for initial use - 'Do you know your recycling week?', (i.e. have person click 'next' button in case address is wrong or is it automatic? - have it just be automatic if address is found b/c it's probably close enough); spruce up UI - work with Peter; look up 2017 schedule; push notifications; change Yes/No Label to have secret interaction; add help/troubleshooting section
+// TODO: why address range logic not working; figure out best UX for initial use - 'Do you know your recycling week?', (i.e. have person click 'next' button in case address is wrong or is it automatic? - have it just be automatic if address is found b/c it's probably close enough); spruce up UI - work with Peter; look up 2017 schedule; push notifications; change Yes/No Label to have secret interaction; add help/troubleshooting section
 
 // Note: To get core loc to work, one must add a value into .plist file for type of location use w/ message that appears to user.
 class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate, UITextFieldDelegate {
@@ -36,7 +36,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     // Class vars
     var streetType:String?
     var streetName:String?
-    var userStreetDir:String?
+    var streetDir:String?
     
     // UIPicker
     var streetTypeData = ["", "ST", "RD", "DR", "LN", "CIR", "WAY", "TRL", "CV", "PL", "CT", "AVE", "BLVD", "PASS", "PATH", "LOOP", "RUN", "TER", "PKWY", "HOLW", "BND", "SKWY", "HWY", "GLN", "PARK", "XING", "ROW", "PT", "SQ", "WALK", "TRCE", "BRG", "VW", "VIEW", "CRES", "VALE", "PLZ", "SPUR"]
@@ -118,7 +118,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     // Calls back when data for API is populated in the textfields resulting from the reverse geocode method
     func populateTextFieldsAfterGeocode(streetTypeCL: String, completion: () -> Void){
         
-        self.streetTextField.text = " \(self.userStreetDir ?? "") \(self.streetName ?? "")"
+        self.streetTextField.text = " \(self.streetDir ?? "") \(self.streetName ?? "")"
         self.streetTypeTextField.text = streetTypeCL
         self.streetType = streetTypeCL
         
@@ -201,7 +201,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     // If street has direction (E.g. E 38th 1/2), store it to be bounced off address API
                     if mappedArr.first?.characters.count == 1 {
                         
-                        self.userStreetDir = mappedArrRemoveStType.first
+                        self.streetDir = mappedArrRemoveStType.first
                         mappedArrRemoveStType = mappedArrRemoveStType.dropFirst()
                         
                     }
@@ -402,7 +402,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         streetName = textField.text
-        userStreetDir = nil
+        streetDir = nil
         
     }
     
@@ -429,7 +429,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         streetTypeTextField.text = ""
         streetTypePickerView.selectRow(0, inComponent: 0, animated: false)
         streetType = nil
-        userStreetDir = nil
+        streetDir = nil
         
         collectionDayLabel.text = ""
         collectionWeekLabel.text = ""
@@ -450,6 +450,55 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     // Hittin up that 'Search' btn
     @IBAction func submitRequest(_ sender: AnyObject) {
+        
+        let streetName_ = self.streetTextField.text ?? ""
+        
+        // Take manually entered street name and determine whether it has street direction
+        
+        // Take string w/ multiple substrings and creates array of separate strings elements
+        let stringReplaceSpaceWithComma = streetName_.replacingOccurrences(of: " ", with: ",")
+        let arr = stringReplaceSpaceWithComma.characters.split(separator: ",")
+        var mappedArr = arr.map(String.init)
+        
+        // Remove from array
+        var mappedArrRemoveDir = ArraySlice<String>()
+        
+        // Handles entering whole word of st. dir.
+        switch mappedArr.first ?? "" {
+            
+        case "WEST":
+            mappedArr[0] = "W"
+        case "EAST":
+            mappedArr[0] = "E"
+        case "NORTH":
+            mappedArr[0] = "N"
+        case "SOUTH":
+            mappedArr[0] = "S"
+            
+        default:
+            break
+            
+        }
+        
+        // If street has direction (E.g. E 38th 1/2), store it to be bounced off address API
+        if mappedArr.first?.characters.count == 1 {
+            
+            self.streetDir = mappedArr.first
+            mappedArrRemoveDir = mappedArr.dropFirst()
+            
+        }
+        
+        // Join remaining substrings to put togther entire street name. Handles street direction, if applicable
+        if !mappedArrRemoveDir.isEmpty {
+            
+            self.streetName = mappedArrRemoveDir.joined(separator: " ")
+            
+        } else {
+            
+            self.streetName = mappedArr.joined(separator: " ")
+            
+        }
+        
         
         // Makes call to recycling schedule backend with completion handler
         self.hitAPI { (data, error) in
@@ -546,9 +595,9 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 "street_nam": "\(userStreetName)",
                 "street_typ":"\(userStreetType)"]
             
-            if let userStreetDir_ = userStreetDir {
+            if let streetDir_ = streetDir {
                 
-                params["st_dir"] = userStreetDir_
+                params["st_dir"] = streetDir_
                 
             }
             

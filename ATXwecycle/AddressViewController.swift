@@ -11,7 +11,7 @@ import SwiftyJSON
 import Alamofire
 import CoreLocation
 
-// TODO: why address range logic not working; figure out best UX for initial use - 'Do you know your recycling week?', (i.e. have person click 'next' button in case address is wrong or is it automatic? - have it just be automatic if address is found b/c it's probably close enough); spruce up UI - work with Peter; look up 2017 schedule; push notifications; change Yes/No Label to have secret interaction; add help/troubleshooting section
+// TODO: figure out best UX for initial use - 'Do you know your recycling week?', (i.e. have person click 'next' button in case address is wrong or is it automatic? - have it just be automatic if address is found b/c it's probably close enough); spruce up UI - work with Peter; look up 2017 schedule; push notifications; change Yes/No Label to have secret interaction; add help/troubleshooting section
 
 // Note: To get core loc to work, one must add a value into .plist file for type of location use w/ message that appears to user.
 class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate, UITextFieldDelegate {
@@ -26,7 +26,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var collectionWeekLabel: UILabel!
     
     //Btn Outlets
-    @IBOutlet weak var clearBtn: UIButton!
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var useLocBtn: UIButton!
     @IBOutlet weak var turnOffLoc: UIButton!
@@ -58,7 +57,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
         // CL
         self.checkCoreLocationPermission()
-        
+                
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
         
     }
@@ -86,8 +85,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             turnOffLoc.isEnabled = true
             searchBtn.alpha = 0.5
             searchBtn.isEnabled = false
-            clearBtn.alpha = 0.5
-            clearBtn.isEnabled = false
             
         case .notDetermined, .restricted:
             locationManager.delegate = self
@@ -97,8 +94,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             turnOffLoc.isEnabled = false
             searchBtn.alpha = 1.0
             searchBtn.isEnabled = true
-            clearBtn.alpha = 1.0
-            clearBtn.isEnabled = true
             
         case .denied:
             useLocBtn.alpha = 0.5
@@ -106,8 +101,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             turnOffLoc.isEnabled = false
             searchBtn.alpha = 1.0
             searchBtn.isEnabled = true
-            clearBtn.alpha = 1.0
-            clearBtn.isEnabled = true
             
         default:
             break
@@ -246,6 +239,8 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                                 // Chose not to loop JSON to eliminate getting multiple dictionaries for multiple duplex/apt units (A,B,C,etc.) since only using street and address to find recycling schedule
                                 self.collectionDayLabel.text = jsonCollectionDay
                                 self.collectionWeekLabel.text = jsonCollectionWeek
+                                
+                                self.saveData()
                                 
                             } else {
                                 
@@ -442,12 +437,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
     }
     
-    @IBAction func nextBtn(_ sender: AnyObject) {
-        
-        saveData()
-        
-    }
-    
     // Hittin up that 'Search' btn
     @IBAction func submitRequest(_ sender: AnyObject) {
         
@@ -513,6 +502,8 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 self.collectionDayLabel.text = jsonCollectionDay
                 self.collectionWeekLabel.text = jsonCollectionWeek
                 
+                self.saveData()
+                
             } else {
                 
                 // Alert msg
@@ -555,6 +546,8 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
         
         residencePickerChoice = collectionSchedWeek
+        
+        print(collectionSchedWeek)
         
         userDefaults.set(residencePickerChoice!, forKey: "recyclingPref")
         userDefaults.synchronize()

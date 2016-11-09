@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,8 +31,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navVC.pushViewController(prefVC, animated: false)
             
         }
+        
+        registerForPushNotifications(application: application)
+        
+        FIRApp.configure()
                 
         return true
+    }
+    
+    func registerForPushNotifications(application: UIApplication) {
+        
+        let notificationSettings = UIUserNotificationSettings(
+            types: [.badge, .sound, .alert],
+            categories: nil)
+        
+        application.registerUserNotificationSettings(notificationSettings)
+    }
+    
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        
+        if notificationSettings.types != .none {
+            
+            application.registerForRemoteNotifications()
+            
+        }
+        
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        var token = ""
+        for i in 0..<deviceToken.count {
+            token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
+        }
+        print(token)
+        
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        
+        print("Failed to register:", error)
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

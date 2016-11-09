@@ -7,8 +7,11 @@ target 'ATXwecycle' do
 
   pod 'SwiftyJSON', :git => 'https://github.com/appsailor/SwiftyJSON.git', :branch => 'swift3'
   pod 'Alamofire', '~> 4.0'
+  pod 'Firebase'
+  pod 'Firebase/Messaging'
+end
 
-  target 'ATXwecycleTests' do
+target 'ATXwecycleTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -18,7 +21,6 @@ target 'ATXwecycle' do
     # Pods for testing
   end
 
-end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|

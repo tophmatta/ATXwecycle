@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
         
         self.navigationController?.navigationBar.isHidden = false
-                        
+        
     }
 
     func formatYesNoLabel(){

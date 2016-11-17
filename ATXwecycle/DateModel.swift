@@ -87,16 +87,24 @@ class DateModel: NSObject {
                 
         }
         
-        //print(recycleDatesArr)
-        //print(recycleDayArr)
+        var bin = [Date]()
         
-        scheduleLocalNotificationUsing()
+        for date in recycleDayArr {
+            
+            if date.compare(convertDateRemoveTimeData(date: todaysDate)) == ComparisonResult.orderedSame {
+                
+                scheduleLocalNotificationUsing(date: date)
+                
+                //print("From inside date compare: \(date)")
+                bin.append(date)
+                
+            }
+        }
         
-//        for date in recycleDayArr {
-//            
-//            scheduleLocalNotificationUsing(date: date)
-//            
-//        }
+        //TODO: get date comparison working. Could not get notification firing for when .orderedsame was true because time component interfered b/c it was not exactly 0 like the generated dates
+        print("bin: \(bin)")
+        print("convert date w/o time: \(convertDateRemoveTimeData(date: todaysDate))")
+        print("recycle days: \(recycleDayArr)")
     }
     
     
@@ -113,11 +121,18 @@ class DateModel: NSObject {
         
     }()
     
+    // Takes Date with time data and returns type Date without time info
+    func convertDateRemoveTimeData(date: Date) -> Date {
+        
+        
+        return date.addingTimeInterval(0)
+    }
+    
     // Takes a date in String form and spits out a Date
     func convertStringToDate(_ dateString: String) -> Date {
         
-        
-        return DateModel.dateFormatter.date(from: dateString)!
+        // Note: had to minus 6 hrs to due time defaulting to GMT(UK) time
+        return DateModel.dateFormatter.date(from: dateString)!.addingTimeInterval(-6*60*60)
         
     }
     
@@ -156,11 +171,11 @@ class DateModel: NSObject {
     }
     
     
-    func scheduleLocalNotificationUsing() {
+    func scheduleLocalNotificationUsing(date:Date) {
         
-        var todaysDateComponents = calendar.dateComponents([.day, .month, .year], from: todaysDate)
+        //var todaysDateComponents = calendar.dateComponents([.day, .month, .year], from: todaysDate)
         
-        //var dateComponents = calendar.dateComponents([.day, .month, .year], from: date)
+        var dateComponents = calendar.dateComponents([.day, .month, .year], from: date)
 
         
         if #available(iOS 10.0, *) {
@@ -172,15 +187,14 @@ class DateModel: NSObject {
             content.body = NSString.localizedUserNotificationString(forKey: "Today is recycling", arguments: nil)
             content.sound = UNNotificationSound.default()
             
-            todaysDateComponents.hour = 7
-            todaysDateComponents.minute = 39
+            dateComponents.hour = 20
+            dateComponents.minute = 50
             
-            print("Date components: \(todaysDateComponents)")
+            print("Date components: \(dateComponents)")
             
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
             
-            //let trigger = UNCalendarNotificationTrigger(dateMatching: todaysDateComponents, repeats: false)
-            
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
             
             let identifier = "general"
             
@@ -193,6 +207,13 @@ class DateModel: NSObject {
                     print(theError.localizedDescription)
                     
                 }
+            })
+            
+            
+            UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { (notification) in
+                
+                //print("pending not.: \(notification)")
+                
             })
             
             

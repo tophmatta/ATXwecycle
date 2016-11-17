@@ -8,30 +8,50 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>Pods-ATXwecycle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-ATXwecycleTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-ATXwecycleUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2EE45FAC4C36F7ED000530B33D931F71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>31F7C302506555367DA0EB04CD31AA91</key>
 		<dict>
 			<key>primary</key>
@@ -47,12 +67,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5F0672EFA4B555104CFADF3B452F69E6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6F4F883DA474FABE3A084415A72ABF24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A000EE4AA3C4A80BEC68E345F193D8DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A155DB09A07163884BE0A2823D0464B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B0E3A12EBAB6E567C326B7989045FC70</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FCA65A5B97CD6F0392884AF183097E70</key>
 		<dict>
 			<key>primary</key>
 			<true/>

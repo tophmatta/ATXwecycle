@@ -316,10 +316,10 @@
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -640,12 +640,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ATXwecycle/ATXwecycle.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XXRYJDD55J;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				INFOPLIST_FILE = ATXwecycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Toph.ATXWecycle;
@@ -784,11 +782,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ATXwecycle/ATXwecycle.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Matta (SX3BDVR378)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = XXRYJDD55J;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				INFOPLIST_FILE = ATXwecycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Toph.ATXWecycle;
@@ -808,12 +804,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ATXwecycle/ATXwecycle.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XXRYJDD55J;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				INFOPLIST_FILE = ATXwecycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Toph.ATXWecycle;

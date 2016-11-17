@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0E3A12EBAB6E567C326B7989045FC70"
-               BuildableName = "Pods_ATXwecycleTests.framework"
+               BlueprintIdentifier = "5F0672EFA4B555104CFADF3B452F69E6"
+               BuildableName = "libPods-ATXwecycleTests.a"
                BlueprintName = "Pods-ATXwecycleTests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0E3A12EBAB6E567C326B7989045FC70"
-            BuildableName = "Pods_ATXwecycleTests.framework"
+            BlueprintIdentifier = "5F0672EFA4B555104CFADF3B452F69E6"
+            BuildableName = "libPods-ATXwecycleTests.a"
             BlueprintName = "Pods-ATXwecycleTests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>

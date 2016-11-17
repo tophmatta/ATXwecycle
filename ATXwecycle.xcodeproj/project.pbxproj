@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F1C649E7EE5D5CCAC990D0A /* libPods-ATXwecycleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200E7C3F7262269DF1520B09 /* libPods-ATXwecycleTests.a */; };
 		2593307D65CE5F6E2627AFCF /* Pods_ATXwecycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D9BE75A89F34A72ED80FF8 /* Pods_ATXwecycle.framework */; };
-		6D6C77D91DD2106100770F97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D6C77D81DD2106100770F97 /* GoogleService-Info.plist */; };
+		6D1BD9FB1DD2A52000AD45F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D1BD9FA1DD2A52000AD45F0 /* GoogleService-Info.plist */; };
 		6D817C391DA341320089FDB4 /* CR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D817C381DA341320089FDB4 /* CR.jpg */; };
 		6DCBAD921D63FC050016D647 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCBAD911D63FC050016D647 /* AddressViewController.swift */; };
 		6DCC46E61D875FFD001B58C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DCC46E51D875FFD001B58C3 /* CoreLocation.framework */; };
@@ -55,7 +55,7 @@
 		200E7C3F7262269DF1520B09 /* libPods-ATXwecycleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ATXwecycleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C34AE99709382EA2B5C4664 /* Pods-ATXwecycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle.debug.xcconfig"; sourceTree = "<group>"; };
 		4A1BDCB02629584E677F6314 /* Pods-ATXwecycleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6D6C77D81DD2106100770F97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6D1BD9FA1DD2A52000AD45F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6D817C381DA341320089FDB4 /* CR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CR.jpg; sourceTree = "<group>"; };
 		6D8E5172F7961CC99C9A89D3 /* libPods-ATXwecycleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ATXwecycleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DCBAD911D63FC050016D647 /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +195,7 @@
 				F19E854B1C622EFD007488FB /* SettingViewController.swift */,
 				F16B58961C433D3B0027B34B /* DateModel.swift */,
 				F192D0111C6237AC00B9F1C3 /* global.swift */,
+				6D1BD9FA1DD2A52000AD45F0 /* GoogleService-Info.plist */,
 				F13915101C5E36C9002550D6 /* Categories */,
 				F1E764A51C3F5E3C009DC9BA /* Supporting Files */,
 			);
@@ -222,7 +223,6 @@
 		F1E764A51C3F5E3C009DC9BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6D6C77D81DD2106100770F97 /* GoogleService-Info.plist */,
 				6DFE99C71DCFEA9C0000C4F5 /* ATXwecycle.entitlements */,
 				F16294AA1DCC1CC600C435E7 /* Random ATX Address.gpx */,
 				6D817C381DA341320089FDB4 /* CR.jpg */,
@@ -361,12 +361,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D817C391DA341320089FDB4 /* CR.jpg in Resources */,
+				6D1BD9FB1DD2A52000AD45F0 /* GoogleService-Info.plist in Resources */,
 				F1E764821C3F5E1A009DC9BA /* LaunchScreen.storyboard in Resources */,
 				F16294AB1DCC1CC600C435E7 /* Random ATX Address.gpx in Resources */,
 				6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */,
 				F1E7647F1C3F5E1A009DC9BA /* Assets.xcassets in Resources */,
 				F1E7647D1C3F5E1A009DC9BA /* Main.storyboard in Resources */,
-				6D6C77D91DD2106100770F97 /* GoogleService-Info.plist in Resources */,
 				6DE22E891C5E64B000C5C38F /* TreeSit.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,7 +637,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AB2FE983D826800D1C78D1C /* Pods-ATXwecycle.distribution.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ATXwecycle/ATXwecycle.entitlements;
@@ -645,6 +645,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XXRYJDD55J;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				INFOPLIST_FILE = ATXwecycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Toph.ATXWecycle;
@@ -780,13 +781,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3C34AE99709382EA2B5C4664 /* Pods-ATXwecycle.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ATXwecycle/ATXwecycle.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Matta (SX3BDVR378)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = XXRYJDD55J;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				INFOPLIST_FILE = ATXwecycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Toph.ATXWecycle;
@@ -803,7 +805,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 184F7DA725ADD26906461DE9 /* Pods-ATXwecycle.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ATXwecycle/ATXwecycle.entitlements;
@@ -811,6 +813,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XXRYJDD55J;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				INFOPLIST_FILE = ATXwecycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Toph.ATXWecycle;

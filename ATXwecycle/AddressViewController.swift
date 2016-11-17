@@ -11,7 +11,7 @@ import SwiftyJSON
 import Alamofire
 import CoreLocation
 
-// TODO: figure out best UX for initial use - 'Do you know your recycling week?', (i.e. have person click 'next' button in case address is wrong or is it automatic? - have it just be automatic if address is found b/c it's probably close enough); spruce up UI - work with Peter; look up 2017 schedule; push notifications; change Yes/No Label to have secret interaction; add help/troubleshooting section
+// TODO: finish push notifications; change Yes/No Label to have secret interaction; add help/troubleshooting section
 
 // Note: To get core loc to work, one must add a value into .plist file for type of location use w/ message that appears to user.
 class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate, UITextFieldDelegate {
@@ -47,6 +47,8 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
         
         // UI
+        self.collectionDayLabel.textColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1/0)
+        self.collectionWeekLabel.textColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
         self.configurePicker()
         self.addDoneButtonOnKeyboard(textField: streetTypeTextField)
         self.addDoneButtonOnKeyboard(textField: streetTextField)
@@ -65,7 +67,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     
     //MARK: - CORE LOCATION
-    
     // Call lazy var when app is active again to recheck core loc permission & refresh UI
     func applicationDidBecomeActive(){
         
@@ -83,7 +84,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             useLocBtn.alpha = 1.0
             turnOffLoc.alpha = 1.0
             turnOffLoc.isEnabled = true
-            searchBtn.alpha = 0.5
+            searchBtn.alpha = 0.3
             searchBtn.isEnabled = false
             
         case .notDetermined, .restricted:
@@ -290,11 +291,8 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     self.present(alert, animated: true, completion: nil)
                     
                 }
-                
             }
-            
         }
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -339,7 +337,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     // Picker customization method
-    
     func configurePicker(){
         
         // Manually set default picker value as first (blank) choice
@@ -487,7 +484,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             self.streetName = mappedArr.joined(separator: " ")
             
         }
-        
         
         // Makes call to recycling schedule backend with completion handler
         self.hitAPI { (data, error) in

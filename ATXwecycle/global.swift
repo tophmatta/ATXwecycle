@@ -9,10 +9,11 @@
 import Foundation
 
 // Global vars
-var residencePickerChoice: String? = userDefaults.object(forKey: "recyclingPref") as! String?
 
 var userDefaults = UserDefaults.standard
 
+var residencePickerChoice: String? = userDefaults.object(forKey: "recyclingPref") as! String?
+var recyclingDay: String? = userDefaults.object(forKey: "recyclingDay") as! String?
 
 class Main: UIView {
     

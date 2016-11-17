@@ -30,6 +30,9 @@ class ViewController: UIViewController {
         self.formatYesNoLabel()
         questionLabelView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
+
+        print("Today's date: \(dateModel.todaysDate)")
+        print("Recycle day: \(recyclingDay)")
         
         self.navigationController?.navigationBar.isHidden = false
         

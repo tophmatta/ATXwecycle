@@ -32,23 +32,13 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.0)
   - GoogleToolboxForMac/NSData+zlib (2.1.0):
     - GoogleToolboxForMac/Defines (= 2.1.0)
-  - SwiftyJSON (3.0.0)
+  - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - Firebase
   - Firebase/Messaging
-  - SwiftyJSON (from `https://github.com/appsailor/SwiftyJSON.git`, branch `swift3`)
-
-EXTERNAL SOURCES:
-  SwiftyJSON:
-    :branch: swift3
-    :git: https://github.com/appsailor/SwiftyJSON.git
-
-CHECKOUT OPTIONS:
-  SwiftyJSON:
-    :commit: 2571377e49e6c653a92d993a2bff7a9ca2d71591
-    :git: https://github.com/appsailor/SwiftyJSON.git
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
@@ -60,8 +50,8 @@ SPEC CHECKSUMS:
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
-  SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: cc01c5cd901b8964f2047cf67a77c526a159a210
+PODFILE CHECKSUM: 5dfbbaea9658b90fc95baaad3f0366d5a89ba631
 
 COCOAPODS: 1.1.0.rc.2

@@ -12,7 +12,9 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     let globalFuncs = Main()
     
-    var schedulePickerData = [String]()
+    var pickerData = [[String]]()
+    var recyclingDayData = [String]()
+    
     
     @IBOutlet weak var schedulePicker: UIPickerView!
     @IBOutlet weak var pickerQuestionView: UIView!
@@ -37,8 +39,10 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.globalFuncs.setBlurredBackgroundImageWith("SouthRimStanding.jpg", inViewController: self)
         
         // Format picker options
-        schedulePickerData = ["Week A", "Week B"]
-        
+        pickerData = [
+            ["Week A", "Week B"],
+            ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+        ]
         // Define picker delegate/datasource
         self.schedulePicker.delegate = self
         self.schedulePicker.dataSource = self
@@ -66,7 +70,19 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let row = self.schedulePicker.selectedRow(inComponent: 0)
             
             // Set variable to be saved into user defaults
-            residencePickerChoice = schedulePickerData[row]
+            residencePickerChoice = pickerData[0][row]
+            
+        }
+        
+        if recyclingDay == nil {
+            
+            // Manually set default picker value
+            self.schedulePicker.selectRow(0, inComponent: 1, animated: false)
+            
+            let row = self.schedulePicker.selectedRow(inComponent: 1)
+            
+            // Set variable to be saved into user defaults
+            recyclingDay = pickerData[1][row]
             
         }
         
@@ -119,37 +135,54 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     // The # of col. of data
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
-        return 1
+        return pickerData.count
         
     }
     
     // # of rows in picker view
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        return schedulePickerData.count
+        return pickerData[component].count
         
     }
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        return schedulePickerData[row]
+        return pickerData[component][row]
         
     }
     
     // Change picker text color attribute
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
-        let options = schedulePickerData[row]
+        let options = pickerData[component][row]
         
-        return NSAttributedString(string: options, attributes: [NSForegroundColorAttributeName:UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)])
+        if component == 0 {
+            
+            return NSAttributedString(string: options, attributes: [NSForegroundColorAttributeName:UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)])
+            
+        } else {
+            
+            return NSAttributedString(string: options, attributes: [NSForegroundColorAttributeName:UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1.0)])
+            
+        }
+        
         
     }
     
     // Picker selection made (Note: Called only when picker is moved. See default picker func for when no interaction is made)
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        residencePickerChoice = schedulePickerData[row]
+        if component == 0 {
+            
+            residencePickerChoice = pickerData[component][row]
+            
+        } else {
+            
+            recyclingDay = pickerData[component][row]
+            
+        }
         
     }
     
@@ -157,6 +190,7 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBAction func nextButtonPressed(_ sender: AnyObject) {
         
         userDefaults.set(residencePickerChoice!, forKey: "recyclingPref")
+        userDefaults.set(recyclingDay!, forKey: "recyclingDay")
         userDefaults.synchronize()
         
     }

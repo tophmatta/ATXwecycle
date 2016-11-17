@@ -253,7 +253,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoF-EK-WaV">
                                 <rect key="frame" x="253.5" y="297" width="56" height="40"/>
-                                <color key="backgroundColor" red="0.74117647060000003" green="0.76470588240000004" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.58431372549019611" green="0.45882352941176469" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="5hP-uL-tls"/>
                                     <constraint firstAttribute="height" constant="40" id="WOP-EC-Ecu"/>
@@ -295,49 +295,39 @@
                                 <rect key="frame" x="0.0" y="357.5" width="375" height="85"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection week: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N85-TZ-G12">
-                                        <rect key="frame" x="78" y="47" width="125.5" height="20.5"/>
+                                        <rect key="frame" x="67.5" y="45.5" width="147.5" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="125.5" id="OsM-NO-zDR"/>
+                                            <constraint firstAttribute="width" constant="147.5" id="rsU-P1-6uQ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seh-uv-xne">
-                                        <rect key="frame" x="209.5" y="47.5" width="5" height="20.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <rect key="frame" x="219" y="45" width="6" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection day: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlP-AF-FBY">
-                                        <rect key="frame" x="90.5" y="17" width="115" height="21"/>
+                                        <rect key="frame" x="81.5" y="16" width="133" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="115" id="t78-7b-LX5"/>
+                                            <constraint firstAttribute="width" constant="133" id="Za0-Km-1Ev"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="t78-7b-LX5"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular">
-                                            <mask key="constraints">
-                                                <include reference="t78-7b-LX5"/>
-                                            </mask>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rl9-Ff-IZ6">
-                                        <rect key="frame" x="209.5" y="17" width="5" height="21"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <rect key="frame" x="218.5" y="16" width="6" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="seh-uv-xne" firstAttribute="leading" secondItem="N85-TZ-G12" secondAttribute="trailing" constant="6" id="3fE-lq-TIv"/>
+                                    <constraint firstItem="seh-uv-xne" firstAttribute="leading" secondItem="N85-TZ-G12" secondAttribute="trailing" constant="4" id="3fE-lq-TIv"/>
                                     <constraint firstItem="Rl9-Ff-IZ6" firstAttribute="leading" secondItem="dlP-AF-FBY" secondAttribute="trailing" constant="4" id="8Wm-Ij-Tw1"/>
                                     <constraint firstItem="dlP-AF-FBY" firstAttribute="centerX" secondItem="RkC-Tl-2pz" secondAttribute="centerX" multiplier="0.79" id="Drr-b0-lP1"/>
                                     <constraint firstItem="N85-TZ-G12" firstAttribute="centerY" secondItem="RkC-Tl-2pz" secondAttribute="centerY" multiplier="1.35" id="Nf4-Ds-lmq"/>
@@ -401,8 +391,8 @@
                                 <exclude reference="N7P-Cq-HOE"/>
                                 <exclude reference="mhe-B4-oW4"/>
                                 <exclude reference="vSq-Nw-ewa"/>
-                                <exclude reference="y0D-5b-LJG"/>
                                 <exclude reference="Abf-yN-q0S"/>
+                                <exclude reference="y0D-5b-LJG"/>
                                 <exclude reference="6Pc-Xg-95j"/>
                                 <exclude reference="Hzz-WO-gnE"/>
                                 <exclude reference="ffq-7U-5er"/>
@@ -427,8 +417,8 @@
                                 <include reference="N7P-Cq-HOE"/>
                                 <include reference="mhe-B4-oW4"/>
                                 <include reference="vSq-Nw-ewa"/>
-                                <include reference="y0D-5b-LJG"/>
                                 <include reference="Abf-yN-q0S"/>
+                                <include reference="y0D-5b-LJG"/>
                                 <include reference="6Pc-Xg-95j"/>
                                 <include reference="Hzz-WO-gnE"/>
                                 <include reference="ffq-7U-5er"/>
@@ -593,18 +583,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCO-Au-g9i">
                                 <rect key="frame" x="-4" y="287" width="383" height="266.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you know your recycling schedule week?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdX-6a-Tde">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you know your recycling schedule week and day?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdX-6a-Tde">
                                         <rect key="frame" x="10" y="49.5" width="363" height="34.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0SE-7M-R8O">
-                                        <rect key="frame" x="27" y="126.5" width="329" height="80"/>
+                                        <rect key="frame" x="27" y="116.5" width="329" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="329" id="8vw-Vq-qBy"/>
                                             <constraint firstAttribute="height" constant="80" id="eEl-SP-bSn">
-                                                <variation key="heightClass=regular" constant="80"/>
+                                                <variation key="heightClass=regular" constant="100"/>
                                             </constraint>
                                         </constraints>
                                     </pickerView>
@@ -704,6 +694,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6oa-oC-zhp"/>
+        <segue reference="9IF-TS-UTS"/>
     </inferredMetricsTieBreakers>
 </document>

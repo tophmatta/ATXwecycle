@@ -86,7 +86,9 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
         }
         
-        func setRow(i:Int){
+        
+        
+        func setRowForSched(i:Int){
             
             // Manually set default picker value
             self.schedulePicker.selectRow(i, inComponent: 0, animated: false)
@@ -98,15 +100,41 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             switch resPC {
                 
             case "Week A", "A":
-                setRow(i: 0)
+                setRowForSched(i: 0)
                 
             case "Week B", "B":
-                setRow(i: 1)
+                setRowForSched(i: 1)
                 
             default:
-                setRow(i: 0)
+                setRowForSched(i: 0)
                 
             }
+        }
+        
+        func setRowForDay(i:Int){
+            
+            self.schedulePicker.selectRow(i, inComponent: 1, animated: false)
+            
+        }
+        
+        if let rd = recyclingDay {
+            
+            switch rd {
+            case "Monday":
+                setRowForDay(i: 0)
+            case "Tuesday":
+                setRowForDay(i: 1)
+            case "Wednesday":
+                setRowForDay(i: 2)
+            case "Thursday":
+                setRowForDay(i: 3)
+            case "Friday":
+                setRowForDay(i: 4)
+            default:
+                setRowForDay(i: 0)
+            }
+            
+            
         }
     }
     

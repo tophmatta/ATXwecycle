@@ -15,7 +15,6 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var pickerData = [[String]]()
     var recyclingDayData = [String]()
     
-    
     @IBOutlet weak var schedulePicker: UIPickerView!
     @IBOutlet weak var pickerQuestionView: UIView!
     @IBOutlet weak var welcomeLabelView: UIView!

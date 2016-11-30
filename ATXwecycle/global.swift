@@ -14,6 +14,10 @@ var userDefaults = UserDefaults.standard
 
 var residencePickerChoice: String? = userDefaults.object(forKey: "recyclingPref") as! String?
 var recyclingDay: String? = userDefaults.object(forKey: "recyclingDay") as! String?
+var notificationHour: Int? = userDefaults.object(forKey: "notificationHour") as! Int?
+var notificationMinute: Int? = userDefaults.object(forKey: "notificationMinute") as! Int?
+
+let dateModel = DateModel()
 
 class Main: UIView {
     

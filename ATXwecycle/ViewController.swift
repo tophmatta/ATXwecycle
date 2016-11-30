@@ -13,10 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var yesOrNoLabel: UILabel?
     
     @IBOutlet weak var questionLabelView: UIView!
-    
-    // Fetch date data
-    let dateModel = DateModel()
-    
+        
     // Fetch global funcs
     let globalFuncs = Main()
     
@@ -24,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Generate and analyze date model
-        self.dateModel.setUpRecycleDatesArray()
+        dateModel.setUpRecycleDatesArray()
         
         // Format UI elements
         self.formatYesNoLabel()

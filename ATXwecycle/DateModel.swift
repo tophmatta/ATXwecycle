@@ -151,9 +151,29 @@ class DateModel: NSObject {
             content.body = NSString.localizedUserNotificationString(forKey: "Tomorrow is recycling", arguments: nil)
             content.sound = UNNotificationSound.default()
             
+            
+            if notificationHour == nil {
+                
+                dateComponents.hour = 20
+
+            } else {
+                
+                dateComponents.hour = notificationHour
+                
+            }
+            
+            if notificationMinute == nil {
+                
+                dateComponents.minute = 0
+                
+            } else {
+                
+                dateComponents.minute = notificationMinute
+                
+            }
+            
+            // Notification will fire day prior to recycling
             dateComponents.weekday = day - 1
-            dateComponents.hour = 18
-            dateComponents.minute = 51
             
             print("Date components: \(dateComponents)")
             

@@ -16,6 +16,7 @@
 		6DE22E891C5E64B000C5C38F /* TreeSit.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E861C5E64B000C5C38F /* TreeSit.JPG */; };
 		6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */; };
 		81FAD88C73D9E52AF4615DDB /* libPods-ATXwecycleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8E5172F7961CC99C9A89D3 /* libPods-ATXwecycleUITests.a */; };
+		F129038A1DEE112F0088C015 /* SettingModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12903891DEE112F0088C015 /* SettingModalViewController.swift */; };
 		F16294AB1DCC1CC600C435E7 /* Random ATX Address.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F16294AA1DCC1CC600C435E7 /* Random ATX Address.gpx */; };
 		F16B58971C433D3B0027B34B /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B58961C433D3B0027B34B /* DateModel.swift */; };
 		F176EEFB1C5D136600E4BBD7 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = F176EEFA1C5D136600E4BBD7 /* UIImageEffects.m */; };
@@ -69,6 +70,7 @@
 		98E80FAA6251A337121F00ED /* Pods-ATXwecycleTests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleTests.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests.distribution.xcconfig"; sourceTree = "<group>"; };
 		A72D6F0F588B003C637A586D /* Pods-ATXwecycleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleUITests/Pods-ATXwecycleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C8D9BE75A89F34A72ED80FF8 /* Pods_ATXwecycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATXwecycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F12903891DEE112F0088C015 /* SettingModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModalViewController.swift; sourceTree = "<group>"; };
 		F16294AA1DCC1CC600C435E7 /* Random ATX Address.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Random ATX Address.gpx"; sourceTree = "<group>"; };
 		F16B58961C433D3B0027B34B /* DateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		F176EEF81C5D136500E4BBD7 /* ATXwecycle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ATXwecycle-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E7647B1C3F5E1A009DC9BA /* Main.storyboard */,
+				F12903891DEE112F0088C015 /* SettingModalViewController.swift */,
 				6DCBAD911D63FC050016D647 /* AddressViewController.swift */,
 				F1E764771C3F5E1A009DC9BA /* AppDelegate.swift */,
 				F1E764791C3F5E1A009DC9BA /* ViewController.swift */,
@@ -532,6 +535,7 @@
 			files = (
 				F192D0121C6237AC00B9F1C3 /* global.swift in Sources */,
 				F19E854C1C622EFD007488FB /* SettingViewController.swift in Sources */,
+				F129038A1DEE112F0088C015 /* SettingModalViewController.swift in Sources */,
 				F176EEFB1C5D136600E4BBD7 /* UIImageEffects.m in Sources */,
 				6DCBAD921D63FC050016D647 /* AddressViewController.swift in Sources */,
 				F1E7647A1C3F5E1A009DC9BA /* ViewController.swift in Sources */,

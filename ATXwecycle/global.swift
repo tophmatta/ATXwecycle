@@ -17,8 +17,6 @@ var recyclingDay: String? = userDefaults.object(forKey: "recyclingDay") as! Stri
 var notificationHour: Int? = userDefaults.object(forKey: "notificationHour") as! Int?
 var notificationMinute: Int? = userDefaults.object(forKey: "notificationMinute") as! Int?
 
-let dateModel = DateModel()
-
 class Main: UIView {
     
     func setBlurredBackgroundImageWith(_ imageName: String, inViewController VC: UIViewController){

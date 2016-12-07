@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController {
 
@@ -21,7 +22,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Generate and analyze date model
-        dateModel.setUpRecycleDatesArray()
+        DateModel.sharedInstance.setUpRecycleDatesArray()
         
         // Format UI elements
         self.formatYesNoLabel()
@@ -30,8 +31,11 @@ class ViewController: UIViewController {
 
         self.navigationController?.navigationBar.isHidden = false
         
+        DateModel.sharedInstance.notificationCounter = 1
+        
     }
-
+    
+    
     func formatYesNoLabel(){
         
         if let tempLabel = yesOrNoLabel {
@@ -49,7 +53,7 @@ class ViewController: UIViewController {
             tempLabel.text = "No"
             
             // Pull in data checking whether date matches a recycle date
-            let recycleDateCheckBool: Bool = dateModel.checkTodaysDateToRecycleDatesArray()
+            let recycleDateCheckBool: Bool = DateModel.sharedInstance.checkTodaysDateToRecycleDatesArray()
             
             // Change condition if recycle date is valid
             if recycleDateCheckBool {

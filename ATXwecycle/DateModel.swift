@@ -11,14 +11,22 @@ import UserNotifications
 
 class DateModel: NSObject {
     
+    static let sharedInstance = DateModel()
+    
+    private override init() {}
+    
     let calendar = Calendar.current
     
     // Note: adjusted date/time to match CST instead of GMT (UK)
     var todaysDate = Date().addingTimeInterval(-6*60*60)
     
-    var recycleDatesArr = [Date]()
+    var recycleWeekDatesArr = [Date]()
+    
+    var recycleDayDatesArr = [Date]()
     
     var recycleWeekStartDate: Date?
+    
+    var notificationCounter = 0
     
     // Generates recycling date schedule and appends to array
     func setUpRecycleDatesArray(){
@@ -38,26 +46,78 @@ class DateModel: NSObject {
         // Specify day in seconds to use for date counter
         let day: Double = 60*60*24
         
+        recycleWeekDatesArr.removeAll()
+        recycleDayDatesArr.removeAll()
+        
         // Create bi-weekly date intervals for recycling every other week
         for _ in 1...26*2 {
             
             // Add initial recycle week start date plus 5 days after to recycle dates array to mimic a Sun-Fri interval
             for i in 0...5 {
                 
-                if let futureDate = recycleWeekStartDate?.addingTimeInterval(day * Double(i)) {
+                var j = Int()
+                
+                switch recyclingDay ?? "" {
                     
-                    recycleDatesArr.append(futureDate)
+                case "Monday":
+                    j = 1
+                case "Tuesday":
+                    j = 2
+                case "Wednesday":
+                    j = 3
+                case "Thursday":
+                    j = 4
+                case "Friday":
+                    j = 5
                     
+                default:
+                    break
+                    
+                }
+                
+                // Creating date with last hour and last second of date (17*60*60 + 59*60 + 59) + 6am default shift from GMT to handle .orderedSame edge case. For instance, if a 0 o clock time was used when the date algorithm ran, ComparisonResult.orderedSame would be passed over. Even though the day date was being compared, somehow this had an effect.
+                if let futureDate = recycleWeekStartDate?.addingTimeInterval(day * Double(i)).addingTimeInterval(64799) {
+                    
+                    // Eliminates past dates from now until initialization date
+                    if calendar.compare(todaysDate, to: futureDate, toGranularity: .day) == ComparisonResult.orderedAscending || calendar.compare(todaysDate, to: futureDate, toGranularity: .day) == ComparisonResult.orderedSame {
+                        
+                        recycleWeekDatesArr.append(futureDate)
+                        
+                        // Add dates of recycle day to array to lay foundation for push notification date component triggers
+                        if i == j {
+                            
+                            recycleDayDatesArr.append(futureDate)
+                            
+                            scheduleLocalNotification(futureDate)
+                            
+                            self.notificationCounter += 1
+                                                        
+                        }
+                    }
                 }
             }
                 
             // Adds 2 weeks onto date counter
             recycleWeekStartDate = recycleWeekStartDate?.addingTimeInterval(day * 14)
-                
+            
+            
         }
         
-        // Trigger notification for chosen day and time
-        scheduleLocalNotificationForDay()
+        //print(convertDateToString(todaysDate))
+        
+        print(todaysDate)
+        
+        print(recycleDayDatesArr)
+        
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().getPendingNotificationRequests { (not) in
+                
+                print(not.first!)
+                
+            }
+        } else {
+            // Fallback on earlier versions
+        }
         
     }
     
@@ -70,6 +130,7 @@ class DateModel: NSObject {
         let dateFormatter = DateFormatter()
         
         dateFormatter.dateFormat = "MM-dd-yyyy"
+        dateFormatter.timeZone = NSTimeZone.local
         
         return dateFormatter
         
@@ -79,7 +140,7 @@ class DateModel: NSObject {
     func convertStringToDate(_ dateString: String) -> Date {
         
         // Note: had to minus 6 hrs to due time defaulting to GMT(UK) time
-        return DateModel.dateFormatter.date(from: dateString)!.addingTimeInterval(-6*60*60)
+        return DateModel.dateFormatter.date(from: dateString)!
         
     }
     
@@ -95,7 +156,7 @@ class DateModel: NSObject {
         
         var datesMatch = false
         
-        for recycleDate in recycleDatesArr {
+        for recycleDate in recycleWeekDatesArr {
             
             // Store recycleDate as a string
             let recycleDateString = convertDateToString(recycleDate)
@@ -117,34 +178,15 @@ class DateModel: NSObject {
     }
     
     //MARK: Local Notification
-    func scheduleLocalNotificationForDay() {
+    func scheduleLocalNotification(_ date: Date) {
         
-        var day = 0
+        // Subtracting day for notification
+        let dateLessOneDay = calendar.date(byAdding: .day, value: -1, to: date)
         
-        // Pull in saved day and assign weekday date component to be used for repeating notification
-        switch recyclingDay ?? "" {
-            
-        case "Monday":
-            day = 2
-        case "Tuesday":
-            day = 3
-        case "Wednesday":
-            day = 4
-        case "Thursday":
-            day = 5
-        case "Friday":
-            day = 6
-        default:
-            break
-            
-        }
+        // Split date arg into components
+        var dateComponents = calendar.dateComponents([.month, .day, .year], from: dateLessOneDay!)
         
-        // Placeholder for day and time components to be determined below
-        var dateComponents = calendar.dateComponents([.weekday], from: todaysDate)
-
         if #available(iOS 10.0, *) {
-            
-            let center = UNUserNotificationCenter.current()
             
             let content = UNMutableNotificationContent()
             content.title = NSString.localizedUserNotificationString(forKey: "Don't forget! ☝️", arguments: nil)
@@ -172,18 +214,20 @@ class DateModel: NSObject {
                 
             }
             
+            
+            
             // Notification will fire day prior to recycling
-            dateComponents.weekday = day - 1
             
-            print("Date components: \(dateComponents)")
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
             
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-            
-            let identifier = "general"
+            let identifier = "general " + String(notificationCounter)
             
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
             
+            let center = UNUserNotificationCenter.current()
+            
             center.add(request, withCompletionHandler: { (error) in
+                
                 
                 if let theError = error {
                     
@@ -192,12 +236,6 @@ class DateModel: NSObject {
                 }
             })
             
-            
-//            center.getPendingNotificationRequests(completionHandler: { (notification) in
-//                
-//                print("pending not.: \(notification)")
-//                
-//            })
             
         } else {
             // Fallback on earlier versions

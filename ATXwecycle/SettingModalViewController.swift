@@ -7,7 +7,7 @@
 //
 
 
-// TODO: config time picker to move to selected time
+// TODO: config time picker to move to selected time, get notification to repeat every other week durh!, figure out why notification request in this vc is just the very last one and the requests in the model are all of them - why diff?
 import UIKit
 import UserNotifications
 
@@ -28,16 +28,25 @@ class SettingModalViewController: UIViewController {
     
     func configureTimePicker(){
         
-        timePicker.setValue(UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1.0), forKey: "textColor")        
+        // Font color
+        timePicker.setValue(UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1.0), forKey: "textColor")
+        
+        // Forcing to show default time or user chosen time when meny displayed
+        var c = DateComponents()
+        
+        c.hour = notificationHour
+        c.minute = notificationMinute
+        
+        timePicker.date = calendar.date(from: c)!
         
     }
+    
+    
     
     
     @IBAction func datePickerAction(_ sender: Any) {
         
         let dateComponents = calendar.dateComponents([.hour, .minute], from: timePicker.date)
-        
-        print(dateComponents)
         
         notificationHour = dateComponents.hour
         notificationMinute = dateComponents.minute
@@ -52,22 +61,16 @@ class SettingModalViewController: UIViewController {
             center.removeAllPendingNotificationRequests()
             
             // Schedule notifications to user specified time
-            dateModel.scheduleLocalNotificationForDay()
+            DateModel.sharedInstance.setUpRecycleDatesArray()
             
-            center.getPendingNotificationRequests(completionHandler: { (request) in
-                
-                
-                print(request)
-                
-            })
+            
+//            center.getPendingNotificationRequests(completionHandler: { (request) in
+//                
+//                print(request)
+//                
+//            })
             
         }
-        
-        
-        
-        
-        
-        
     }
 
     @IBAction func cancelButtonAction(_ sender: Any) {
@@ -79,7 +82,7 @@ class SettingModalViewController: UIViewController {
     @IBAction func changeNotificationSettingPressed(_ sender: Any) {
         
         // Alert msg w/ 'open settings'
-        let alert = UIAlertController.init(title: "Toggle Push Notification Service", message: "Select 'Open Settings' to continue.", preferredStyle: .alert)
+        let alert = UIAlertController.init(title: "Toggle Push Notifications", message: "Select 'Open Settings' to continue.", preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)

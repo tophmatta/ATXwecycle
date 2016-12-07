@@ -42,15 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
                 
-                if granted {
-                    
-                    print("UN access granted")
-                    
-                } else {
-                    
-                    print("UN access denied")
-                    
-                }
+//                if granted {
+//                    
+//                    print("UN access granted")
+//                    
+//                } else {
+//                    
+//                    print("UN access denied")
+//                    
+//                }
                 
             }
         }

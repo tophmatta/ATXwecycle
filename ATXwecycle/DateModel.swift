@@ -88,10 +88,23 @@ class DateModel: NSObject {
                             
                             recycleDayDatesArr.append(futureDate)
                             
-                            scheduleLocalNotification(futureDate)
-                            
-                            self.notificationCounter += 1
-                                                        
+                            if #available(iOS 10.0, *) {
+                                let center = UNUserNotificationCenter.current()
+                                
+                                center.getNotificationSettings(completionHandler: { (settings) in
+                                    
+                                    if settings.authorizationStatus == .authorized {
+                                        
+                                        self.scheduleLocalNotification(futureDate)
+                                        
+                                        self.notificationCounter += 1
+                                        
+                                    }
+                                })
+                                
+                            } else {
+                                // Fallback on earlier versions
+                            }
                         }
                     }
                 }
@@ -102,19 +115,22 @@ class DateModel: NSObject {
             
             
         }
-        
-        //print(convertDateToString(todaysDate))
-        
-        print(todaysDate)
-        
-        print(recycleDayDatesArr)
-        
+                
         if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().getPendingNotificationRequests { (not) in
+            
+            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
                 
-                print(not.first!)
-                
-            }
+                if settings.authorizationStatus == .authorized {
+                    
+                    UNUserNotificationCenter.current().getPendingNotificationRequests { (not) in
+                        
+                        print(not.first!)
+                        
+                    }
+                    
+                }
+            })
+            
         } else {
             // Fallback on earlier versions
         }
@@ -139,7 +155,6 @@ class DateModel: NSObject {
     // Takes a date in String form and spits out a Date
     func convertStringToDate(_ dateString: String) -> Date {
         
-        // Note: had to minus 6 hrs to due time defaulting to GMT(UK) time
         return DateModel.dateFormatter.date(from: dateString)!
         
     }

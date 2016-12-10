@@ -31,10 +31,19 @@ class ViewController: UIViewController {
 
         self.navigationController?.navigationBar.isHidden = false
         
+        // Handles if user decides to turn on notifications while using the app
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+        
         DateModel.sharedInstance.notificationCounter = 1
         
     }
     
+    func applicationDidBecomeActive(){
+        
+        // Generate and analyze date model
+        DateModel.sharedInstance.setUpRecycleDatesArray()
+        
+    }
     
     func formatYesNoLabel(){
         

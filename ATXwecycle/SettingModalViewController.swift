@@ -11,6 +11,7 @@
 import UIKit
 import UserNotifications
 
+@available(iOS 10.0, *)
 class SettingModalViewController: UIViewController {
 
     
@@ -18,11 +19,25 @@ class SettingModalViewController: UIViewController {
     
     let calendar = Calendar.current
     
+    let center = UNUserNotificationCenter.current()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTimePicker()
         
+        // Handles if user decides to turn on notifications while using the app
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+        
+        
+    }
+    
+    func applicationDidBecomeActive(){
+        
+        configureTimePicker()
+        
+        // Generate and analyze date model
+        DateModel.sharedInstance.setUpRecycleDatesArray()
         
     }
     
@@ -39,38 +54,44 @@ class SettingModalViewController: UIViewController {
         
         timePicker.date = calendar.date(from: c)!
         
+        
+        // Get notification settings and determine whether picker should allow interaction
+        center.getNotificationSettings(completionHandler: { (settings) in
+            
+            if settings.authorizationStatus == .authorized {
+                
+                self.timePicker.isEnabled = true
+                
+            } else {
+                
+                self.timePicker.isEnabled = false
+                
+            }
+            
+        })
+        
     }
     
     
     
     
     @IBAction func datePickerAction(_ sender: Any) {
-        
-        let dateComponents = calendar.dateComponents([.hour, .minute], from: timePicker.date)
+
+        let dateComponents = self.calendar.dateComponents([.hour, .minute], from: self.timePicker.date)
         
         notificationHour = dateComponents.hour
         notificationMinute = dateComponents.minute
         
+        // Save notification time to be used in DateModel .scheduleLocalNotification via setUpRecycleDatesArray
         userDefaults.set(notificationHour!, forKey: "notificationHour")
         userDefaults.set(notificationMinute!, forKey: "notificationMinute")
         userDefaults.synchronize()
         
-        if #available(iOS 10.0, *) {
-            
-            let center = UNUserNotificationCenter.current()
-            center.removeAllPendingNotificationRequests()
-            
-            // Schedule notifications to user specified time
-            DateModel.sharedInstance.setUpRecycleDatesArray()
-            
-            
-//            center.getPendingNotificationRequests(completionHandler: { (request) in
-//                
-//                print(request)
-//                
-//            })
-            
-        }
+        center.removeAllPendingNotificationRequests()
+        
+        // Schedule notifications to user specified time
+        DateModel.sharedInstance.setUpRecycleDatesArray()
+        
     }
 
     @IBAction func cancelButtonAction(_ sender: Any) {

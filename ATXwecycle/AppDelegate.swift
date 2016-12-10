@@ -32,8 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navVC.pushViewController(prefVC, animated: false)
             
         }
-        
-        
+                
         
         if #available(iOS 10.0, *) {
             

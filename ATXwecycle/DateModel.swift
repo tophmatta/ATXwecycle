@@ -208,10 +208,12 @@ class DateModel: NSObject {
             content.body = NSString.localizedUserNotificationString(forKey: "Tomorrow is recycling", arguments: nil)
             content.sound = UNNotificationSound.default()
             
-            
+            // Set up default notification time of 8pm day before unless one is chosen in settings
             if notificationHour == nil {
                 
-                dateComponents.hour = 20
+                notificationHour = 20
+                
+                dateComponents.hour = notificationHour
 
             } else {
                 
@@ -221,15 +223,15 @@ class DateModel: NSObject {
             
             if notificationMinute == nil {
                 
-                dateComponents.minute = 0
+                notificationMinute = 0
+                
+                dateComponents.minute = notificationMinute
                 
             } else {
                 
                 dateComponents.minute = notificationMinute
                 
             }
-            
-            
             
             // Notification will fire day prior to recycling
             

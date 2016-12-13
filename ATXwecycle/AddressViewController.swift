@@ -11,8 +11,6 @@ import SwiftyJSON
 import Alamofire
 import CoreLocation
 
-// TODO: finish push notifications; change Yes/No Label to have secret interaction; add help/troubleshooting section
-
 // Note: To get core loc to work, one must add a value into .plist file for type of location use w/ message that appears to user.
 class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate, UITextFieldDelegate {
     
@@ -84,8 +82,6 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             useLocBtn.alpha = 1.0
             turnOffLoc.alpha = 1.0
             turnOffLoc.isEnabled = true
-            searchBtn.alpha = 0.3
-            searchBtn.isEnabled = false
             
         case .notDetermined, .restricted:
             locationManager.delegate = self
@@ -93,15 +89,11 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             useLocBtn.alpha = 0.5
             turnOffLoc.alpha = 0.5
             turnOffLoc.isEnabled = false
-            searchBtn.alpha = 1.0
-            searchBtn.isEnabled = true
             
         case .denied:
             useLocBtn.alpha = 0.5
             turnOffLoc.alpha = 0.5
             turnOffLoc.isEnabled = false
-            searchBtn.alpha = 1.0
-            searchBtn.isEnabled = true
             
         default:
             break
@@ -131,7 +123,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let openAction = UIAlertAction(title: "Open Settings", style: .default, handler: { (action) in
             if let url = NSURL(string: UIApplicationOpenSettingsURLString) {
                 
-                UIApplication.shared.openURL(url as URL)
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
                 
             }
         })
@@ -155,7 +147,7 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let openAction = UIAlertAction(title: "Open Settings", style: .default, handler: { (action) in
                 if let url = NSURL(string: UIApplicationOpenSettingsURLString) {
                     
-                    UIApplication.shared.openURL(url as URL)
+                    UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
                     
                 }
             })

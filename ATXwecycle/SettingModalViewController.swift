@@ -6,8 +6,6 @@
 //  Copyright © 2016 Toph Matta. All rights reserved.
 //
 
-
-// TODO: config time picker to move to selected time, get notification to repeat every other week durh!, figure out why notification request in this vc is just the very last one and the requests in the model are all of them - why diff?
 import UIKit
 import UserNotifications
 
@@ -111,7 +109,7 @@ class SettingModalViewController: UIViewController {
         let openAction = UIAlertAction(title: "Open Settings", style: .default, handler: { (action) in
             if let url = NSURL(string: UIApplicationOpenSettingsURLString) {
                 
-                UIApplication.shared.openURL(url as URL)
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
                 
             }
         })

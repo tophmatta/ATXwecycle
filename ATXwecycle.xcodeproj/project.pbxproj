@@ -9,15 +9,11 @@
 /* Begin PBXBuildFile section */
 		0F1C649E7EE5D5CCAC990D0A /* libPods-ATXwecycleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200E7C3F7262269DF1520B09 /* libPods-ATXwecycleTests.a */; };
 		2593307D65CE5F6E2627AFCF /* Pods_ATXwecycle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D9BE75A89F34A72ED80FF8 /* Pods_ATXwecycle.framework */; };
-		6D1BD9FB1DD2A52000AD45F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D1BD9FA1DD2A52000AD45F0 /* GoogleService-Info.plist */; };
-		6D817C391DA341320089FDB4 /* CR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D817C381DA341320089FDB4 /* CR.jpg */; };
 		6DCBAD921D63FC050016D647 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCBAD911D63FC050016D647 /* AddressViewController.swift */; };
 		6DCC46E61D875FFD001B58C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DCC46E51D875FFD001B58C3 /* CoreLocation.framework */; };
-		6DE22E891C5E64B000C5C38F /* TreeSit.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E861C5E64B000C5C38F /* TreeSit.JPG */; };
 		6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */; };
 		81FAD88C73D9E52AF4615DDB /* libPods-ATXwecycleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8E5172F7961CC99C9A89D3 /* libPods-ATXwecycleUITests.a */; };
 		F129038A1DEE112F0088C015 /* SettingModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12903891DEE112F0088C015 /* SettingModalViewController.swift */; };
-		F16294AB1DCC1CC600C435E7 /* Random ATX Address.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F16294AA1DCC1CC600C435E7 /* Random ATX Address.gpx */; };
 		F16B58971C433D3B0027B34B /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B58961C433D3B0027B34B /* DateModel.swift */; };
 		F176EEFB1C5D136600E4BBD7 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = F176EEFA1C5D136600E4BBD7 /* UIImageEffects.m */; };
 		F192D0121C6237AC00B9F1C3 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192D0111C6237AC00B9F1C3 /* global.swift */; };
@@ -56,14 +52,10 @@
 		200E7C3F7262269DF1520B09 /* libPods-ATXwecycleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ATXwecycleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C34AE99709382EA2B5C4664 /* Pods-ATXwecycle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle.debug.xcconfig"; sourceTree = "<group>"; };
 		4A1BDCB02629584E677F6314 /* Pods-ATXwecycleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6D1BD9FA1DD2A52000AD45F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		6D817C381DA341320089FDB4 /* CR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CR.jpg; sourceTree = "<group>"; };
 		6D8E5172F7961CC99C9A89D3 /* libPods-ATXwecycleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ATXwecycleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DCBAD911D63FC050016D647 /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		6DCC46E51D875FFD001B58C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		6DE22E861C5E64B000C5C38F /* TreeSit.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TreeSit.JPG; sourceTree = "<group>"; };
 		6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SouthRimStanding.jpg; sourceTree = "<group>"; };
-		6DFE99C71DCFEA9C0000C4F5 /* ATXwecycle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ATXwecycle.entitlements; sourceTree = "<group>"; };
 		7222FD4947B82EAD99E52C45 /* Pods-ATXwecycleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleTests/Pods-ATXwecycleTests.release.xcconfig"; sourceTree = "<group>"; };
 		7AB2FE983D826800D1C78D1C /* Pods-ATXwecycle.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycle.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycle/Pods-ATXwecycle.distribution.xcconfig"; sourceTree = "<group>"; };
 		7EA004EA8B819D14F5C01609 /* Pods-ATXwecycleUITests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleUITests.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleUITests/Pods-ATXwecycleUITests.distribution.xcconfig"; sourceTree = "<group>"; };
@@ -71,7 +63,6 @@
 		A72D6F0F588B003C637A586D /* Pods-ATXwecycleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATXwecycleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATXwecycleUITests/Pods-ATXwecycleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C8D9BE75A89F34A72ED80FF8 /* Pods_ATXwecycle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATXwecycle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F12903891DEE112F0088C015 /* SettingModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModalViewController.swift; sourceTree = "<group>"; };
-		F16294AA1DCC1CC600C435E7 /* Random ATX Address.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Random ATX Address.gpx"; sourceTree = "<group>"; };
 		F16B58961C433D3B0027B34B /* DateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		F176EEF81C5D136500E4BBD7 /* ATXwecycle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ATXwecycle-Bridging-Header.h"; sourceTree = "<group>"; };
 		F176EEF91C5D136600E4BBD7 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
@@ -198,7 +189,6 @@
 				F19E854B1C622EFD007488FB /* SettingViewController.swift */,
 				F16B58961C433D3B0027B34B /* DateModel.swift */,
 				F192D0111C6237AC00B9F1C3 /* global.swift */,
-				6D1BD9FA1DD2A52000AD45F0 /* GoogleService-Info.plist */,
 				F13915101C5E36C9002550D6 /* Categories */,
 				F1E764A51C3F5E3C009DC9BA /* Supporting Files */,
 			);
@@ -226,10 +216,6 @@
 		F1E764A51C3F5E3C009DC9BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6DFE99C71DCFEA9C0000C4F5 /* ATXwecycle.entitlements */,
-				F16294AA1DCC1CC600C435E7 /* Random ATX Address.gpx */,
-				6D817C381DA341320089FDB4 /* CR.jpg */,
-				6DE22E861C5E64B000C5C38F /* TreeSit.JPG */,
 				6DE22E871C5E64B000C5C38F /* SouthRimStanding.jpg */,
 				F1E764801C3F5E1A009DC9BA /* LaunchScreen.storyboard */,
 				F1E7647E1C3F5E1A009DC9BA /* Assets.xcassets */,
@@ -363,14 +349,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D817C391DA341320089FDB4 /* CR.jpg in Resources */,
-				6D1BD9FB1DD2A52000AD45F0 /* GoogleService-Info.plist in Resources */,
 				F1E764821C3F5E1A009DC9BA /* LaunchScreen.storyboard in Resources */,
-				F16294AB1DCC1CC600C435E7 /* Random ATX Address.gpx in Resources */,
 				6DE22E8A1C5E64B000C5C38F /* SouthRimStanding.jpg in Resources */,
 				F1E7647F1C3F5E1A009DC9BA /* Assets.xcassets in Resources */,
 				F1E7647D1C3F5E1A009DC9BA /* Main.storyboard in Resources */,
-				6DE22E891C5E64B000C5C38F /* TreeSit.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,7 +610,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
 				SDKROOT = iphoneos;
@@ -726,7 +708,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
@@ -769,7 +751,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "54beb2ed-06a6-4fb7-8a75-ed875f7b4cab";
 				SDKROOT = iphoneos;

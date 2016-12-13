@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import UserNotifications
 
 @UIApplicationMain
@@ -32,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navVC.pushViewController(prefVC, animated: false)
             
         }
-                
         
         if #available(iOS 10.0, *) {
             
@@ -54,69 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-       /*
-        FIRApp.configure()
-        
-        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
-        
-        let notificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
-        
-        application.registerForRemoteNotifications()
-        application.registerUserNotificationSettings(notificationSettings)
-        
-        */
-        
-        
-                
         return true
     }
-    
-    /*
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        
-        //print("MessageID: \(userInfo["gcm_message_id"]!)")
-        
-        //print(userInfo)
-        
-    }
-    
-    func registerForPushNotifications(application: UIApplication) {
-        
-        
-        let notificationSettings = UIUserNotificationSettings(
-            types: [.badge, .sound, .alert],
-            categories: nil)
-        
-        application.registerUserNotificationSettings(notificationSettings)
-    }
-    
-    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-        
-        if notificationSettings.types != .none {
-            
-            application.registerForRemoteNotifications()
-            
-        }
-        
-    }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
-        var token = ""
-        for i in 0..<deviceToken.count {
-            token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
-        }
-        //print(token)
-        
-    }
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        
-        print("Failed to register:", error)
-        
-    }
-    
-    */
 
     func applicationWillTerminate(_ application: UIApplication) {
         

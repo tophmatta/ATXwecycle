@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GoogleToolboxForMac.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-ATXwecycle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,22 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>50F0E2B54D1F63C9C76939032DD2D0AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5F0672EFA4B555104CFADF3B452F69E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F4F883DA474FABE3A084415A72ABF24</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A155DB09A07163884BE0A2823D0464B5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FCA65A5B97CD6F0392884AF183097E70</key>
+		<key>A000EE4AA3C4A80BEC68E345F193D8DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

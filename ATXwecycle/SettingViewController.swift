@@ -116,21 +116,25 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
         }
         
+        // TODO: why defaulting below?
+        
+        print(recyclingDay ?? "none")
+        
         if let rd = recyclingDay {
             
             switch rd {
-            case "Monday":
+            case "MONDAY":
                 setRowForDay(i: 0)
-            case "Tuesday":
+            case "TUESDAY":
                 setRowForDay(i: 1)
-            case "Wednesday":
+            case "WEDNESDAY":
                 setRowForDay(i: 2)
-            case "Thursday":
+            case "THURSDAY":
                 setRowForDay(i: 3)
-            case "Friday":
+            case "FRIDAY":
                 setRowForDay(i: 4)
             default:
-                setRowForDay(i: 0)
+                setRowForDay(i: 0); print(" in dis")
             }
             
             

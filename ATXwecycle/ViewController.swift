@@ -36,6 +36,9 @@ class ViewController: UIViewController {
         
         DateModel.sharedInstance.notificationCounter = 1
         
+        print(recyclingDay ?? "***")
+        print(residencePickerChoice ?? "***")
+                
     }
     
     func applicationDidBecomeActive(){

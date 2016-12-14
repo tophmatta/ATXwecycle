@@ -31,7 +31,7 @@ class DateModel: NSObject {
     // Generates recycling date schedule and appends to array
     func setUpRecycleDatesArray(){
                 
-        if residencePickerChoice == "Week A" {
+        if residencePickerChoice == "Week A" || residencePickerChoice == "A" {
             
             // Initialize start of very first recycle week if Week A
             recycleWeekStartDate = convertStringToDate("01-10-2016")
@@ -116,25 +116,27 @@ class DateModel: NSObject {
             
         }
                 
-        if #available(iOS 10.0, *) {
-            
-            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
-                
-                if settings.authorizationStatus == .authorized {
-                    
-                    UNUserNotificationCenter.current().getPendingNotificationRequests { (not) in
-                        
-                        print(not.first!)
-                        
-                    }
-                    
-                }
-            })
-            
-        } else {
-            // Fallback on earlier versions
-        }
+//        if #available(iOS 10.0, *) {
+//            
+//            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
+//                
+//                if settings.authorizationStatus == .authorized {
+//                    
+//                    UNUserNotificationCenter.current().getPendingNotificationRequests { (not) in
+//                        
+//                        print(not.first!)
+//                        
+//                    }
+//                    
+//                }
+//            })
+//            
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
+        
+        //print(recycleWeekDatesArr)
     }
     
     

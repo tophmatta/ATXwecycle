@@ -514,9 +514,10 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     //MARK: SAVE DATA
     func saveData(){
         
-        let collectionSchedWeek = collectionWeekLabel.text!
+        let collectionSchedWeek = collectionWeekLabel.text ?? ""
+        let collectionDay = collectionDayLabel.text ?? ""
         
-         if collectionSchedWeek == " " {
+         if collectionSchedWeek == "" || collectionDay == "" {
             
             let alert = UIAlertController.init(title: "Not So Fast", message: "Please search collection week/day info", preferredStyle: .alert)
             
@@ -534,10 +535,12 @@ class AddressViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
         
         residencePickerChoice = collectionSchedWeek
+        recyclingDay = collectionDay
         
         print(collectionSchedWeek)
         
         userDefaults.set(residencePickerChoice!, forKey: "recyclingPref")
+        userDefaults.set(recyclingDay!, forKey: "recyclingDay")
         userDefaults.synchronize()
         
     }

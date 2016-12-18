@@ -56,18 +56,18 @@ class DateModel: NSObject {
             for i in 0...5 {
                 
                 var j = Int()
-                
+                                
                 switch recyclingDay ?? "" {
                     
-                case "Monday":
+                case "MONDAY", "Monday":
                     j = 1
-                case "Tuesday":
+                case "TUESDAY", "Tuesday":
                     j = 2
-                case "Wednesday":
+                case "WEDNESDAY", "Wednesday":
                     j = 3
-                case "Thursday":
+                case "THURSDAY", "Thursday":
                     j = 4
-                case "Friday":
+                case "FRIDAY", "Friday":
                     j = 5
                     
                 default:
@@ -116,27 +116,29 @@ class DateModel: NSObject {
             
         }
                 
-//        if #available(iOS 10.0, *) {
-//            
-//            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
-//                
-//                if settings.authorizationStatus == .authorized {
-//                    
-//                    UNUserNotificationCenter.current().getPendingNotificationRequests { (not) in
-//                        
-//                        print(not.first!)
-//                        
-//                    }
-//                    
-//                }
-//            })
-//            
-//        } else {
-//            // Fallback on earlier versions
-//        }
+        if #available(iOS 10.0, *) {
+            
+            UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
+                
+                if settings.authorizationStatus == .authorized {
+                    
+                    UNUserNotificationCenter.current().getPendingNotificationRequests { (not) in
+                        
+                        print(not.first!)
+                        
+                    }
+                    
+                }
+            })
+            
+        } else {
+            // Fallback on earlier versions
+        }
         
+        print(recycleDayDatesArr)
         
-        //print(recycleWeekDatesArr)
+        print(recycleWeekDatesArr)
+        
     }
     
     

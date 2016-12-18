@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import UserNotifications
 
 class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let globalFuncs = Main()
+    
+    let center = UNUserNotificationCenter.current()
     
     var pickerData = [[String]]()
     var recyclingDayData = [String]()
@@ -123,18 +126,18 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         if let rd = recyclingDay {
             
             switch rd {
-            case "MONDAY":
+            case "MONDAY","Monday":
                 setRowForDay(i: 0)
-            case "TUESDAY":
+            case "TUESDAY", "Tuesday":
                 setRowForDay(i: 1)
-            case "WEDNESDAY":
+            case "WEDNESDAY", "Wednesday":
                 setRowForDay(i: 2)
-            case "THURSDAY":
+            case "THURSDAY", "Thursday":
                 setRowForDay(i: 3)
-            case "FRIDAY":
+            case "FRIDAY", "Friday":
                 setRowForDay(i: 4)
             default:
-                setRowForDay(i: 0); print(" in dis")
+                setRowForDay(i: 0)
             }
             
             
@@ -223,6 +226,9 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         userDefaults.set(residencePickerChoice!, forKey: "recyclingPref")
         userDefaults.set(recyclingDay!, forKey: "recyclingDay")
         userDefaults.synchronize()
+        
+        center.removeAllPendingNotificationRequests()
+
         
     }
 }

@@ -119,9 +119,6 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
         }
         
-        // TODO: why defaulting below?
-        
-        print(recyclingDay ?? "none")
         
         if let rd = recyclingDay {
             

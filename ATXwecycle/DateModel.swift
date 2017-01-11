@@ -113,7 +113,6 @@ class DateModel: NSObject {
             // Adds 2 weeks onto date counter
             recycleWeekStartDate = recycleWeekStartDate?.addingTimeInterval(day * 14)
             
-            
         }
                 
         if #available(iOS 10.0, *) {
@@ -124,7 +123,7 @@ class DateModel: NSObject {
                     
                     UNUserNotificationCenter.current().getPendingNotificationRequests { (not) in
                         
-                        print(not.first!)
+                        print(not)
                         
                     }
                     
@@ -135,9 +134,9 @@ class DateModel: NSObject {
             // Fallback on earlier versions
         }
         
-        print(recycleDayDatesArr)
+        //print(recycleDayDatesArr)
         
-        print(recycleWeekDatesArr)
+        //print(recycleWeekDatesArr)
         
     }
     
@@ -249,14 +248,12 @@ class DateModel: NSObject {
             
             center.add(request, withCompletionHandler: { (error) in
                 
-                
                 if let theError = error {
                     
                     print(theError.localizedDescription)
                     
                 }
             })
-            
             
         } else {
             // Fallback on earlier versions
